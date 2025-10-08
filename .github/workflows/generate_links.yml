@@ -1,0 +1,68 @@
+name: Exportação de Exercícios
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-commit-links:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # 1. Baixa o código do repositório
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # 2. Gera o arquivo de links agrupados
+      - name: Generate Grouped Links
+        run: |
+          echo "## Links para os Exercícios" > links.md
+          echo "" >> links.md
+          for bloco_dir in */; do
+            if [ -d "${bloco_dir}" ]; then
+              bloco_name=$(basename "${bloco_dir}" | sed -e 's/^[0-9]*-//' -e 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2);}1')
+              echo "## 📖 $bloco_name" >> links.md
+              echo "" >> links.md
+              for disciplina_dir in "${bloco_dir}"*/; do
+                if [ -d "${disciplina_dir}" ]; then
+                  disciplina_name=$(basename "${disciplina_dir}" | sed -e 's/^[0-9,.]*-//' -e 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2);}1')
+                  echo "### 📂 $disciplina_name" >> links.md
+                  find "${disciplina_dir}" -maxdepth 1 -type d -name "DR*-TP*.*" | sort | while read exercicio_path; do
+                    exercicio_name=$(basename "${exercicio_path}")
+                    clean_path="${exercicio_path#./}"
+                    echo "* **${exercicio_name}** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/${{ github.repository_owner }}/${{ github.event.repository.name }}/tree/main/${clean_path})" >> links.md
+                  done
+                  echo "" >> links.md
+                fi
+              done
+            fi
+          done
+
+      # 3. Atualiza o README.md usando a âncora
+      - name: Update README.md
+        run: |
+          # Verifica se as âncoras existem, se não existir, adiciona elas
+          if ! grep -q "<!-- START_GENERATED_LINKS -->" README.md; then
+            echo "" >> README.md
+            echo "<!-- START_GENERATED_LINKS -->" >> README.md
+            echo "<!-- END_GENERATED_LINKS -->" >> README.md
+          fi
+          
+          # Cria um arquivo temporário com o novo conteúdo
+          {
+            sed '/<!-- START_GENERATED_LINKS -->/q' README.md
+            cat links.md
+            sed -n '/<!-- END_GENERATED_LINKS -->/,$p' README.md
+          } > README_temp.md
+          
+          # Substitui o README original pelo temporário
+          mv README_temp.md README.md
+
+      # 4. Faz o commit e push das alterações no README.md
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs(automação): Atualização dos índices de exercícios no README.md"
+          file_pattern: "README.md"
