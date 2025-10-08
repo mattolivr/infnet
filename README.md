@@ -15,6 +15,7 @@ Cada um possui um respectivo diretório no CodeSandbox para o seu compartilhamen
 ## 📖 Desenvolvimento Front End
 
 ### 📂 DR1 Mobile First Ui
+* **DR1-TP1.01** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR1-mobile-first-ui/DR1-TP1.01)
 
 ### 📂 DR2 Fundamentos De React
 * **DR2-TP1.01** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR2-fundamentos-de-react/DR2-TP1.01)
