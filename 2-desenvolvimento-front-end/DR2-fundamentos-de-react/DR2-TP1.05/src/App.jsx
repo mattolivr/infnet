@@ -1,19 +1,17 @@
 import './App.css'
 
 function App() {
-  const usuario = {
-    nome: "Matheus de Oliveira",
-    idade: 21,
-    verificado: true,
-    bio: "Desenvolvedor Front-End"
-  };
+  const nomeUsuario = "Matheus de Oliveira";
+  const idadeUsuario = 21;
+  const usuarioVerificado = true;
+  const bioUsuario = "Desenvolvedor Front-End";
 
   return (
     <>
       <div className='perfil'>
-        <h1>{usuario.nome}</h1>
-        <span>{usuario.idade} anos</span> ⋅ <span>{usuario.verificado ? "Usuário Verificado" : "Usuário Não Verificado"}</span>
-        <p>{usuario.bio}</p>
+        <h1>{nomeUsuario}</h1>
+        <span>{idadeUsuario} anos</span> ⋅ <span>{usuarioVerificado ? "Usuário Verificado" : "Usuário Não Verificado"}</span>
+        <p>{bioUsuario}</p>
       </div>
       <div className="card">
         <p>
