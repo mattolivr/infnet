@@ -28,5 +28,6 @@ Cada um possui um respectivo diretório no CodeSandbox para o seu compartilhamen
 * **DR2-TP1.08** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR2-fundamentos-de-react/DR2-TP1.08)
 * **DR2-TP1.09** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR2-fundamentos-de-react/DR2-TP1.09)
 * **DR2-TP1.10** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR2-fundamentos-de-react/DR2-TP1.10)
+* **DR2-TP1.11** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR2-fundamentos-de-react/DR2-TP1.11)
 
 <!-- END_GENERATED_LINKS -->
