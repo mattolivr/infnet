@@ -1,5 +1,7 @@
 import './App.css'
 import Header from './components/header'
+import BookForm from './components/bookform'
+import BookList from './components/booklist'
 
 function App() {
   const livros = retornaLivros();
@@ -7,24 +9,10 @@ function App() {
   return (
     <>
       <Header />
-      <table>
-        <thead>
-          <tr>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Ano</th>
-          </tr>
-        </thead>
-        <tbody>
-          {livros.map((livro, index) => (
-            <tr key={index}>
-              <td>{livro.titulo}</td>
-              <td>{livro.autor}</td>
-              <td>{livro.ano}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <main>
+        <BookForm />
+        <BookList livros={livros} />
+      </main>
     </>
   )
 }
