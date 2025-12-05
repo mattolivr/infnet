@@ -11,11 +11,15 @@ function App() {
     { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", ano: 1954 }
   ]);
 
+  const adicionarLivro = (novoLivro) => {
+    setLivros([...livros, novoLivro]);
+  };
+
   return (
     <>
       <Header />
       <main>
-        <BookForm />
+        <BookForm onAddBook={adicionarLivro} />
         <BookList livros={livros} />
       </main>
     </>
