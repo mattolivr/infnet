@@ -1,24 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles.css";
 
-export default function BookForm({ onAddBook }) {
+export default function BookForm({ onAddBook, onUpdateBook, livroEditando, onCancelEdit }) {
   const [titulo, setTitulo] = useState("");
   const [autor, setAutor] = useState("");
   const [ano, setAno] = useState("");
+
+  useEffect(() => {
+    if (livroEditando) {
+      setTitulo(livroEditando.titulo);
+      setAutor(livroEditando.autor);
+      setAno(livroEditando.ano.toString());
+    }
+  }, [livroEditando]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if (titulo && autor && ano) {
-      onAddBook({ 
-        titulo, 
-        autor, 
-        ano: Number(ano) 
-      });
+      if (livroEditando) {
+        onUpdateBook({ 
+          titulo, 
+          autor, 
+          ano: Number(ano) 
+        });
+      } else {
+        onAddBook({ 
+          titulo, 
+          autor, 
+          ano: Number(ano) 
+        });
+      }
       
       setTitulo("");
       setAutor("");
       setAno("");
+    }
+  };
+
+  const handleCancel = () => {
+    setTitulo("");
+    setAutor("");
+    setAno("");
+    if (livroEditando) {
+      onCancelEdit();
     }
   };
 
@@ -60,7 +85,12 @@ export default function BookForm({ onAddBook }) {
       </div>
       
       <div className="button-container">
-        <button type="submit">Adicionar Livro</button>
+        <button type="button" className="btn-cancelar" onClick={handleCancel}>
+          {livroEditando ? "Cancelar" : "Limpar"}
+        </button>
+        <button type="submit">
+          {livroEditando ? "Atualizar Livro" : "Adicionar Livro"}
+        </button>
       </div>
     </form>
   )

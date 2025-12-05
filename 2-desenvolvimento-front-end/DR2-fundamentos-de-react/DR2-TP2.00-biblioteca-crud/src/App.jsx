@@ -11,6 +11,8 @@ function App() {
     { titulo: "O Senhor dos Anéis", autor: "J.R.R. Tolkien", ano: 1954 }
   ]);
 
+  const [livroEditando, setLivroEditando] = useState(null);
+
   const adicionarLivro = (novoLivro) => {
     setLivros([...livros, novoLivro]);
   };
@@ -19,12 +21,32 @@ function App() {
     setLivros(livros.filter((_, i) => i !== index));
   };
 
+  const editarLivro = (index) => {
+    setLivroEditando({ ...livros[index], index });
+  };
+
+  const atualizarLivro = (livroAtualizado) => {
+    setLivros(livros.map((livro, i) => 
+      i === livroEditando.index ? livroAtualizado : livro
+    ));
+    setLivroEditando(null);
+  };
+
   return (
     <>
       <Header />
       <main>
-        <BookForm onAddBook={adicionarLivro} />
-        <BookList livros={livros} onRemoveBook={removerLivro} />
+        <BookForm 
+          onAddBook={adicionarLivro} 
+          onUpdateBook={atualizarLivro}
+          livroEditando={livroEditando}
+          onCancelEdit={() => setLivroEditando(null)}
+        />
+        <BookList 
+          livros={livros} 
+          onRemoveBook={removerLivro}
+          onEditBook={editarLivro}
+        />
       </main>
     </>
   )

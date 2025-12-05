@@ -1,6 +1,6 @@
 import "./styles.css";
 
-export default function BookList({ livros, onRemoveBook }) {
+export default function BookList({ livros, onRemoveBook, onEditBook }) {
   return (
     <table>
       <thead>
@@ -18,6 +18,12 @@ export default function BookList({ livros, onRemoveBook }) {
             <td>{livro.autor}</td>
             <td>{livro.ano}</td>
             <td>
+              <button 
+                className="btn-editar" 
+                onClick={() => onEditBook(index)}
+              >
+                Editar
+              </button>
               <button 
                 className="btn-excluir" 
                 onClick={() => onRemoveBook(index)}

@@ -67,3 +67,19 @@ table {
     background-color: #c05555;
   }
 }
+
+.btn-editar {
+  background-color: #4a6aa8;
+  color: #f8f4f0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+
+  &:hover {
+    background-color: #5580c0;
+  }
+}
