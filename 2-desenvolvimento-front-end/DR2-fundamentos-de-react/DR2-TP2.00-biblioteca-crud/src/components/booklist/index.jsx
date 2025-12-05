@@ -1,6 +1,6 @@
 import "./styles.css";
 
-export default function BookList({ livros }) {
+export default function BookList({ livros, onRemoveBook }) {
   return (
     <table>
       <thead>
@@ -8,6 +8,7 @@ export default function BookList({ livros }) {
           <th>Título</th>
           <th>Autor</th>
           <th>Ano</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +17,14 @@ export default function BookList({ livros }) {
             <td>{livro.titulo}</td>
             <td>{livro.autor}</td>
             <td>{livro.ano}</td>
+            <td>
+              <button 
+                className="btn-excluir" 
+                onClick={() => onRemoveBook(index)}
+              >
+                Excluir
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>

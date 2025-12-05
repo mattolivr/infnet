@@ -15,12 +15,16 @@ function App() {
     setLivros([...livros, novoLivro]);
   };
 
+  const removerLivro = (index) => {
+    setLivros(livros.filter((_, i) => i !== index));
+  };
+
   return (
     <>
       <Header />
       <main>
         <BookForm onAddBook={adicionarLivro} />
-        <BookList livros={livros} />
+        <BookList livros={livros} onRemoveBook={removerLivro} />
       </main>
     </>
   )
