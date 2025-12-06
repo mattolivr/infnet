@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: steelblue;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  height: 100%;
+
+  button {
+    font-size: 1.3rem;
+
+    background-color: rgb(214, 54, 86);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+
+    & > span:last-child {
+      display: none;
+    }
+
+    &:hover {
+      background-color: rgb(180, 45, 72);
+    }
+  }
+}
+
+@media screen and (min-width: 924px) {
+  .container {
+    flex-direction: row;
+    gap: 42px;
+  }
+}
+
+@media screen and (pointer: none) {
+  .container button {
+    background-color: lightgreen;
+
+    > span:last-child {
+      display: inline;
+    }
+  }
+}
+
+@media screen and (pointer: coarse) {
+  .container button {
+    background-color: rgb(255, 221, 26);
+    color: black;
+
+    padding: 28px 56px;
+  }
+}
+
+@media screen and (pointer: fine) {
+  .container button {
+    padding: 16px 32px;
+  }
+}
