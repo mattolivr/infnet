@@ -8,6 +8,8 @@ body {
   background-color: #3a2820;
   color: white;
   font-family: system-ui, -apple-system, sans-serif;
+
+  min-height: 100vh;
 }
 
 .mensagem {
@@ -20,7 +22,6 @@ body {
   max-width: 600px;
   text-align: center;
   font-weight: 500;
-  animation: slideUp 0.3s ease;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
@@ -40,15 +41,10 @@ body {
   color: white;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%, 20px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
@@ -57,4 +53,35 @@ main {
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  flex-grow: 1;
+  
+  :nth-child(2) {
+    flex-grow: 1;
+  }
+}
+
+.busca-container {
+  margin-bottom: 12px;
+}
+
+.busca-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5a4438;
+  color: #f8f4f0;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.busca-input::placeholder {
+  color: #e5d4c1;
+  opacity: 0.7;
+}
+
+.busca-input:focus {
+  outline: 2px solid #7a6050;
+  outline-offset: 2px;
 }

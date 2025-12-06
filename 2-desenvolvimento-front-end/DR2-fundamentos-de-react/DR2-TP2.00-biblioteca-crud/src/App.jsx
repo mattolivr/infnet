@@ -13,6 +13,11 @@ function App() {
 
   const [livroEditando, setLivroEditando] = useState(null);
   const [mensagem, setMensagem] = useState(null);
+  const [busca, setBusca] = useState("");
+
+  const livrosFiltrados = livros.filter(livro => 
+    livro.titulo.toLowerCase().includes(busca.toLowerCase())
+  );
 
   const mostrarMensagem = (texto, tipo = 'success') => {
     setMensagem({ texto, tipo });
@@ -44,12 +49,21 @@ function App() {
   return (
     <>
       <Header />
-      {mensagem && (
-        <div className={`mensagem mensagem-${mensagem.tipo}`}>
-          {mensagem.texto}
-        </div>
-      )}
       <main>
+        <div className="busca-container">
+          <input 
+            type="text"
+            className="busca-input"
+            placeholder="Buscar livros por título..."
+            value={busca}
+            onChange={(e) => setBusca(e.target.value)}
+          />
+        </div>
+        <BookList 
+          livros={livrosFiltrados} 
+          onRemoveBook={removerLivro}
+          onEditBook={editarLivro}
+        />
         <BookForm 
           onAddBook={adicionarLivro} 
           onUpdateBook={atualizarLivro}
@@ -57,12 +71,12 @@ function App() {
           onCancelEdit={() => setLivroEditando(null)}
           mostrarMensagem={mostrarMensagem}
         />
-        <BookList 
-          livros={livros} 
-          onRemoveBook={removerLivro}
-          onEditBook={editarLivro}
-        />
       </main>
+      {mensagem && (
+        <div className={`mensagem mensagem-${mensagem.tipo}`}>
+          {mensagem.texto}
+        </div>
+      )}
     </>
   )
 }
