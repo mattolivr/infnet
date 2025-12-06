@@ -1,0 +1,37 @@
+body header {
+  grid-column: 1;
+  grid-row: span 2;
+  text-align: left;
+}
+
+body nav {
+  grid-column: span 2;
+  grid-row: span 2;
+
+  ul {
+    justify-content: flex-end;
+    gap: 24px;
+
+    li {
+      font-size: 1.1rem;
+
+      i {
+        display: none;
+      }
+
+      span {
+        display: inline;
+      }
+    }
+  }
+}
+
+body aside {
+  grid-column: 1;
+  grid-row: span 2;
+}
+
+body main {
+  grid-column: span 2;
+  grid-row: span 2;
+}
