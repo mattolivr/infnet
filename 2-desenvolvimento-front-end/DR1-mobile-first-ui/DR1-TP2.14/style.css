@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: steelblue;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  height: 100%;
+
+  button {
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 28px 56px;
+  }
+}
+
+@media screen and (min-width: 924px) {
+  .container {
+    flex-direction: row;
+    gap: 42px;
+  }
+}
+
+@media screen and (hover: none) {
+  .container button {
+    background-color: brown;
+
+    &:active {
+      background-color: darkred;
+      transform: scaleX(1.05) scaleY(1.05);
+    }
+  }
+}
+
+@media screen and (hover) {
+  .container button {
+    background-color: rgb(214, 54, 86);
+
+    &:hover {
+      background-color: rgb(180, 45, 72);
+      transform: scaleX(1.05) scaleY(1.05);
+    }
+  }
+}
