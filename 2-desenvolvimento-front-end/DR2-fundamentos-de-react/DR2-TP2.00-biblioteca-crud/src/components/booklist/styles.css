@@ -54,7 +54,7 @@ table {
 }
 
 .btn-excluir {
-  background-color: #a84848;
+  background-color: #d63838;
   color: #f8f4f0;
   border: none;
   padding: 8px 16px;
@@ -64,12 +64,12 @@ table {
   font-weight: 500;
 
   &:hover {
-    background-color: #c05555;
+    background-color: #e84545;
   }
 }
 
 .btn-editar {
-  background-color: #4a6aa8;
+  background-color: #3a7ad6;
   color: #f8f4f0;
   border: none;
   padding: 8px 16px;
@@ -80,6 +80,6 @@ table {
   margin-right: 8px;
 
   &:hover {
-    background-color: #5580c0;
+    background-color: #4a8ee8;
   }
 }

@@ -12,13 +12,21 @@ function App() {
   ]);
 
   const [livroEditando, setLivroEditando] = useState(null);
+  const [mensagem, setMensagem] = useState(null);
+
+  const mostrarMensagem = (texto, tipo = 'success') => {
+    setMensagem({ texto, tipo });
+    setTimeout(() => setMensagem(null), 3000);
+  };
 
   const adicionarLivro = (novoLivro) => {
     setLivros([...livros, novoLivro]);
+    mostrarMensagem('Livro adicionado com sucesso');
   };
 
   const removerLivro = (index) => {
     setLivros(livros.filter((_, i) => i !== index));
+    mostrarMensagem('Livro removido', 'info');
   };
 
   const editarLivro = (index) => {
@@ -30,11 +38,17 @@ function App() {
       i === livroEditando.index ? livroAtualizado : livro
     ));
     setLivroEditando(null);
+    mostrarMensagem('Livro atualizado');
   };
 
   return (
     <>
       <Header />
+      {mensagem && (
+        <div className={`mensagem mensagem-${mensagem.tipo}`}>
+          {mensagem.texto}
+        </div>
+      )}
       <main>
         <BookForm 
           onAddBook={adicionarLivro} 
