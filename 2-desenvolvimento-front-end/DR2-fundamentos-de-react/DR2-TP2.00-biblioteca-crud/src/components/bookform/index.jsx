@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./styles.css";
 
-export default function BookForm({ onAddBook, onUpdateBook, livroEditando, onCancelEdit }) {
+export default function BookForm({ onAddBook, onUpdateBook, livroEditando, onCancelEdit, mostrarMensagem }) {
   const [titulo, setTitulo] = useState("");
   const [autor, setAutor] = useState("");
   const [ano, setAno] = useState("");
@@ -17,25 +17,38 @@ export default function BookForm({ onAddBook, onUpdateBook, livroEditando, onCan
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if (titulo && autor && ano) {
-      if (livroEditando) {
-        onUpdateBook({ 
-          titulo, 
-          autor, 
-          ano: Number(ano) 
-        });
-      } else {
-        onAddBook({ 
-          titulo, 
-          autor, 
-          ano: Number(ano) 
-        });
-      }
-      
-      setTitulo("");
-      setAutor("");
-      setAno("");
+    if (!titulo.trim()) {
+      mostrarMensagem('Por favor, preencha o título do livro', 'error');
+      return;
     }
+    
+    if (!autor.trim()) {
+      mostrarMensagem('Por favor, preencha o autor do livro', 'error');
+      return;
+    }
+    
+    if (!ano || ano <= 0) {
+      mostrarMensagem('Por favor, preencha um ano válido', 'error');
+      return;
+    }
+    
+    if (livroEditando) {
+      onUpdateBook({ 
+        titulo: titulo.trim(), 
+        autor: autor.trim(), 
+        ano: Number(ano) 
+      });
+    } else {
+      onAddBook({ 
+        titulo: titulo.trim(), 
+        autor: autor.trim(), 
+        ano: Number(ano) 
+      });
+    }
+    
+    setTitulo("");
+    setAutor("");
+    setAno("");
   };
 
   const handleCancel = () => {

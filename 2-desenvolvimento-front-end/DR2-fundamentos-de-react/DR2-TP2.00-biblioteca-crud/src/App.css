@@ -35,6 +35,11 @@ body {
   color: white;
 }
 
+.mensagem-error {
+  background-color: #d63838;
+  color: white;
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;

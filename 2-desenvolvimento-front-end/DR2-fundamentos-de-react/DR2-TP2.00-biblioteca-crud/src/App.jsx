@@ -55,6 +55,7 @@ function App() {
           onUpdateBook={atualizarLivro}
           livroEditando={livroEditando}
           onCancelEdit={() => setLivroEditando(null)}
+          mostrarMensagem={mostrarMensagem}
         />
         <BookList 
           livros={livros} 
