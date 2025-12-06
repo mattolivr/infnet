@@ -1,0 +1,16 @@
+header {
+  grid-column: span 2;
+  text-align: left;
+}
+
+nav {
+  grid-column: 3;
+}
+
+aside {
+  grid-column: 1;
+}
+
+main {
+  grid-column: span 2;
+}
