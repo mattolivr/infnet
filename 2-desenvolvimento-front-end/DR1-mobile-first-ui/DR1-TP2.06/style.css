@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  padding: 8px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: min-content min-content auto min-content;
+  gap: 16px;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  > * {
+    padding: 16px;
+    border-radius: 8px;
+  }
+}
+
+header {
+  background-color: skyblue;
+  grid-column: span 3;
+}
+
+nav {
+  background-color: lightcoral;
+  grid-column: span 3;
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+aside {
+  background-color: lightgreen;
+}
+
+main {
+  background-color: lightseagreen;
+  grid-column: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  article {
+    background-color: white;
+    padding: 12px;
+    border-radius: 8px;
+  }
+}
+
+footer {
+  background-color: lightpink;
+  grid-column: span 3;
+
+  text-align: center;
+}
