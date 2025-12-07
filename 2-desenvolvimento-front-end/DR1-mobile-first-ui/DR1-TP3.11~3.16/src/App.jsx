@@ -2,6 +2,7 @@ import './global.css';
 import './styles.css';
 import './App.css';
 import Menu from './components/Menu/Menu';
+import Hero from './components/Hero/Hero';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       </header>
 
       <Menu />
+
+      <Hero />
 
       <main className="app-main">
         <div className="container">
