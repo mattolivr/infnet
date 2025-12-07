@@ -1,6 +1,7 @@
 import './global.css';
 import './styles.css';
 import './App.css';
+import Menu from './components/Menu/Menu';
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
         </div>
       </header>
 
+      <Menu />
+
       <main className="app-main">
         <div className="container">
-          <section className="app-section">
+          <section id="sobre" className="app-section">
             <div className="card">
               <h2>Sobre o Projeto</h2>
               <p>
@@ -29,7 +32,7 @@ function App() {
             </div>
           </section>
 
-          <section className="app-section">
+          <section id="recursos" className="app-section">
             <h2>Recursos Principais</h2>
             <div className="app-grid">
               <div className="card">
@@ -47,7 +50,7 @@ function App() {
             </div>
           </section>
 
-          <section className="app-section">
+          <section id="tecnologias" className="app-section">
             <div className="card">
               <h2>Tecnologias Utilizadas</h2>
               <ul className="app-list">
@@ -59,7 +62,7 @@ function App() {
             </div>
           </section>
 
-          <section className="app-section">
+          <section id="contato" className="app-section">
             <div className="card">
               <h2>Formulário de Contato</h2>
               <form className="app-form">
