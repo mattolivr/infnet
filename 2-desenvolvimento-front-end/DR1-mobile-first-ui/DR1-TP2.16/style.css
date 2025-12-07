@@ -1,0 +1,265 @@
+:root {
+  --bg-primary: #105266;
+  --bg-secondary: #137c94;
+
+  --footer-bg: #01181f;
+  --footer-primary: #005a64;
+  --footer-secondary: #0a2831;
+
+  --txt-color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--bg-secondary);
+
+  i#logo {
+    color: white;
+    font-size: 1.3rem;
+    margin-right: 8px;
+  }
+
+  h1 {
+    flex-grow: 1;
+    font-size: 1.4rem;
+    color: white;
+  }
+
+  button#menu {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+section#destaque {
+  background-color: var(--bg-primary);
+  color: white;
+
+  padding: 64px 16px 128px 16px;
+
+  position: relative;
+
+  i {
+    color: var(--bg-secondary);
+    font-size: 120px;
+
+    position: absolute;
+    top: 10%;
+    opacity: 0.15;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+
+    text-transform: uppercase;
+  }
+}
+
+section#principal {
+  position: relative;
+  margin: -106px 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  article#mensagem {
+    background-color: white;
+    padding: 16px 16px 32px 16px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  
+    h2 {
+      text-transform: uppercase;
+      margin: 12px 0px;
+    }
+  
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+  }
+
+  article#marcas {
+    background-color: white;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  article#saiba-mais {
+    background-color: var(--bg-primary);
+    padding: 24px 16px;
+
+    h2 {
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+
+      font-size: 1.1rem;
+
+      background-color: var(--bg-secondary);
+      color: var(--txt-color);
+      border: none;
+      border-radius: 2px;
+    }
+  }
+}
+
+
+footer {
+  background-color: var(--footer-bg);
+  color: var(--txt-color);
+
+  padding: 128px 16px 16px 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+
+  gap: 32px;
+
+  ul {
+    list-style: none;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+
+    text-transform: uppercase;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: start;
+    align-items: start;
+
+    &#informacao ul {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      
+      li {
+        background-color: var(--footer-secondary);
+        padding: 14px;
+        border-radius: 8px;
+      }
+    }
+
+    &#navegacao ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      li a {
+        text-decoration: none;
+        color: var(--txt-color);
+      }
+
+      li:before {
+        content: ">";
+        margin-right: 12px;
+
+        font-size: 1.1rem;
+        font-family: sans-serif;
+        color: var(--footer-primary);
+      }
+    }
+
+    &#contato {
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        li {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 12px;
+
+          align-items: center;
+
+          i {
+            font-size: 1.2rem;
+            color: var(--footer-primary);
+          }
+        }
+      }
+
+      input {
+        width: 100%;
+        padding: 16px 8px;
+        border: none;
+
+        background-color: var(--footer-secondary);
+        color: var(--txt-color);
+
+        &:focus {
+          outline: none;
+          border-bottom: 2px solid var(--footer-primary);
+        }
+      }
+
+      button {
+        padding: 12px;
+        width: 100%;
+
+        font-size: 1.1rem;
+
+        background-color: var(--footer-primary);
+        color: var(--txt-color);
+        border: none;
+        border-radius: 2px;
+      }
+    }
+
+    &#direitos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 24px;
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--footer-primary);
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  hr {
+    width: 100%;
+    border: 0.5px solid var(--footer-secondary);
+  }
+}
