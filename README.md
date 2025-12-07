@@ -43,6 +43,7 @@ Cada um possui um respectivo diretório no CodeSandbox para o seu compartilhamen
 * **DR1-TP3.04** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR1-mobile-first-ui/DR1-TP3.04)
 * **DR1-TP3.05~3.07** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR1-mobile-first-ui/DR1-TP3.05~3.07)
 * **DR1-TP3.08~3.09** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR1-mobile-first-ui/DR1-TP3.08~3.09)
+* **DR1-TP3.10** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR1-mobile-first-ui/DR1-TP3.10)
 * **DR1-TP3.10~3.16** &rarr; [Abrir no CodeSandbox](https://codesandbox.io/s/github/mattolivr/infnet/tree/main/2-desenvolvimento-front-end/DR1-mobile-first-ui/DR1-TP3.10~3.16)
 
 ### 📂 DR2 Fundamentos De React
