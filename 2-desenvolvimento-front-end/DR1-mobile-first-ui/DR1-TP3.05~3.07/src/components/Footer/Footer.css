@@ -16,9 +16,19 @@ footer {
   }
 }
 
-@media screen and (min-width: 577px) {
+@media screen and (min-width: 768px) {
   footer {
-    padding: 32px 24px;
+    padding: 32px 32px;
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  footer {
+    padding: 32px 40px;
 
     p {
       font-size: 0.95rem;

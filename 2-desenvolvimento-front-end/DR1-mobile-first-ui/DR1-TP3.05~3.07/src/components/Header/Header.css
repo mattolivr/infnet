@@ -15,9 +15,23 @@ header {
   }
 }
 
-@media screen and (min-width: 577px) {
+@media screen and (min-width: 768px) {
   header {
-    padding: 24px 32px;
+    padding: 28px 32px;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      font-size: 1.05rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  header {
+    padding: 28px 40px;
 
     h1 {
       font-size: 2rem;
