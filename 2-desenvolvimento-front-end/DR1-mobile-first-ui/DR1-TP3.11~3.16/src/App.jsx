@@ -1,61 +1,115 @@
 import './global.css';
+import './styles.css';
 import './App.css';
 
 function App() {
   return (
-    <div className="container">
-      <header>
-        <h1>DR1 - TPs 3.11 a 3.16</h1>
-        <p>Projeto com estilos globais inspirados no GitHub</p>
+    <div className="app-container">
+      <header className="app-header">
+        <div className="container">
+          <h1>Aplicação com Estilos Globais e Escopados</h1>
+          <p>Demonstração de global.css + styles.css com classes específicas</p>
+        </div>
       </header>
 
-      <main>
-        <section className="card">
-          <h2>Sobre o Projeto</h2>
-          <p>
-            Este projeto utiliza estilos globais definidos em <code>global.css</code> para criar
-            uma interface consistente em toda a aplicação. O design é inspirado no GitHub, com
-            elementos mais arredondados e simplificados.
-          </p>
-          <button className="primary">Saiba Mais</button>
-        </section>
+      <main className="app-main">
+        <div className="container">
+          <section className="app-section">
+            <div className="card">
+              <h2>Sobre o Projeto</h2>
+              <p>
+                Este projeto demonstra o uso de estilos globais combinados com estilos
+                escopados para o componente App. Utiliza uma paleta de cores inspirada
+                no LinkedIn e GitHub.
+              </p>
+              <p>
+                As classes com prefixo <code>app-</code> são específicas deste componente
+                e definidas no arquivo <code>styles.css</code>.
+              </p>
+            </div>
+          </section>
 
-        <section className="card">
-          <h2>Recursos</h2>
-          <ul>
-            <li>Estilos globais centralizados</li>
-            <li>Paleta de cores escura inspirada no GitHub</li>
-            <li>Componentes arredondados e simples</li>
-            <li>Tipografia consistente</li>
-          </ul>
-        </section>
+          <section className="app-section">
+            <h2>Recursos Principais</h2>
+            <div className="app-grid">
+              <div className="card">
+                <h3>Design Responsivo</h3>
+                <p>Layout adaptável para mobile, tablet e desktop com grid system</p>
+              </div>
+              <div className="card">
+                <h3>Tema Escuro</h3>
+                <p>Paleta de cores profissional inspirada no LinkedIn e GitHub</p>
+              </div>
+              <div className="card">
+                <h3>Componentização</h3>
+                <p>Estilos globais e escopados trabalhando em conjunto</p>
+              </div>
+            </div>
+          </section>
 
-        <section className="card">
-          <h2>Tecnologias</h2>
-          <p>
-            Desenvolvido com <a href="https://react.dev" target="_blank">React</a> e 
-            estilização CSS global para garantir consistência visual.
-          </p>
-          <div style={{ display: 'flex', gap: '12px', marginTop: '16px' }}>
-            <button>React</button>
-            <button>CSS</button>
-            <button>JavaScript</button>
-          </div>
-        </section>
+          <section className="app-section">
+            <div className="card">
+              <h2>Tecnologias Utilizadas</h2>
+              <ul className="app-list">
+                <li><code>React 18+</code> - Biblioteca JavaScript para interfaces</li>
+                <li><code>Vite</code> - Build tool moderna e rápida</li>
+                <li><code>CSS Variables</code> - Customização dinâmica de temas</li>
+                <li><code>Mobile-First</code> - Abordagem responsiva progressiva</li>
+              </ul>
+            </div>
+          </section>
 
-        <section className="card">
-          <h3>Formulário de Contato</h3>
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '16px' }}>
-            <input type="text" placeholder="Seu nome" />
-            <input type="email" placeholder="Seu e-mail" />
-            <textarea rows="4" placeholder="Sua mensagem"></textarea>
-            <button className="primary" type="submit">Enviar</button>
-          </form>
-        </section>
+          <section className="app-section">
+            <div className="card">
+              <h2>Formulário de Contato</h2>
+              <form className="app-form">
+                <div className="app-form-group">
+                  <label htmlFor="nome">Nome Completo:</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    placeholder="Seu nome completo"
+                  />
+                </div>
+
+                <div className="app-form-group">
+                  <label htmlFor="email">E-mail:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="seu@email.com"
+                  />
+                </div>
+
+                <div className="app-form-group">
+                  <label htmlFor="mensagem">Mensagem:</label>
+                  <textarea
+                    id="mensagem"
+                    placeholder="Escreva sua mensagem aqui..."
+                  />
+                </div>
+
+                <div className="app-button-group">
+                  <button type="submit" className="primary">
+                    Enviar Mensagem
+                  </button>
+                  <button type="button">
+                    Limpar Formulário
+                  </button>
+                  <button type="button" className="success">
+                    Salvar Rascunho
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
       </main>
 
-      <footer style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid var(--border-color)', textAlign: 'center' }}>
-        <p>&copy; 2025 - Desenvolvido com React</p>
+      <footer className="app-footer">
+        <div className="container">
+          <p>&copy; 2024 - Projeto desenvolvido com React, global.css e styles.css</p>
+        </div>
       </footer>
     </div>
   );
