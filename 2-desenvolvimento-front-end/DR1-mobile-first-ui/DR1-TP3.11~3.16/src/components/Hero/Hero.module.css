@@ -1,12 +1,10 @@
-/* Estilos do componente Hero - Mobile First */
-
 .hero {
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-color);
-  padding: 40px 0;
+  padding: 48px 0;
 }
 
-.hero-container {
+.heroContainer {
   max-width: 1128px;
   margin: 0 auto;
   padding: 0 24px;
@@ -15,105 +13,101 @@
   gap: 32px;
 }
 
-.hero-content {
+.heroContent {
   display: flex;
   flex-direction: column;
   gap: 20px;
   text-align: center;
 }
 
-.hero-title {
+.heroTitle {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.25;
   margin: 0;
-  letter-spacing: -0.5px;
 }
 
-.hero-subtitle {
+.heroSubtitle {
   font-size: 1.1rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
 }
 
-.hero-actions {
+.heroActions {
   display: flex;
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.hero-image {
+.heroImage {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero-img {
+.heroImg {
   width: 100%;
   max-width: 400px;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
   border: 1px solid var(--border-color);
 }
 
-/* Tablets - 576px até 992px */
 @media (min-width: 576px) and (max-width: 992px) {
   .hero {
     padding: 60px 0;
   }
 
-  .hero-title {
+  .heroTitle {
     font-size: 2.5rem;
   }
 
-  .hero-subtitle {
+  .heroSubtitle {
     font-size: 1.2rem;
   }
 
-  .hero-img {
+  .heroImg {
     max-width: 600px;
   }
 }
 
-/* Desktop - acima de 992px */
 @media (min-width: 992px) {
   .hero {
     padding: 80px 0;
   }
 
-  .hero-container {
+  .heroContainer {
     flex-direction: row;
     align-items: center;
     gap: 60px;
   }
 
-  .hero-content {
+  .heroContent {
     flex: 1;
     text-align: left;
   }
 
-  .hero-title {
+  .heroTitle {
     font-size: 3rem;
   }
 
-  .hero-subtitle {
+  .heroSubtitle {
     font-size: 1.25rem;
   }
 
-  .hero-actions {
+  .heroActions {
     justify-content: flex-start;
   }
 
-  .hero-image {
+  .heroImage {
     flex: 1;
   }
 
-  .hero-img {
+  .heroImg {
     max-width: 100%;
   }
 }

@@ -1,0 +1,17 @@
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 24px 0;
+}
+
+.footerContainer {
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.footerText {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0;
+}
