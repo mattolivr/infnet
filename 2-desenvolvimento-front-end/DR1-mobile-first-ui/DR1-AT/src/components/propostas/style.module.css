@@ -24,6 +24,14 @@
     background-color: #f5f5f5;
     border-left: 4px solid var(--primary);
     font-weight: 500;
+    color: var(--text);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .listaOutrasPropostas li {
+    background-color: #2c2c2c;
+    color: var(--text);
   }
 }
 

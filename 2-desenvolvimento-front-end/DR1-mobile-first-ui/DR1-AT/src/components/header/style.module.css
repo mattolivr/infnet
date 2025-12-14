@@ -10,13 +10,30 @@
   padding-top: 16px;
 }
 
-.header h1 {
-  display: none;
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
 }
 
-.header img {
-  align-self: center;
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.logo {
   height: 60px;
+  width: auto;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
 }
 
 .header ul {
@@ -38,7 +55,7 @@
     flex-grow: 1;
 
     padding: 8px 0;
-    color: var(--text-color);
+    color: var(--text);
     font-weight: 700;
     font-size: 0.9rem;
     text-decoration: none;

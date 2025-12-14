@@ -38,6 +38,7 @@
     margin-bottom: 16px;
     padding-bottom: 8px;
     padding-inline: 2px;
+    color: var(--text);
 
     border-bottom: 2px solid var(--primary);
   }

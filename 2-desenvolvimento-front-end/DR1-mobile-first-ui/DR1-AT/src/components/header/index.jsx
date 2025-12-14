@@ -3,8 +3,10 @@ import style from './style.module.css';
 export default function Header() {
   return (
     <header className={style.header}>
-      <img src="./src/assets/logo-extended.png" alt="Logo Marco Madureira" />
-      <h1>Marco Madureira</h1>
+      <div className={style.logoContainer}>
+        <img src="./src/assets/logo.png" alt="Logo Marco Madureira" className={style.logo} />
+        <h1 className={style.titulo}>Marco Madureira</h1>
+      </div>
       <ul>
         <li><a href="#biografia">Biografia</a></li>
         <li><a href="#propostas">Propostas</a></li>

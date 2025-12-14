@@ -3,6 +3,10 @@
   color: white;
   padding: 32px 16px 16px;
   margin-top: 48px;
+
+  small {
+    color: #a3a3a3;
+  }
 }
 
 .conteudoFooter {
@@ -43,6 +47,16 @@
   border-radius: 50%;
   color: white;
   transition: all 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icones a {
+    transition: none;
+  }
+
+  .icones a:hover {
+    transform: none;
+  }
 }
 
 .icones a:hover {

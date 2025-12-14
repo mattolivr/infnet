@@ -59,6 +59,13 @@
 
   p {
     line-height: 1.6;
+    color: var(--text);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .destaque::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
   }
 }
 

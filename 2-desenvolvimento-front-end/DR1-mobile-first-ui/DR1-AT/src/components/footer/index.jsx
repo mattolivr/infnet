@@ -39,6 +39,7 @@ export default function Footer() {
 
       <div className={style.copyright}>
         <p>Marco Madureira - Por: Matheus de Oliveira</p>
+        <small>Imagens do candidato Marco Madureira foram gerados utilizando Gemini Nano Banana. <br /> Outras imagens, fonte: Unsplash</small>
       </div>
     </footer>
   )
