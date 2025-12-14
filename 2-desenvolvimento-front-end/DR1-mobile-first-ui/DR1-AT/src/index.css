@@ -1,0 +1,15 @@
+:root {
+  --primary: #df3838;
+  --secondary: #222222;
+
+  --background: #f0f0f0;
+
+  --border: #e0e0e0;
+  --text: #141414;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
