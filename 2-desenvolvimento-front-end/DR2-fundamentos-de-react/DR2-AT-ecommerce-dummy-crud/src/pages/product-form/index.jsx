@@ -4,7 +4,7 @@ import axios from 'axios';
 import style from './style.module.css';
 
 export default function ProductForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -33,8 +33,9 @@ export default function ProductForm() {
           <input
             id="title"
             type="text"
-            {...register('title')}
+            {...register('title', { required: 'O título é obrigatório' })}
           />
+          {errors.title && <span className={style.erro}>{errors.title.message}</span>}
         </div>
 
         <div className={style.campo}>
@@ -42,8 +43,9 @@ export default function ProductForm() {
           <input
             id="price"
             type="number"
-            {...register('price')}
+            {...register('price', { required: 'O preço é obrigatório' })}
           />
+          {errors.price && <span className={style.erro}>{errors.price.message}</span>}
         </div>
 
         <div className={style.campo}>
@@ -51,8 +53,9 @@ export default function ProductForm() {
           <textarea
             id="description"
             rows="4"
-            {...register('description')}
+            {...register('description', { required: 'A descrição é obrigatória' })}
           />
+          {errors.description && <span className={style.erro}>{errors.description.message}</span>}
         </div>
 
         <div className={style.campo}>
