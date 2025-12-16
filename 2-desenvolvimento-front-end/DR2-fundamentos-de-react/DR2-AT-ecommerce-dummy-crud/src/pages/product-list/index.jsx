@@ -9,7 +9,7 @@ export default function ProductList() {
     const buscaProdutos = async () => {
       try {
         const response = await axios.get('https://dummyjson.com/products');
-        setProdutos(response.data.products);
+        setProdutos(response.data.products);        
       } catch (error) {
         new Error(error);
       }
@@ -18,6 +18,17 @@ export default function ProductList() {
   }, []);
 
   return (
-    <div>ProductList</div>
+    <div className={style.lista}>
+      { produtos.length 
+        ? produtos.map((produto) => (
+          <div key={produto.id} className={style.produto}>
+            <h3>{produto.title}</h3>
+            <p>{produto.description}</p>
+            <p>Preço: R$ {produto.price}</p>
+          </div>
+        ))
+        : <p>Carregando produtos...</p>
+      }
+    </div>
   );
 }
