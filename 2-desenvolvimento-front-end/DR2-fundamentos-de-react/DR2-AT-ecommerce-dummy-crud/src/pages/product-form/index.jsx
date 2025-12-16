@@ -80,7 +80,13 @@ export default function ProductForm() {
           <input
             id="title"
             type="text"
-            {...register('title', { required: 'O título é obrigatório' })}
+            {...register('title', { 
+              required: 'O título é obrigatório',
+              maxLength: {
+                value: 50,
+                message: 'O título deve ter no máximo 50 caracteres'
+              }
+            })}
           />
           {errors.title && <span className={style.erro}>{errors.title.message}</span>}
         </div>
@@ -90,7 +96,14 @@ export default function ProductForm() {
           <input
             id="price"
             type="number"
-            {...register('price', { required: 'O preço é obrigatório' })}
+            step="0.01"
+            {...register('price', { 
+              required: 'O preço é obrigatório',
+              min: {
+                value: 0.01,
+                message: 'O preço deve ser maior que 0'
+              }
+            })}
           />
           {errors.price && <span className={style.erro}>{errors.price.message}</span>}
         </div>
