@@ -34,17 +34,26 @@ export default function ProductForm() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('https://dummyjson.com/products/add', {
+      const produtoData = {
         title: data.title,
         price: parseFloat(data.price),
         description: data.description,
         category: data.category
-      });
-      
-      console.log('Produto cadastrado:', response.data);
-      navigate('/');
+      };
+
+      if (id) {
+        // Modo de edição - requisição PUT
+        const response = await axios.put(`https://dummyjson.com/products/${id}`, produtoData);
+        console.log('Produto atualizado:', response.data);
+        navigate(`/produtos/${id}`);
+      } else {
+        // Modo de criação - requisição POST
+        const response = await axios.post('https://dummyjson.com/products/add', produtoData);
+        console.log('Produto cadastrado:', response.data);
+        navigate('/');
+      }
     } catch (error) {
-      console.error('Erro ao cadastrar produto:', error);
+      console.error('Erro ao salvar produto:', error);
     }
   };
 
