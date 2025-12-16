@@ -1,11 +1,26 @@
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import style from './style.module.css';
 
 export default function ProductForm() {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post('https://dummyjson.com/products/add', {
+        title: data.title,
+        price: parseFloat(data.price),
+        description: data.description,
+        category: data.category
+      });
+      
+      console.log('Produto cadastrado:', response.data);
+      navigate('/');
+    } catch (error) {
+      console.error('Erro ao cadastrar produto:', error);
+    }
   };
 
   return (
