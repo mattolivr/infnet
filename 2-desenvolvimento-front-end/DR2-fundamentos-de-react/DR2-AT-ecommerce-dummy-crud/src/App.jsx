@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/novo" element={<ProductForm />} />
+          <Route path="/novo/:id" element={<ProductForm />} />
           <Route path="/produtos/:id" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>

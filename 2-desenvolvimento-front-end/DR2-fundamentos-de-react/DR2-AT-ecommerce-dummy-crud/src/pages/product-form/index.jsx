@@ -1,11 +1,36 @@
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import style from './style.module.css';
 
 export default function ProductForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const navigate = useNavigate();
+  const { id } = useParams();
+  const [carregando, setCarregando] = useState(false);
+
+  useEffect(() => {
+    if (id) {
+      const buscarProduto = async () => {
+        try {
+          setCarregando(true);
+          const response = await axios.get(`https://dummyjson.com/products/${id}`);
+          reset({
+            title: response.data.title,
+            price: response.data.price,
+            description: response.data.description,
+            category: response.data.category
+          });
+        } catch (error) {
+          console.error('Erro ao buscar produto:', error);
+        } finally {
+          setCarregando(false);
+        }
+      };
+      buscarProduto();
+    }
+  }, [id, reset]);
 
   const onSubmit = async (data) => {
     try {
@@ -25,8 +50,11 @@ export default function ProductForm() {
 
   return (
     <div className={style.container}>
-      <h1>Cadastrar Produto</h1>
+      <h1>{id ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
       
+      {carregando ? (
+        <p className={style.carregando}>Carregando produto...</p>
+      ) : (
       <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
         <div className={style.campo}>
           <label htmlFor="title">Título:</label>
@@ -68,9 +96,10 @@ export default function ProductForm() {
         </div>
 
         <button type="submit" className={style.botao}>
-          Cadastrar Produto
+          {id ? 'Atualizar Produto' : 'Cadastrar Produto'}
         </button>
       </form>
+      )}
     </div>
   );
 }
