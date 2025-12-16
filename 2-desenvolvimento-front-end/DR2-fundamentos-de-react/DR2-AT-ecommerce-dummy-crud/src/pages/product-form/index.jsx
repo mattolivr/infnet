@@ -24,7 +24,7 @@ export default function ProductForm() {
             category: response.data.category
           });
         } catch (error) {
-          console.error('Erro ao buscar produto:', error);
+          new Error(error);
         } finally {
           setCarregando(false);
         }
@@ -43,20 +43,15 @@ export default function ProductForm() {
       };
 
       if (id) {
-        // Modo de edição - requisição PUT
         const response = await axios.put(`https://dummyjson.com/products/${id}`, produtoData);
-        console.log('Produto atualizado:', response.data);
         setMensagem({ tipo: 'sucesso', texto: 'Produto atualizado com sucesso!' });
         setTimeout(() => navigate(`/produtos/${id}`), 2000);
       } else {
-        // Modo de criação - requisição POST
         const response = await axios.post('https://dummyjson.com/products/add', produtoData);
-        console.log('Produto cadastrado:', response.data);
         setMensagem({ tipo: 'sucesso', texto: `Produto criado com sucesso! ID: ${response.data.id}` });
         setTimeout(() => navigate('/'), 2000);
       }
     } catch (error) {
-      console.error('Erro ao salvar produto:', error);
       setMensagem({ tipo: 'erro', texto: 'Erro ao salvar produto. Tente novamente.' });
     }
   };

@@ -29,7 +29,10 @@ export default function ProductDetail() {
 
   return (
     <div className={style.container}>
-      <h1>{produto.title}</h1>
+      <div className={style.topo}>
+        <h1>{produto.title}</h1>
+        <h3>{produto.brand}</h3>
+      </div>
       
       <div className={style.imagens}>
         {produto.images?.map((imagem, index) => (
@@ -42,13 +45,15 @@ export default function ProductDetail() {
         ))}
       </div>
 
+      <div className={style.centro}>
+        <p className={style.preco}>R$ {produto.price?.toString().replace(".", ",")}</p>
+        <span className={style.restantes}>Restam apenas {produto.stock} unidades!</span>
+      </div>
+
       <div className={style.info}>
         <p className={style.descricao}>{produto.description}</p>
-        <p className={style.preco}>Preço: R$ {produto.price?.toString().replace(".", ",")}</p>
-        <p>Marca: {produto.brand}</p>
-        <p>Categoria: {produto.category}</p>
-        <p>Avaliação: {produto.rating} ⭐</p>
-        <p>Em estoque: {produto.stock} unidades</p>
+        <span>{produto.category}</span>
+        <span>{produto.rating} ⭐</span>
       </div>
     </div>
   );

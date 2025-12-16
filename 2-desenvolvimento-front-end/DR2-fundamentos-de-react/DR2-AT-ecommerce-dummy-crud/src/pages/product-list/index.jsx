@@ -33,9 +33,7 @@ export default function ProductList() {
       setProdutos(produtos.filter(produto => produto.id !== id));
       setMensagem({ tipo: 'sucesso', texto: 'Produto excluído com sucesso!' });
       setTimeout(() => setMensagem(null), 3000);
-      console.log('Produto excluído com sucesso');
     } catch (error) {
-      console.error('Erro ao excluir produto:', error);
       setMensagem({ tipo: 'erro', texto: 'Erro ao excluir produto. Tente novamente.' });
       setTimeout(() => setMensagem(null), 3000);
     }
@@ -61,17 +59,17 @@ export default function ProductList() {
               <h3>
                 <Link to={`/produtos/${produto.id}`}>{produto.title}</Link>
               </h3>
-              <p className={style.preco}>Preço: R$ {produto.price.toString().replace(".", ",")}</p>
+              <p className={style.preco}>R$ {produto.price.toString().replace(".", ",")}</p>
             </div>
             <div className={style.acoes}>
               <button 
-                className={style.botaoEditar}
+                className={style.editar}
                 onClick={() => navigate(`/novo/${produto.id}`)}
               >
                 Editar
               </button>
               <button 
-                className={style.botaoExcluir}
+                className={style.excluir}
                 onClick={() => handleExcluir(produto.id)}
               >
                 Excluir
