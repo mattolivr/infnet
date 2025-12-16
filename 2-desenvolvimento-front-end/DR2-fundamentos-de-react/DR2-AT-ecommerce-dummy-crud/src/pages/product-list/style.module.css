@@ -1,0 +1,48 @@
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.produto {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+.produto {
+  h3 {
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .preco {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+}
+
+.carregando {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 20px;
+}
