@@ -9,6 +9,7 @@ export default function ProductForm() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [carregando, setCarregando] = useState(false);
+  const [mensagem, setMensagem] = useState(null);
 
   useEffect(() => {
     if (id) {
@@ -45,21 +46,30 @@ export default function ProductForm() {
         // Modo de edição - requisição PUT
         const response = await axios.put(`https://dummyjson.com/products/${id}`, produtoData);
         console.log('Produto atualizado:', response.data);
-        navigate(`/produtos/${id}`);
+        setMensagem({ tipo: 'sucesso', texto: 'Produto atualizado com sucesso!' });
+        setTimeout(() => navigate(`/produtos/${id}`), 2000);
       } else {
         // Modo de criação - requisição POST
         const response = await axios.post('https://dummyjson.com/products/add', produtoData);
         console.log('Produto cadastrado:', response.data);
-        navigate('/');
+        setMensagem({ tipo: 'sucesso', texto: `Produto criado com sucesso! ID: ${response.data.id}` });
+        setTimeout(() => navigate('/'), 2000);
       }
     } catch (error) {
       console.error('Erro ao salvar produto:', error);
+      setMensagem({ tipo: 'erro', texto: 'Erro ao salvar produto. Tente novamente.' });
     }
   };
 
   return (
     <div className={style.container}>
       <h1>{id ? 'Editar Produto' : 'Cadastrar Produto'}</h1>
+      
+      {mensagem && (
+        <div className={`${style.mensagem} ${style[mensagem.tipo]}`}>
+          {mensagem.texto}
+        </div>
+      )}
       
       {carregando ? (
         <p className={style.carregando}>Carregando produto...</p>

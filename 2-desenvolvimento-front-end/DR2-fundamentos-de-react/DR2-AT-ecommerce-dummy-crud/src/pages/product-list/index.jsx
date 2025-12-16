@@ -6,6 +6,7 @@ import style from './style.module.css';
 export default function ProductList() {
   const [produtos, setProdutos] = useState([]);
   const [carregando, setCarregando] = useState(true);
+  const [mensagem, setMensagem] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,9 +31,13 @@ export default function ProductList() {
     try {
       await axios.delete(`https://dummyjson.com/products/${id}`);
       setProdutos(produtos.filter(produto => produto.id !== id));
+      setMensagem({ tipo: 'sucesso', texto: 'Produto excluído com sucesso!' });
+      setTimeout(() => setMensagem(null), 3000);
       console.log('Produto excluído com sucesso');
     } catch (error) {
       console.error('Erro ao excluir produto:', error);
+      setMensagem({ tipo: 'erro', texto: 'Erro ao excluir produto. Tente novamente.' });
+      setTimeout(() => setMensagem(null), 3000);
     }
   };
 
@@ -41,7 +46,14 @@ export default function ProductList() {
   }
 
   return (
-    <div className={style.lista}>
+    <div className={style.container}>
+      {mensagem && (
+        <div className={`${style.mensagem} ${style[mensagem.tipo]}`}>
+          {mensagem.texto}
+        </div>
+      )}
+      
+      <div className={style.lista}>
       { produtos.map((produto) => (
           <div key={produto.id} className={style.produto}>
             <img src={produto.thumbnail} alt={produto.title} className={style.thumbnail} />
@@ -68,6 +80,7 @@ export default function ProductList() {
           </div>
         ))
       }
+      </div>
     </div>
   );
 }
