@@ -1,14 +1,17 @@
 import "./App.css";
-import { themeOptions } from "./theme";
+import Header from "./components/layout/header";
+import { global } from "./theme";
 import { ThemeProvider } from "@mui/material";
 
-const theme = themeOptions;
+const theme = global;
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="app">
-        <div className="container">teste</div>
+        <div className="container">
+          <Header />
+        </div>
       </div>
     </ThemeProvider>
   );

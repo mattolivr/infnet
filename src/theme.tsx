@@ -1,6 +1,6 @@
 import { createTheme, type ThemeOptions } from "@mui/material/styles";
 
-export const themeOptions: ThemeOptions = createTheme({
+export const global: ThemeOptions = createTheme({
   palette: {
     mode: "light",
     primary: {
@@ -11,7 +11,7 @@ export const themeOptions: ThemeOptions = createTheme({
     },
     secondary: {
       main: "#b1d8ff",
-      dark: "#51a6f4",
+      dark: "#81c0fb",
       light: "#dff0ff",
       contrastText: "#00478F",
     },
@@ -45,6 +45,19 @@ export const themeOptions: ThemeOptions = createTheme({
           py: 1.5,
           boxShadow: 0,
         },
+      },
+    },
+    MuiIconButton: {
+      defaultProps: {
+        sx: {
+          width: 42,
+          height: 42,
+          color: "secondary.contrastText",
+          backgroundColor: "secondary.main",
+          "&:hover": {
+            backgroundColor: "secondary.dark",
+          },
+        }
       },
     },
   },
