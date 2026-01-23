@@ -77,11 +77,19 @@ const contentTheme = createTheme(global, {
         },
       },
     },
+    MuiList: {
+      defaultProps: {
+        sx: { flexGrow: 1, overflowY: "auto", paddingBlock: 1 },
+      },
+    },
     MuiListSubheader: {
       defaultProps: {
         sx: {
           background: "none",
           color: "primary.contrastText",
+          "&.secondary": {
+            color: "red",
+          },
         },
       },
     },
@@ -120,6 +128,10 @@ const contentTheme = createTheme(global, {
           background: "none",
           marginTop: 1,
           marginBottom: 4,
+          display: {
+            xs: "flex",
+            sm: "none",
+          },
         },
       },
     },
@@ -133,6 +145,43 @@ const contentTheme = createTheme(global, {
           "&.Mui-selected": {
             backgroundColor: "secondary.main",
             color: "secondary.contrastText",
+          },
+        },
+      },
+    },
+  },
+});
+
+const primaryListTheme = createTheme(contentTheme, {
+  components: {
+    MuiList: {
+      defaultProps: {
+        sx: {
+          display: {
+            xs: "none",
+            sm: "block",
+          },
+          maxWidth: 250,
+          flexBasis: 250,
+        },
+      },
+    },
+  },
+});
+
+const secondaryListTheme = createTheme(contentTheme, {
+  components: {
+    MuiList: {
+      defaultProps: {
+        sx: {
+          display: {
+            xs: "block",
+          },
+          flexGrow: 1,
+          overflowY: "auto",
+          paddingBlock: {
+            xs: 1,
+            sm: 0.5,
           },
         },
       },
@@ -156,56 +205,97 @@ export default function MenuContent() {
       <ThemeProvider theme={contentTheme}>
         <Header theme={contentTheme} />
         <Divider />
-        <List
-          sx={{ flexGrow: 1, overflowY: "auto", paddingBlock: 1 }}
-          disablePadding
-        >
-          {getSecondaryItems(itens[current]).map((item, index) => {
-            if (item.children) {
-              return (
-                <ListSubheader key={index} disableSticky>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontSize: "0.825rem",
-                      textTransform: "uppercase",
-                      marginBlock: 1,
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                </ListSubheader>
-              );
-            }
-            return (
-              <ListItemButton
-                key={index}
-                selected={index === currentSecondary}
-                onClick={() => setCurrentSecondary(index)}
-              >
-                <ListItemIcon>{item.icon && item.icon[0]}</ListItemIcon>
-                <ListItemText primary={item.label} />
-              </ListItemButton>
-            );
-          })}
-        </List>
-        <Divider />
-        <BottomNavigation
-          showLabels
-          value={current}
-          onChange={(_event, newValue) => {
-            setCurrent(newValue);
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: {
+              xs: "column",
+              sm: "row-reverse",
+            },
+            justifyContent: {
+              xs: "space-between",
+              sm: "flex-end",
+            },
+            gap: {
+              xs: 0,
+              sm: 1,
+            },
+            flexGrow: 1,
+            overflowY: "hidden",
           }}
         >
-          {itens.map((item) => (
-            <BottomNavigationAction
-              label={item.label}
-              icon={
-                item.icon && item.icon[current === itens.indexOf(item) ? 1 : 0]
-              }
-            />
-          ))}
-        </BottomNavigation>
+          <ThemeProvider theme={secondaryListTheme}>
+            {itens[current].children && (
+              <List disablePadding>
+                {getSecondaryItems(itens[current]).map((item, index) => {
+                  if (item.children) {
+                    return (
+                      <ListSubheader key={"secondary-" + index} disableSticky>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            fontSize: "0.825rem",
+                            textTransform: "uppercase",
+                            marginBlock: 1,
+                          }}
+                        >
+                          {item.label}
+                        </Typography>
+                      </ListSubheader>
+                    );
+                  }
+                  return (
+                    <ListItemButton
+                      key={"secondary-" + index}
+                      selected={index === currentSecondary}
+                      onClick={() => setCurrentSecondary(index)}
+                    >
+                      <ListItemIcon>
+                        {item.icon &&
+                          item.icon[index === currentSecondary ? 1 : 0]}
+                      </ListItemIcon>
+                      <ListItemText primary={item.label} />
+                    </ListItemButton>
+                  );
+                })}
+              </List>
+            )}
+          </ThemeProvider>
+          <Divider />
+          <BottomNavigation
+            showLabels
+            value={current}
+            onChange={(_event, newValue) => {
+              setCurrent(newValue);
+            }}
+          >
+            {itens.map((item) => (
+              <BottomNavigationAction
+                label={item.label}
+                icon={
+                  item.icon &&
+                  item.icon[current === itens.indexOf(item) ? 1 : 0]
+                }
+              />
+            ))}
+          </BottomNavigation>
+          <ThemeProvider theme={primaryListTheme}>
+            <List disablePadding>
+              {itens.map((item, index) => (
+                <ListItemButton
+                  key={"primary-" + index}
+                  selected={index === current}
+                  onClick={() => setCurrent(index)}
+                >
+                  <ListItemIcon>
+                    {item.icon && item.icon[index === current ? 1 : 0]}
+                  </ListItemIcon>
+                  <ListItemText primary={item.label} />
+                </ListItemButton>
+              ))}
+            </List>
+          </ThemeProvider>
+        </Box>
       </ThemeProvider>
     </Box>
   );
@@ -227,7 +317,7 @@ const itens: MenuItemProps[] = [
     icon: [<CottageOutlined />, <CottageRounded />],
   },
   {
-    label: "Exercícios",
+    label: "Disciplinas",
     icon: [<DashboardOutlined />, <DashboardRounded />],
     children: [
       {
