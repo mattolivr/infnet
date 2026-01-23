@@ -1,4 +1,4 @@
-import { Dehaze, FileDownload } from "@mui/icons-material";
+import { Close, Dehaze } from "@mui/icons-material";
 import {
   AppBar,
   createTheme,
@@ -8,8 +8,14 @@ import {
   Typography,
 } from "@mui/material";
 import { global } from "../../../theme";
+import { toggleMenu, useMenu } from "../menu/context";
+import type { Theme } from "@mui/material/styles";
 
-const headerTheme = createTheme(global, {
+interface HeaderProps {
+  theme?: Theme;
+}
+
+const defaultHeaderTheme = createTheme(global, {
   components: {
     MuiAppBar: {
       defaultProps: {
@@ -53,28 +59,30 @@ const headerTheme = createTheme(global, {
         },
       },
     },
-    MuiIconButton: {
-      defaultProps: {
-        sx: {
-          color: "secondary.main",
-          backgroundColor: "none",
-          "&:hover": {
-            backgroundColor: "none",
-          },
-        }
-      }
-    }
   },
 });
 
-export default function Header() {
+export default function Header({ theme }: HeaderProps = {}) {
+  const { visible } = useMenu();
+
+  const headerTheme = createTheme(defaultHeaderTheme, theme || {});
+
   return (
     <ThemeProvider theme={headerTheme}>
       <AppBar position="static">
         <Toolbar disableGutters>
           <Typography>Caderno</Typography>
-          <IconButton>
-            <Dehaze />
+          <IconButton
+            onClick={() => toggleMenu()}
+            sx={{
+              color: "secondary.main",
+              backgroundColor: "none",
+              "&:hover": {
+                backgroundColor: "none",
+              },
+            }}
+          >
+            {visible ? <Close /> : <Dehaze />}
           </IconButton>
         </Toolbar>
       </AppBar>
