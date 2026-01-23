@@ -1,0 +1,51 @@
+import { createTheme, type ThemeOptions } from "@mui/material/styles";
+
+export const themeOptions: ThemeOptions = createTheme({
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#0082ea",
+      light: "#b1d8ff",
+      dark: "#113496",
+      contrastText: "#efefef",
+    },
+    secondary: {
+      main: "#b1d8ff",
+      dark: "#51a6f4",
+      light: "#dff0ff",
+      contrastText: "#00478F",
+    },
+    text: {
+      primary: "#383838",
+      secondary: "#565656",
+      disabled: "#b2b2b2",
+    },
+  },
+  typography: {
+    fontFamily: "Inter",
+    fontSize: 14,
+    h1: {
+      fontFamily: "Lexend",
+    },
+    button: {
+      fontFamily: "Inter",
+      fontWeight: 700,
+    },
+  },
+  shape: {
+    borderRadius: 16,
+  },
+  components: {
+    MuiButton: {
+      defaultProps: {
+        variant: "contained",
+        color: "secondary",
+        sx: {
+          px: 3,
+          py: 1.5,
+          boxShadow: 0,
+        },
+      },
+    },
+  },
+});
