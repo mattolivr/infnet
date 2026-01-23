@@ -1,31 +1,8 @@
-import {
-  createTheme,
-  Divider,
-  SwipeableDrawer,
-  ThemeProvider,
-} from "@mui/material";
+import { createTheme, SwipeableDrawer, ThemeProvider } from "@mui/material";
 import { global } from "../../../theme";
 import { useEffect } from "react";
 import { useMenu } from "./context";
-import Header from "../header";
-
-const headerTheme = createTheme(global, {
-  components: {
-    MuiAppBar: {
-      defaultProps: {
-        sx: {
-          background: "none",
-          paddingInline: {
-            sm: 3,
-          },
-          paddingTop: {
-            sm: 2,
-          },
-        },
-      },
-    },
-  },
-});
+import MenuContent from "./content";
 
 export default function Menu() {
   const { visible, setVisible } = useMenu();
@@ -59,15 +36,6 @@ export default function Menu() {
           },
         },
       },
-      MuiDivider: {
-        defaultProps: {
-          sx: {
-            borderColor: "#b1d8ff6b",
-            marginInline: 2.5,
-            marginBlock: 0.5,
-          },
-        },
-      },
     },
   });
 
@@ -81,10 +49,10 @@ export default function Menu() {
         ModalProps={{
           container: document.getElementById("container"),
           style: { position: "absolute" },
+          keepMounted: true,
         }}
       >
-        <Header theme={headerTheme} />
-        <Divider />
+        <MenuContent />
       </SwipeableDrawer>
     </ThemeProvider>
   );
