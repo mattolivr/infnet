@@ -80,6 +80,10 @@ export default function Header({ theme }: HeaderProps = {}) {
               "&:hover": {
                 backgroundColor: "none",
               },
+              display: {
+                xs: "block",
+                lg: "none",
+              },
             }}
           >
             {visible ? <Close /> : <Dehaze />}

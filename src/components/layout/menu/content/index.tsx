@@ -63,6 +63,7 @@ const contentTheme = createTheme(global, {
           paddingTop: {
             sm: 2,
           },
+          display: "flex",
         },
       },
     },
@@ -269,8 +270,9 @@ export default function MenuContent() {
               setCurrent(newValue);
             }}
           >
-            {itens.map((item) => (
+            {itens.map((item, index) => (
               <BottomNavigationAction
+                key={"bottomnav-" + index}
                 label={item.label}
                 icon={
                   item.icon &&

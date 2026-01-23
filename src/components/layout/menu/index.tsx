@@ -1,4 +1,9 @@
-import { createTheme, SwipeableDrawer, ThemeProvider } from "@mui/material";
+import {
+  createTheme,
+  Drawer,
+  SwipeableDrawer,
+  ThemeProvider,
+} from "@mui/material";
 import { global } from "../../../theme";
 import { useEffect } from "react";
 import { useMenu } from "./context";
@@ -23,6 +28,12 @@ export default function Menu() {
     components: {
       MuiSwipeableDrawer: {
         defaultProps: {
+          sx: {
+            display: {
+              xs: "block",
+              lg: "none",
+            },
+          },
           slotProps: {
             paper: {
               sx: {
@@ -31,6 +42,28 @@ export default function Menu() {
                   "linear-gradient(to bottom right, #0575E6, #5433FF)",
                 position: "absolute",
                 display: visible ? "block" : "none",
+              },
+            },
+          },
+        },
+      },
+      MuiDrawer: {
+        defaultProps: {
+          sx: {
+            display: {
+              xs: "none",
+              lg: "block",
+            },
+            flexShrink: 0,
+          },
+          slotProps: {
+            paper: {
+              sx: {
+                background:
+                  "linear-gradient(to bottom right, #0575E6, #5433FF)",
+                position: "relative",
+                borderRadius: 1.5,
+                minWidth: 250,
               },
             },
           },
@@ -54,6 +87,16 @@ export default function Menu() {
       >
         <MenuContent />
       </SwipeableDrawer>
+      <Drawer
+        variant="permanent"
+        ModalProps={{
+          container: document.getElementById("container"),
+          style: { position: "absolute" },
+          keepMounted: true,
+        }}
+      >
+        <MenuContent />
+      </Drawer>
     </ThemeProvider>
   );
 }
