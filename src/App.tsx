@@ -1,24 +1,25 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
-import Header from "./components/layout/header";
-import Menu from "./components/layout/menu";
 import { global } from "./theme";
 import { ThemeProvider } from "@mui/material";
-import { MenuProvider } from "./components/layout/menu/context";
+import MainLayout from "./pages/layouts/main";
+import HomePage from "./pages/home";
+import SubjectPage from "./pages/subject";
 
 const theme = global;
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <MenuProvider>
-        <div className="app">
-          <div id="container">
-            <Header />
-            <Menu />
-            teste
-          </div>
-        </div>
-      </MenuProvider>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route
+            path="bloco/:blockId/materia/:subjectId"
+            element={<SubjectPage />}
+          />
+        </Route>
+      </Routes>
     </ThemeProvider>
   );
 }

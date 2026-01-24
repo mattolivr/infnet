@@ -4,7 +4,7 @@ export const global: ThemeOptions = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#0082ea",
+      main: "#5C98F2",
       light: "#b1d8ff",
       dark: "#113496",
       contrastText: "#efefef",
@@ -57,7 +57,7 @@ export const global: ThemeOptions = createTheme({
           "&:hover": {
             backgroundColor: "secondary.dark",
           },
-        }
+        },
       },
     },
   },
