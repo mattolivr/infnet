@@ -9,6 +9,58 @@ import { useEffect } from "react";
 import { useMenu } from "./context";
 import MenuContent from "./content";
 
+const menuTheme = createTheme(global, {
+  components: {
+    MuiDrawer: {
+      defaultProps: {
+        ModalProps: {
+          container: document.getElementById("container"),
+          keepMounted: true,
+        },
+      },
+      styleOverrides: {
+        paper: {
+          background: global.palette?.background?.blueGradient,
+          border: "none",
+
+          variants: [
+            {
+              props: { variant: "permanent" },
+              style: {
+                display: "none",
+                position: "relative",
+                minWidth: "250px",
+
+                [global.breakpoints.up("lg")]: {
+                  display: "block",
+                  position: "relative",
+                },
+              },
+            },
+            {
+              props: { variant: "temporary" },
+              style: {
+                display: "block",
+                position: "absolute",
+                width: "100%",
+
+                [global.breakpoints.up("lg")]: {
+                  display: "none",
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
+    MuiSwipeableDrawer: {
+      defaultProps: {
+        anchor: "right",
+      },
+    },
+  },
+});
+
 export default function Menu() {
   const { visible, setVisible } = useMenu();
 
@@ -24,77 +76,16 @@ export default function Menu() {
     };
   }, [setVisible, visible]);
 
-  const menuTheme = createTheme(global, {
-    components: {
-      MuiSwipeableDrawer: {
-        defaultProps: {
-          sx: {
-            display: {
-              xs: "block",
-              lg: "none",
-            },
-          },
-          slotProps: {
-            paper: {
-              sx: {
-                width: "100%",
-                background:
-                  "linear-gradient(to bottom right, #0575E6, #5433FF)",
-                position: "absolute",
-                display: visible ? "block" : "none",
-              },
-            },
-          },
-        },
-      },
-      MuiDrawer: {
-        defaultProps: {
-          sx: {
-            display: {
-              xs: "none",
-              lg: "block",
-            },
-            flexShrink: 0,
-          },
-          slotProps: {
-            paper: {
-              sx: {
-                background:
-                  "linear-gradient(to bottom right, #0575E6, #5433FF)",
-                position: "relative",
-                borderRadius: 1.5,
-                minWidth: 250,
-              },
-            },
-          },
-        },
-      },
-    },
-  });
-
   return (
     <ThemeProvider theme={menuTheme}>
       <SwipeableDrawer
-        anchor="right"
         open={visible}
         onClose={() => setVisible(false)}
         onOpen={() => setVisible(true)}
-        ModalProps={{
-          container: document.getElementById("container"),
-          style: { position: "absolute" },
-          keepMounted: true,
-        }}
       >
         <MenuContent />
       </SwipeableDrawer>
-      <Drawer
-        variant="permanent"
-        ModalProps={{
-          container: document.getElementById("container"),
-          style: { position: "absolute" },
-          keepMounted: true,
-        }}
-      >
+      <Drawer variant="permanent">
         <MenuContent />
       </Drawer>
     </ThemeProvider>

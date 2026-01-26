@@ -3,14 +3,17 @@ import { useParams } from "react-router";
 import manifest from "../../manifest.json";
 import {
   Box,
+  Button,
   Chip,
   Container,
   createTheme,
+  IconButton,
   ThemeProvider,
   Typography,
 } from "@mui/material";
 import { global } from "../../theme";
-import { FaceRounded, PersonRounded } from "@mui/icons-material";
+import { FaceRounded } from "@mui/icons-material";
+import Card from "../../components/card";
 
 const subjectTheme = createTheme(global, {
   components: {
@@ -75,7 +78,60 @@ export default function SubjectPage() {
           />
         </Box>
 
-        <Box>teste</Box>
+        <Card />
+
+        <Box
+          sx={{ display: "flex", mt: 2, gap: 2, color: "primary.contrastText" }}
+        >
+          <Box sx={{ flexGrow: 1, backgroundColor: "primary.light" }}>
+            light
+          </Box>
+          <Box sx={{ flexGrow: 1, backgroundColor: "primary.main" }}>main</Box>
+          <Box sx={{ flexGrow: 1, backgroundColor: "primary.dark" }}>dark</Box>
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            mt: 2,
+            gap: 2,
+            color: "secondary.contrastText",
+          }}
+        >
+          <Box sx={{ flexGrow: 1, backgroundColor: "secondary.light" }}>
+            light
+          </Box>
+          <Box sx={{ flexGrow: 1, backgroundColor: "secondary.main" }}>
+            main
+          </Box>
+          <Box sx={{ flexGrow: 1, backgroundColor: "secondary.dark" }}>
+            dark
+          </Box>
+        </Box>
+
+        <Box sx={{ display: "flex", mt: 2, gap: 2 }}>
+          <IconButton color="default">
+            <FaceRounded />
+          </IconButton>
+
+          <IconButton color="primary">
+            <FaceRounded />
+          </IconButton>
+
+          <IconButton color="secondary">
+            <FaceRounded />
+          </IconButton>
+        </Box>
+
+        <Box
+          sx={{
+            backgroundColor: "error.main",
+            height: "100vh",
+            p: 2,
+            borderRadius: 1.5,
+            mt: 2,
+          }}
+        ></Box>
       </Container>
     </ThemeProvider>
   );

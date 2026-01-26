@@ -9,83 +9,77 @@ import {
 } from "@mui/material";
 import { global } from "../../../theme";
 import { toggleMenu, useMenu } from "../menu/context";
-import type { Theme } from "@mui/material/styles";
 
 interface HeaderProps {
-  theme?: Theme;
+  sticky?: boolean;
 }
 
-const defaultHeaderTheme = createTheme(global, {
+const headerTheme = createTheme(global, {
   components: {
     MuiAppBar: {
-      defaultProps: {
-        elevation: 0,
-        sx: {
-          background: "linear-gradient(to bottom right, #0575E6, #5433FF)",
-          display: {
-            xs: "block",
-            lg: "none",
+      styleOverrides: {
+        root: {
+          background: "transparent",
+          color: global.palette?.secondary?.contrastText,
+          boxShadow: "none",
+
+          paddingInline: global.spacing(1),
+          paddingBlock: global.spacing(1.5),
+
+          [global.breakpoints.up("sm")]: {
+            paddingBlock: global.spacing(2),
           },
-          px: {
-            xs: 4,
-            sm: 3,
+
+          [global.breakpoints.up("lg")]: {
+            paddingTop: global.spacing(2),
+            paddingBottom: global.spacing(0.5),
+            display: "block",
           },
-          py: {
-            xs: 1.5,
-            sm: 1,
-          },
-          borderBottomLeftRadius: 24,
-          borderBottomRightRadius: 24,
-          borderTopLeftRadius: {
-            xs: 0,
-            sm: 24,
-          },
-          borderTopRightRadius: {
-            xs: 0,
-            sm: 24,
-          },
-          fontFamily: "Lexend",
-        },
-      },
-    },
-    MuiTypography: {
-      defaultProps: {
-        variant: "h5",
-        component: "h1",
-        sx: {
-          flexGrow: "1",
-          fontFamily: "Lexend",
-          fontWeight: 500,
+
+          variants: [
+            {
+              props: { position: "sticky" },
+              style: {
+                background: global.palette?.background?.blueGradient,
+
+                paddingInline: global.spacing(3.5),
+
+                borderBottomLeftRadius: global.shape.borderRadiusLg,
+                borderBottomRightRadius: global.shape.borderRadiusLg,
+
+                [global.breakpoints.up("sm")]: {
+                  paddingInline: global.spacing(2),
+                  paddingBlock: global.spacing(1),
+                  borderRadius: global.shape.borderRadiusLg,
+                },
+
+                [global.breakpoints.up("md")]: {
+                  borderRadius: global.shape.borderRadius,
+                },
+
+                [global.breakpoints.up("lg")]: {
+                  display: "none",
+                },
+              },
+            },
+          ],
         },
       },
     },
   },
 });
 
-export default function Header({ theme }: HeaderProps = {}) {
+export default function Header({ sticky }: HeaderProps = {}) {
   const { visible } = useMenu();
-
-  const headerTheme = createTheme(defaultHeaderTheme, theme || {});
 
   return (
     <ThemeProvider theme={headerTheme}>
-      <AppBar position="static">
+      <AppBar position={sticky ? "sticky" : "static"}>
         <Toolbar disableGutters>
-          <Typography>Caderno</Typography>
-          <IconButton
-            onClick={() => toggleMenu()}
-            sx={{
-              color: "secondary.main",
-              backgroundColor: "none",
-              "&:hover": {
-                backgroundColor: "none",
-              },
-              display: {
-                xs: "block",
-                lg: "none",
-              },
-            }}
-          >
+          <Typography variant="h1" sx={{ flexGrow: 1 }}>
+            Caderno
+          </Typography>
+          <IconButton color="default" onClick={() => toggleMenu()}>
             {visible ? <Close /> : <Dehaze />}
           </IconButton>
         </Toolbar>

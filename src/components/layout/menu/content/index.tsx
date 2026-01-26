@@ -1,7 +1,6 @@
 import {
   BottomNavigation,
   BottomNavigationAction,
-  Box,
   createTheme,
   Divider,
   List,
@@ -9,6 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
   ListSubheader,
+  styled,
   ThemeProvider,
   Typography,
 } from "@mui/material";
@@ -49,140 +49,151 @@ interface MenuItemProps {
   children?: MenuItemProps[];
 }
 
-const contentTheme = createTheme(global, {
+const MenuContentRoot = styled("div", {
+  name: "MenuContent",
+  slot: "root",
+})(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  height: "100%",
+  paddingInline: theme.spacing(2),
+}));
+
+const MenuContentLists = styled("div", {
+  name: "MenuContent",
+  slot: "lists",
+})(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+  gap: 0,
+  flexGrow: 1,
+  overflowY: "hidden",
+  [global.breakpoints.up("sm")]: {
+    flexDirection: "row-reverse",
+    justifyContent: "flex-end",
+    gap: theme.spacing(1),
+  },
+}));
+
+const MenuContentPrimaryList = styled(List, {
+  name: "MenuContent",
+  slot: "primaryList",
+})(({ theme }) => ({
+  display: "none",
+  [global.breakpoints.up("sm")]: {
+    display: "block",
+    marginTop: theme.spacing(1),
+    maxWidth: 250,
+    flexBasis: 250,
+  },
+}));
+
+const MenuContentSecondaryList = styled(List, {
+  name: "MenuContent",
+  slot: "secondaryList",
+})(({ theme }) => ({
+  display: "block",
+  flexGrow: 1,
+  overflowY: "auto",
+  paddingBlock: theme.spacing(1),
+  position: "relative",
+  zIndex: 1,
+  [global.breakpoints.up("sm")]: {
+    paddingBlock: theme.spacing(0.5),
+    paddingBottom: theme.spacing(0.5),
+  },
+}));
+
+const menuContentTheme = createTheme(global, {
   components: {
-    MuiAppBar: {
-      defaultProps: {
-        sx: {
-          background: "none",
-          marginInline: 0,
-          paddingInline: {
-            xs: 1,
-            sm: 1,
-          },
-          paddingTop: {
-            sm: 2,
-          },
-          display: "flex",
-        },
-      },
-    },
     MuiDivider: {
-      defaultProps: {
-        sx: {
-          borderColor: "#b1d8ff6b",
-          marginBlock: {
-            xs: 0,
-            md: 0.5,
-          },
+      styleOverrides: {
+        root: {
+          borderColor: global.alpha(global.palette?.primary?.main, 0.3),
         },
       },
     },
     MuiList: {
-      defaultProps: {
-        sx: { flexGrow: 1, overflowY: "auto", paddingBlock: 1 },
+      styleOverrides: {
+        root: {
+          flexGrow: 1,
+          overflowY: "auto",
+        },
       },
     },
     MuiListSubheader: {
-      defaultProps: {
-        sx: {
-          background: "none",
-          color: "primary.contrastText",
-          "&.secondary": {
-            color: "red",
+      styleOverrides: {
+        root: {
+          color: global.palette?.secondary?.contrastText,
+          marginBlock: global.spacing(3),
+          paddingInline: global.spacing(1),
+
+          "&:first-of-type": {
+            marginTop: global.spacing(2),
           },
         },
       },
     },
     MuiListItemButton: {
-      defaultProps: {
-        sx: {
-          color: "primary.contrastText",
-          borderRadius: 2,
-          marginBlock: 0.5,
+      styleOverrides: {
+        root: {
+          color: global.palette.secondary.contrastText,
+          borderRadius: global.spacing(2),
+          marginBlock: global.spacing(0.5),
+          paddingInline: global.spacing(1),
+
           "& .MuiSvgIcon-root": {
-            color: "primary.contrastText",
+            color: global.palette.secondary.contrastText,
           },
+
           "&.Mui-selected": {
-            backgroundColor: "secondary.main",
-            color: "secondary.contrastText",
-            "&:hover": {
-              backgroundColor: "secondary.dark",
+            backgroundColor: global.palette.primary.main,
+            color: global.palette.primary.contrastText,
+            "& .MuiSvgIcon-root": {
+              color: global.palette.primary.contrastText,
             },
           },
-          "&.Mui-selected .MuiSvgIcon-root": {
-            color: "secondary.contrastText",
+
+          "&.Mui-selected:hover": {
+            backgroundColor: global.palette.secondary.dark,
           },
         },
       },
     },
     MuiListItemIcon: {
-      defaultProps: {
-        sx: {
-          minWidth: 42,
+      styleOverrides: {
+        root: {
+          minWidth: global.spacing(5.5),
         },
       },
     },
     MuiBottomNavigation: {
-      defaultProps: {
-        sx: {
+      styleOverrides: {
+        root: {
           background: "none",
-          marginTop: 1,
-          marginBottom: 4,
-          display: {
-            xs: "flex",
-            sm: "none",
+          paddingTop: global.spacing(1),
+          paddingBottom: global.spacing(3),
+          height: "auto",
+          display: "flex",
+
+          [global.breakpoints.up("sm")]: {
+            display: "none",
           },
         },
       },
     },
     MuiBottomNavigationAction: {
-      defaultProps: {
-        sx: {
-          color: "primary.contrastText",
-          borderRadius: 2,
-          height: 74,
-          gap: "6px",
+      styleOverrides: {
+        root: {
+          color: global.palette?.secondary?.contrastText,
+          padding: global.spacing(1),
+          borderRadius: global.shape.borderRadiusLg,
+          gap: global.spacing(1),
+
           "&.Mui-selected": {
-            backgroundColor: "secondary.main",
-            color: "secondary.contrastText",
-          },
-        },
-      },
-    },
-  },
-});
-
-const primaryListTheme = createTheme(contentTheme, {
-  components: {
-    MuiList: {
-      defaultProps: {
-        sx: {
-          display: {
-            xs: "none",
-            sm: "block",
-          },
-          maxWidth: 250,
-          flexBasis: 250,
-        },
-      },
-    },
-  },
-});
-
-const secondaryListTheme = createTheme(contentTheme, {
-  components: {
-    MuiList: {
-      defaultProps: {
-        sx: {
-          display: {
-            xs: "block",
-          },
-          flexGrow: 1,
-          overflowY: "auto",
-          paddingBlock: {
-            xs: 1,
-            sm: 0.5,
+            backgroundColor: global.palette?.primary?.main,
+            color: global.palette?.primary?.contrastText,
           },
         },
       },
@@ -195,73 +206,36 @@ export default function MenuContent() {
   const [currentSecondary, setCurrentSecondary] = useState(0);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        paddingInline: 2.5,
-      }}
-    >
-      <ThemeProvider theme={contentTheme}>
-        <Header theme={contentTheme} />
+    <MenuContentRoot>
+      <ThemeProvider theme={menuContentTheme}>
+        <Header />
         <Divider />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: {
-              xs: "column",
-              sm: "row-reverse",
-            },
-            justifyContent: {
-              xs: "space-between",
-              sm: "flex-end",
-            },
-            gap: {
-              xs: 0,
-              sm: 1,
-            },
-            flexGrow: 1,
-            overflowY: "hidden",
-          }}
-        >
-          <ThemeProvider theme={secondaryListTheme}>
-            {itens[current].children && (
-              <List disablePadding>
-                {getSecondaryItems(itens[current]).map((item, index) => {
-                  if (item.children) {
-                    return (
-                      <ListSubheader key={"secondary-" + index} disableSticky>
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            fontSize: "0.825rem",
-                            textTransform: "uppercase",
-                            marginBlock: 1,
-                          }}
-                        >
-                          {item.label}
-                        </Typography>
-                      </ListSubheader>
-                    );
-                  }
-                  return (
-                    <ListItemButton
-                      key={"secondary-" + index}
-                      selected={index === currentSecondary}
-                      onClick={() => setCurrentSecondary(index)}
-                    >
-                      <ListItemIcon>
-                        {item.icon &&
-                          item.icon[index === currentSecondary ? 1 : 0]}
-                      </ListItemIcon>
-                      <ListItemText primary={item.label} />
-                    </ListItemButton>
-                  );
-                })}
-              </List>
-            )}
-          </ThemeProvider>
+        <MenuContentLists>
+          <MenuContentSecondaryList disablePadding>
+            {getSecondaryItems(itens[current]).map((item, index) => {
+              if (item.children) {
+                return (
+                  <ListSubheader key={"secondary-" + index} disableSticky>
+                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                      {item.label}
+                    </Typography>
+                  </ListSubheader>
+                );
+              }
+              return (
+                <ListItemButton
+                  key={"secondary-" + index}
+                  selected={index === currentSecondary}
+                  onClick={() => setCurrentSecondary(index)}
+                >
+                  <ListItemIcon>
+                    {item.icon && item.icon[index === currentSecondary ? 1 : 0]}
+                  </ListItemIcon>
+                  <ListItemText primary={item.label} />
+                </ListItemButton>
+              );
+            })}
+          </MenuContentSecondaryList>
           <Divider />
           <BottomNavigation
             showLabels
@@ -281,25 +255,23 @@ export default function MenuContent() {
               />
             ))}
           </BottomNavigation>
-          <ThemeProvider theme={primaryListTheme}>
-            <List disablePadding>
-              {itens.map((item, index) => (
-                <ListItemButton
-                  key={"primary-" + index}
-                  selected={index === current}
-                  onClick={() => setCurrent(index)}
-                >
-                  <ListItemIcon>
-                    {item.icon && item.icon[index === current ? 1 : 0]}
-                  </ListItemIcon>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              ))}
-            </List>
-          </ThemeProvider>
-        </Box>
+          <MenuContentPrimaryList disablePadding>
+            {itens.map((item, index) => (
+              <ListItemButton
+                key={"primary-" + index}
+                selected={index === current}
+                onClick={() => setCurrent(index)}
+              >
+                <ListItemIcon>
+                  {item.icon && item.icon[index === current ? 1 : 0]}
+                </ListItemIcon>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            ))}
+          </MenuContentPrimaryList>
+        </MenuContentLists>
       </ThemeProvider>
-    </Box>
+    </MenuContentRoot>
   );
 }
 

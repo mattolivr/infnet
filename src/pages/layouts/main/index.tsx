@@ -8,7 +8,7 @@ export default function MainLayout() {
     <MenuProvider>
       <div className="app">
         <div id="container">
-          <Header />
+          <Header sticky />
           <Menu />
           <Outlet />
         </div>
