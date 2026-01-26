@@ -34,6 +34,8 @@ const menuTheme = createTheme(global, {
                 [global.breakpoints.up("lg")]: {
                   display: "block",
                   position: "relative",
+                  borderRadius: global.shape.borderRadius,
+                  maxWidth: 550,
                 },
               },
             },

@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router";
-import "./App.css";
 import { global } from "./theme";
 import { ThemeProvider } from "@mui/material";
 import MainLayout from "./pages/layouts/main";

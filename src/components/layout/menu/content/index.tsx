@@ -62,17 +62,17 @@ const MenuContentRoot = styled("div", {
 const MenuContentLists = styled("div", {
   name: "MenuContent",
   slot: "lists",
-})(({ theme }) => ({
+})(() => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
   gap: 0,
   flexGrow: 1,
   overflowY: "hidden",
+
   [global.breakpoints.up("sm")]: {
     flexDirection: "row-reverse",
     justifyContent: "flex-end",
-    gap: theme.spacing(1),
   },
 }));
 
@@ -84,8 +84,9 @@ const MenuContentPrimaryList = styled(List, {
   [global.breakpoints.up("sm")]: {
     display: "block",
     marginTop: theme.spacing(1),
-    maxWidth: 250,
-    flexBasis: 250,
+    width: 200,
+    flexBasis: 200,
+    flexShrink: 0,
   },
 }));
 
@@ -102,6 +103,10 @@ const MenuContentSecondaryList = styled(List, {
   [global.breakpoints.up("sm")]: {
     paddingBlock: theme.spacing(0.5),
     paddingBottom: theme.spacing(0.5),
+
+    "&:has(*)": {
+      paddingLeft: theme.spacing(1),
+    },
   },
 }));
 

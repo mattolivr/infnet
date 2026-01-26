@@ -6,6 +6,7 @@ declare module "@mui/material/styles" {
       borderRadiusSm: number;
       borderRadius: number;
       borderRadiusLg: number;
+      borderRadiusXl: number;
     };
   }
 
@@ -14,6 +15,7 @@ declare module "@mui/material/styles" {
       borderRadiusSm: number;
       borderRadius: number;
       borderRadiusLg: number;
+      borderRadiusXl: number;
     };
   }
 
@@ -67,6 +69,7 @@ export const global: Theme = createTheme({
     borderRadiusSm: 12,
     borderRadius: 16,
     borderRadiusLg: 24,
+    borderRadiusXl: 32,
   },
   components: {
     MuiButton: {

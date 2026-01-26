@@ -50,10 +50,6 @@ const headerTheme = createTheme(global, {
                 [global.breakpoints.up("sm")]: {
                   paddingInline: global.spacing(2),
                   paddingBlock: global.spacing(1),
-                  borderRadius: global.shape.borderRadiusLg,
-                },
-
-                [global.breakpoints.up("md")]: {
                   borderRadius: global.shape.borderRadius,
                 },
 
