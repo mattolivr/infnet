@@ -1,0 +1,113 @@
+{
+  "id": "b2-dr1",
+  "name": "Mobile-first UI com React",
+  "icon": "devices_other",
+  "teacher": "Cidcley Schmitt de Oliveira",
+  "description": "A disciplina abora a criação de interfaces de usuário pensadas em dispositivos móveis, focando em estratégias para design responsivo, otimização de recursos e usabilidade em diferentes tamanhos de tela e desenvolvendo habilidades para projetar aplicações mobile-first.",
+  "assignments": [
+    {
+      "index": 3,
+      "type": "exercise",
+      "title": "Teste de Performance 3",
+      "description": "O objetivo é desenvolver as competências previstas na disciplina: Criar páginas web responsivas com CSS3 e Estilizar componentes React com CSS3",
+      "exercises": [
+        {
+          "index": 1,
+          "title": "Desenvolvendo layout mobile-first",
+          "description": "TODO",
+          "file": "tp3.01"
+        },
+        {
+          "index": 2,
+          "title": "Estilizando para telas maiores (Media Queries)",
+          "description": "TODO",
+          "file": "tp3.02"
+        },
+        {
+          "index": 3,
+          "title": "Aplicando inline styles em componentes React",
+          "description": "TODO",
+          "file": "tp3.03"
+        },
+        {
+          "index": 4,
+          "title": "Aplicando inline styles em componentes React",
+          "description": "TODO",
+          "file": "tp3.04"
+        },
+        {
+          "index": 5,
+          "title": "Componentes e JSX no React com design mobile-first",
+          "description": "TODO",
+          "file": "tp3.05~3.07"
+        },
+        {
+          "index": 6,
+          "title": "Componentes e JSX no React com design mobile-first - Continuação",
+          "description": "TODO",
+          "file": "tp3.05~3.07"
+        },
+        {
+          "index": 7,
+          "title": "Componentes e JSX no React com design mobile-first - Continuação",
+          "description": "TODO",
+          "file": "tp3.05~3.07"
+        },
+        {
+          "index": 8,
+          "title": "Módulos de estilo",
+          "description": "TODO",
+          "file": "tp3.08~3.09"
+        },
+        {
+          "index": 9,
+          "title": "Módulos de estilo",
+          "description": "TODO",
+          "file": "tp3.08~3.09"
+        },
+        {
+          "index": 10,
+          "title": "Módulos de estilo",
+          "description": "TODO",
+          "file": "tp3.10"
+        },
+        {
+          "index": 11,
+          "title": "Estilização global com CSS no React",
+          "description": "TODO",
+          "file": "tp3.11~3.16"
+        },
+        {
+          "index": 12,
+          "title": "Estilização global com CSS no React",
+          "description": "TODO",
+          "file": "tp3.11~3.16"
+        },
+        {
+          "index": 13,
+          "title": "Estilização global com CSS no React",
+          "description": "TODO",
+          "file": "tp3.11~3.16"
+        },
+        {
+          "index": 14,
+          "title": "Estilização global com CSS no React",
+          "description": "TODO",
+          "file": "tp3.11~3.16"
+        },
+        {
+          "index": 15,
+          "title": "Estilização global com CSS no React",
+          "description": "TODO",
+          "file": "tp3.11~3.16"
+        },
+        {
+          "index": 16,
+          "title": "Estilização global com CSS no React",
+          "description": "TODO",
+          "file": "tp3.11~3.16"
+        }
+      ]
+    }
+  ]
+}
