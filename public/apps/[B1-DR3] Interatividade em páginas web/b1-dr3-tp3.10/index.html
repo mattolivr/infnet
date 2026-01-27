@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arquivo padrão</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form action="#" method="post">
+      <label for="nome">Nome:</label><br />
+      <input type="text" id="nome" name="nome" /><br /><br />
+
+      <label>Nível:</label><br />
+      <input type="radio" id="senior" name="nivel" value="senior" />
+      <label for="senior">Senior</label><br />
+
+      <input type="radio" id="pleno" name="nivel" value="pleno" />
+      <label for="pleno">Pleno</label><br />
+
+      <input type="radio" id="junior" name="nivel" value="junior" />
+      <label for="junior">Júnior</label><br /><br />
+
+      <label>Possibilidade de horário:</label><br />
+      <input
+        type="checkbox"
+        id="presencial"
+        name="horario"
+        value="presencial"
+      />
+      <label for="presencial">Presencial</label><br />
+
+      <input type="checkbox" id="hibrido" name="horario" value="hibrido" />
+      <label for="hibrido">Híbrido</label><br />
+
+      <input type="checkbox" id="remoto" name="horario" value="remoto" />
+      <label for="remoto">Remoto</label><br /><br />
+
+      <input type="submit" value="Enviar" />
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+.borda {
+  border-left: 4px solid skyblue;
+  border-radius: 4px;
+}
+
+.texto {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.fundo {
+  background-color: cornflowerblue;
+  padding: 12px 16px;
+}

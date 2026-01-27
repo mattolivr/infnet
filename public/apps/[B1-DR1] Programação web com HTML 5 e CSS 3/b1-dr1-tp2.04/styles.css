@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto.ttf");
+}
+
+#p1 {
+  font-family: "Inter";
+}
+
+#p2 {
+  font-family: "Montserrat";
+}
+
+#p3 {
+  font-family: "Roboto";
+}

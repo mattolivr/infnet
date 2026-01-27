@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("fonts/Montserrat.ttf");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto.ttf");
+}
+
+p {
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+/* 1º PARÁGRAFO */
+#p1 {
+  background-color: beige;
+  color: saddlebrown;
+  font-family: "Inter";
+}
+
+/* 2º PARÁGRAFO */
+.p2 {
+  border: 2px darkslateblue dashed;
+  font-family: "Montserrat";
+}
+
+/* 3º PARÁGRAFO */
+p[lang="la"] {
+  border-left: 2px solid teal;
+  background-color: turquoise;
+  font-family: "Poppins";
+}
+
+/* 4º PARÁGRAFO */
+div > p {
+  color: red;
+  font-family: "Roboto";
+}

@@ -1,0 +1,85 @@
+body {
+  background-color: rgb(22, 22, 22);
+  margin: 0;
+}
+
+main {
+  max-width: 400px;
+  font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+  margin: 24px auto;
+  background-color: rgb(36, 36, 36);
+  border-radius: 8px;
+}
+
+#album-container {
+  position: relative;
+}
+
+#album-cover {
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+}
+
+#track-info {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.6) 80%
+  );
+  color: white;
+
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 12px;
+  margin-bottom: 3px;
+  box-sizing: border-box;
+}
+
+#track-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.controlls-container {
+  padding: 0px 12px;
+}
+
+#track-time {
+  margin: 8px 0px;
+  color: white;
+  font-weight: bold;
+}
+
+#track-time-bar {
+  width: 100%;
+  height: 2px;
+  border-radius: 100%;
+}
+
+#track-controlls {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0;
+  padding: 32px 0px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  border-radius: 100%;
+}

@@ -1,0 +1,72 @@
+body {
+  background-color: aliceblue;
+  margin: 0;
+  padding: 0;
+
+  font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+}
+
+header {
+  background-color: #2d4155;
+  color: white;
+
+  padding: 12px 0px;
+}
+
+header h1 {
+  margin: 12px 0px 24px 0px;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  list-style-type: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+section p {
+  text-align: justify;
+}
+
+#hobbies > div {
+  display: flex;
+  flex-direction: row;
+}
+
+#hobbies > div > img {
+  width: 20%;
+}
+
+#retornar {
+  width: 100%;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+
+  background-color: #2d4155;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+}

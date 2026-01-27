@@ -1,0 +1,42 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#titulo {
+  text-align: center;
+}
+
+.descricao {
+  display: block;
+  background-color: lightgray;
+  padding: 12px 10px;
+  border-radius: 4px;
+  border-left: 3px solid rgb(107, 107, 245);
+}
+
+.caixa {
+  display: block;
+  margin: 24px auto;
+  height: 350px;
+  width: 350px;
+
+  background-color: lightslategray;
+  border-radius: 12px;
+  transition: transform 0.4s, background-color 0.7s;
+}
+
+.ativa {
+  transform: scaleX(102%) scaleY(102%);
+  background-color: lightseagreen;
+}
+
+button {
+  display: block;
+  margin: 24px auto;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+
+  background-color: rgb(48, 143, 202);
+  color: white;
+}

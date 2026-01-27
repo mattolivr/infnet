@@ -1,0 +1,39 @@
+/* Seletor por TAG */
+pre {
+  background-color: midnightblue;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+/* Seletor por ID */
+#ex-id {
+  color: slateblue;
+  font-weight: bold;
+}
+
+/* Seletor por CLASSE */
+.card {
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-bottom: 12px;
+  box-shadow: 1px 1px rgb(122, 122, 122);
+}
+
+/* Seletor UNIVERSAL */
+* {
+  font-family: sans-serif;
+}
+
+/* Seletor por ATRIBUTO */
+a[target="_blank"] {
+  color: green;
+}
+
+/* Seletor por PSEUDO-CLASSE */
+button:hover {
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+}

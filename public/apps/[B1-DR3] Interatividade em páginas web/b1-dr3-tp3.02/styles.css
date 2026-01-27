@@ -1,0 +1,19 @@
+body {
+  background-color: #301b18;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100dvh;
+}
+
+img {
+  width: 300px;
+  height: auto;
+}
+
+p {
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}

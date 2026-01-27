@@ -1,0 +1,166 @@
+:root {
+  --primary: #442200;
+  --primary-transluscent: #4b290da1;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+/* 3.12 */
+#container {
+  width: 992px;
+  margin: 0 auto;
+
+  & > * {
+    width: 100%;
+  }
+}
+/* 3.12 */
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* 3.12 */
+  h1 {
+    display: none;
+  }
+  /* 3.12 */
+}
+
+nav {
+  width: 100%;
+
+  ul {
+    background-color: var(--primary);
+    padding: 8px 128px;
+    border-radius: 2px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    list-style-type: none;
+
+    a {
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}
+
+#title {
+  font-weight: normal;
+  font-size: 2.5rem;
+  text-decoration: none;
+  text-align: center;
+
+  margin: 0;
+  color: var(--primary);
+}
+
+/* 3.14 */
+.banner {
+  width: 100%;
+  height: 300px;
+
+  background-image: url("assets/banner.jpg");
+  background-position: bottom;
+  background-size: cover;
+
+  border-radius: 10px;
+  margin: 18px 18px 0 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.highlight {
+  background-color: var(--primary-transluscent);
+  width: 170px;
+  height: 170px;
+
+  font-size: 1.3rem;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 100%;
+  padding: 32px;
+  margin-left: 32px;
+
+  p {
+    text-align: left;
+  }
+}
+/* 3.14 */
+
+/* 3.15 */
+main {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0 24px;
+
+  margin: 0;
+  padding: 12px;
+
+  box-sizing: border-box;
+
+  h1,
+  .banner,
+  #copy {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+
+section {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0px 24px;
+
+  h2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    color: var(--primary);
+    font-style: italic;
+  }
+
+  a {
+    font-weight: bold;
+    color: var(--primary);
+  }
+}
+/* 3.15 */
+
+/* 3.16 */
+#onde-encontrar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    align-self: flex-start;
+  }
+}
+/* 3.16 */
+
+#copy {
+  text-align: right;
+  color: #575757;
+}
+
+footer {
+  background-color: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 12px 0px;
+  border-radius: 2px;
+}

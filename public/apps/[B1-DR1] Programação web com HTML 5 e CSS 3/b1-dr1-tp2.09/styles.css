@@ -1,0 +1,22 @@
+main {
+  font-family: Cambria, serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  background-color: rgb(161, 161, 161);
+  text-align: center;
+  font-weight: lighter;
+
+  width: 100%;
+  padding: 8px 0px;
+  border-radius: 2px;
+}
+
+img {
+  height: 300px;
+  width: auto;
+}

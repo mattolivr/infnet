@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arquivo padrão</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form action="#" method="post">
+      <label for="pais">País:</label><br />
+      <input type="text" id="pais" name="pais" /><br /><br />
+
+      <label for="cor_bandeira">Cor principal da bandeira:</label><br />
+      <input type="color" id="bandeira" name="bandeira" /><br /><br />
+
+      <label for="descricao">Descrição do país:</label><br />
+      <textarea id="descricao" name="descricao"></textarea><br /><br />
+
+      <label for="continente">Continente:</label><br />
+      <select id="continente" name="continente">
+        <option value="america">América</option>
+        <option value="africa">África</option>
+        <option value="europa">Europa</option>
+        <option value="asia">Ásia</option>
+        <option value="oceania">Oceania</option>
+      </select>
+      <br /><br />
+
+      <input type="submit" value="Enviar" />
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

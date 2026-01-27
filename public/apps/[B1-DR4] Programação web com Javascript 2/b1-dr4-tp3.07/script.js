@@ -1,0 +1,103 @@
+const figurasHistoricas = [
+  {
+    nome: "Albert",
+    sobrenome: "Einstein",
+    idade: 76,
+    nacionalidade: "alemã",
+    profissao: "físico teórico",
+    mesNascimento: "março",
+    mesFalecimento: "abril",
+    contribuicoes: ["teoria da relatividade", "efeito fotoelétrico"],
+  },
+  {
+    nome: "Martin",
+    sobrenome: "Luther King",
+    idade: 39,
+    nacionalidade: "estadunidense",
+    profissao: "pastor e ativista",
+    mesNascimento: "janeiro",
+    mesFalecimento: "abril",
+    contribuicoes: ["movimento pelos direitos civis", "protestos pacíficos"],
+  },
+  {
+    nome: "Marie",
+    sobrenome: "Curie",
+    idade: 66,
+    nacionalidade: "polonesa",
+    profissao: "física e química",
+    mesNascimento: "novembro",
+    mesFalecimento: "julho",
+    contribuicoes: ["descoberta do rádio", "pesquisas sobre radioatividade"],
+  },
+  {
+    nome: "Isaac",
+    sobrenome: "Newton",
+    idade: 84,
+    nacionalidade: "inglesa",
+    profissao: "físico e matemático",
+    mesNascimento: "janeiro",
+    mesFalecimento: "março",
+    contribuicoes: ["leis do movimento", "gravitação universal"],
+  },
+  {
+    nome: "Mahatma",
+    sobrenome: "Gandhi",
+    idade: 78,
+    nacionalidade: "indiana",
+    profissao: "líder político e ativista",
+    mesNascimento: "outubro",
+    mesFalecimento: "janeiro",
+    contribuicoes: ["independência da Índia", "resistência não violenta"],
+  },
+  {
+    nome: "Florence",
+    sobrenome: "Nightingale",
+    idade: 90,
+    nacionalidade: "inglesa",
+    profissao: "enfermeira e reformadora social",
+    mesNascimento: "junho",
+    mesFalecimento: "agosto",
+    contribuicoes: ["fundadora da enfermagem moderna", "higiene hospitalar"],
+  },
+  {
+    nome: "Malala",
+    sobrenome: "Yousafzai",
+    idade: 26,
+    nacionalidade: "paquistanesa",
+    profissao: "ativista",
+    mesNascimento: "julho",
+    mesFalecimento: null,
+    contribuicoes: ["direito à educação das meninas", "prêmio Nobel da Paz"],
+  },
+  {
+    nome: "Benjamin",
+    sobrenome: "Franklin",
+    idade: 84,
+    nacionalidade: "estadunidense",
+    profissao: "político e físico",
+    mesNascimento: "janeiro",
+    mesFalecimento: "abril",
+    contribuicoes: ["experimentos com eletricidade", "fundação dos EUA"],
+  },
+  {
+    nome: "Alan",
+    sobrenome: "Turing",
+    idade: 41,
+    nacionalidade: "inglesa",
+    profissao: "matemático e pioneiro da computação",
+    mesNascimento: "junho",
+    mesFalecimento: "junho",
+    contribuicoes: ["máquina de Turing", "criptografia na Segunda Guerra"],
+  },
+];
+
+let nascidosEFalecidosNoMesmoMes = 0;
+
+figurasHistoricas
+  .filter((f) => f.mesNascimento === f.mesFalecimento)
+  .forEach(() => nascidosEFalecidosNoMesmoMes++);
+
+alert(
+  "Quantidade de pessoas que nasceram e morreram no mesmo mês: " +
+    nascidosEFalecidosNoMesmoMes
+);

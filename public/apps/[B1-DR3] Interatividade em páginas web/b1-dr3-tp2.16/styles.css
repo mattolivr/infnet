@@ -1,0 +1,18 @@
+.accordion {
+  margin: 10px;
+  width: 300px;
+}
+
+.accordion-item {
+  border: 2px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.expanded p {
+  display: block;
+}
+
+.collapsed p {
+  display: none;
+}

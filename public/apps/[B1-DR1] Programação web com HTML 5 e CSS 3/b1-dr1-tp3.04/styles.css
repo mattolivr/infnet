@@ -1,0 +1,24 @@
+#filmes {
+  width: 100%;
+
+  background-color: #405b75;
+  border: 1px ridge #263647;
+
+  color: white;
+  text-align: left;
+  font-family: sans-serif;
+  border-radius: 4px;
+
+  th,
+  td {
+    padding: 12px;
+
+    border: 1px ridge #263647;
+    background-color: #34495e;
+    border-radius: 1px;
+  }
+
+  th {
+    color: #d9da55;
+  }
+}

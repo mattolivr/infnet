@@ -1,0 +1,12 @@
+#tabela {
+  text-align: center;
+  width: 250px;
+}
+
+.verde {
+  background-color: lightgreen;
+}
+
+.vermelho {
+  background-color: lightcoral;
+}

@@ -1,0 +1,29 @@
+h1 {
+  text-decoration: underline;
+}
+
+#jogos {
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    background-color: #333333;
+    color: white;
+
+    text-decoration: underline;
+    text-align: left;
+  }
+
+  tr {
+    background-color: #ffffff;
+
+    &:nth-child(odd) {
+      background-color: #dddddd;
+    }
+  }
+
+  th,
+  td {
+    padding: 4px;
+  }
+}

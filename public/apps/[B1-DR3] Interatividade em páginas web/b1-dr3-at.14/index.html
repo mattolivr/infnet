@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arquivo padrão</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <h1 id="titulo">Formulário de Empresa</h1>
+
+    <form>
+      <fieldset>
+        <legend>Dados Gerais</legend>
+        <div class="field">
+          <label for="nome">Nome da Empresa</label>
+          <input type="text" name="nome" id="nome" required />
+          <small></small>
+        </div>
+        <div class="flex">
+          <div class="field">
+            <label for="fundacao">Data de Fundação</label>
+            <input type="date" name="fundacao" id="fundacao" required />
+            <small></small>
+          </div>
+          <div class="field">
+            <label for="atuacao">Área de Atuação</label>
+            <select name="atuacao" id="atuacao" required>
+              <option value="nenhuma" selected></option>
+              <option value="vendas">Vendas</option>
+              <option value="marketing">Marketing</option>
+              <option value="aplicativos">Aplicativos</option>
+            </select>
+            <small></small>
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">E-Mail</label>
+          <input type="email" name="email" id="email" required />
+          <small></small>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Descrição</legend>
+        <div class="field">
+          <textarea name="descricao" id="descricao" required></textarea>
+          <small></small>
+        </div>
+      </fieldset>
+      <input type="submit" value="Enviar" disabled />
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>

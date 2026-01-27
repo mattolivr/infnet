@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arquivo padrão</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Tipos de Seletores CSS</h1>
+    <div class="card">
+      <h2>Seletor por TAG</h2>
+      <p>Seleciona os elementos de acordo com o nome da tag</p>
+      <pre>div { }</pre>
+      <p>Ex: Todas as tags "pre" foram estilizadas com fundo</p>
+    </div>
+    <div class="card">
+      <h2>Seletor por ID</h2>
+      <p>
+        Seleciona nós baseados no atributo "id", devendo haver apenas um único
+        elemento para cada id
+      </p>
+      <pre>#id { }</pre>
+      <p>
+        Ex: O seguinte elemento: <span id="ex-id">Exemplo</span> foi estilizado
+        por ID
+      </p>
+    </div>
+    <div class="card">
+      <h2>Seletor por CLASSE</h2>
+      <p>Seleciona os elementos a partir do atributo "class".</p>
+      <pre>.nome-da-classe { }</pre>
+      <p>Ex: Cada cartão foi estilizado por classe</p>
+    </div>
+    <div class="card">
+      <h2>Seletor UNIVERSAL</h2>
+      <p>Seleciona todos os elementos ou nós</p>
+      <pre>* { }</pre>
+      <p>Ex: Todos os elementos tiveram sua fonte alterada para "sans-serif"</p>
+    </div>
+    <div class="card">
+      <h2>Seletor por ATRIBUTO</h2>
+      <p>
+        Seleciona todos os elementos que possuam um determinado atributo ou que
+        o valor do atributo seja específico
+      </p>
+      <pre>[atributo] { }   tag[atributo=valor] { }</pre>
+      <p>
+        Ex: Um
+        <a href="https://www.google.com.br/">link que abre na mesma guia</a> não
+        terá seu estilo aplicado enquanto um
+        <a href="https://www.google.com.br/" target="_blank"
+          >link que abre uma nova guia</a
+        >
+        terá.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Seletor por PSEUDO-CLASSE</h2>
+      <p>
+        Combinado com outro seletor, abrange elementos a partir do seu estado
+        interno, como :hover quando está com o mouse sobre ele ou :focus quando
+        está em destaque
+      </p>
+      <pre>tag:hover { } #id:focus { }</pre>
+      <p>
+        Ex: Um <button>Botão</button> terá seu estilo alterado apenas quando
+        estiver com o mouse sobre ele
+      </p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

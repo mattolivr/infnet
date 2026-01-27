@@ -1,0 +1,35 @@
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+}
+
+header {
+  background-color: saddlebrown;
+  color: white;
+
+  padding: 24px 0px;
+  text-align: center;
+}
+
+nav {
+  background-color: sandybrown;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 32px;
+
+  padding: 12px 0px;
+}
+
+nav > a {
+  color: black;
+  text-decoration: none;
+}
+
+nav > a:visited {
+  color: black;
+}

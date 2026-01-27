@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arquivo padrão</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Fica a recomendação de música aí monitor, TOP é mto bom -->
+    <main>
+      <div id="album-container">
+        <img
+          id="album-cover"
+          src="https://cdn-images.dzcdn.net/images/cover/765dc8aba0e893fc6d55af08572fc902/0x1900-000000-80-0-0.jpg"
+        />
+        <div id="track-info">
+          <div id="track-name">
+            <strong>The Hype</strong>
+            <span>twenty one pilots</span>
+          </div>
+          <button class="btn-primary"><i class="fa-solid fa-bars"></i></button>
+        </div>
+      </div>
+      <div class="controlls-container">
+        <p id="track-time">01:42 - 04:25</p>
+        <input
+          type="range"
+          name="track-time-bar"
+          id="track-time-bar"
+          value="34"
+        />
+        <ul id="track-controlls">
+          <li>
+            <button>
+              <i class="fa-solid fa-shuffle"></i>
+            </button>
+          </li>
+          <li>
+            <button><i class="fa-solid fa-stop"></i></button>
+          </li>
+          <li>
+            <button>
+              <i class="fa-solid fa-backward-step"></i>
+            </button>
+          </li>
+          <li>
+            <button class="btn-outline">
+              <i class="fa-solid fa-pause"></i>
+            </button>
+          </li>
+          <li>
+            <button>
+              <i class="fa-solid fa-forward-step"></i>
+            </button>
+          </li>
+          <li>
+            <button>
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+          </li>
+          <li>
+            <button>
+              <i class="fa-solid fa-rotate-right"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

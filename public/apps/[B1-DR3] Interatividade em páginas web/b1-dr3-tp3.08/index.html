@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Arquivo padrão</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Formulário</h1>
+
+    <form action="#" method="post">
+      <label for="nome">Nome:</label><br />
+      <input type="text" id="nome" name="nome" /><br /><br />
+
+      <label for="telefone">Telefone:</label><br />
+      <input type="tel" id="telefone" name="telefone" /><br /><br />
+
+      <label>Comidas que gosta:</label><br />
+      <input type="checkbox" id="brasileira" name="comida" value="brasileira" />
+      <label for="brasileira">Brasileira</label><br />
+
+      <input type="checkbox" id="italiana" name="comida" value="italiana" />
+      <label for="italiana">Italiana</label><br />
+
+      <input type="checkbox" id="japonesa" name="comida" value="japonesa" />
+      <label for="japonesa">Japonesa</label><br /><br />
+
+      <label>Já fez pedido anterior?</label><br />
+      <input type="radio" id="sim" name="pedido_anterior" value="sim" />
+      <label for="sim">Sim</label><br />
+
+      <input type="radio" id="nao" name="pedido_anterior" value="nao" />
+      <label for="nao">Não</label><br /><br />
+
+      <input type="submit" value="Pedir" />
+    </form>
+    <script src="script.js"></script>
+  </body>
+</html>

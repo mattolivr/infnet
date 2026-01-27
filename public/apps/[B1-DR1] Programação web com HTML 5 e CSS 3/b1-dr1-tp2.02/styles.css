@@ -1,0 +1,26 @@
+p {
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+
+/* 1º PARÁGRAFO */
+#p1 {
+  background-color: beige;
+  color: saddlebrown;
+}
+
+/* 2º PARÁGRAFO */
+.p2 {
+  border: 2px darkslateblue dashed;
+}
+
+/* 3º PARÁGRAFO */
+p[lang="la"] {
+  border-left: 2px solid teal;
+  background-color: turquoise;
+}
+
+/* 4º PARÁGRAFO */
+div > p {
+  color: red;
+}
