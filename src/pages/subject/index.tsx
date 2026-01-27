@@ -15,15 +15,18 @@ export default function SubjectPage() {
 
   return (
     <>
-      <Card color="primary">
-        <CardHeader title={subject?.name || "Subject"} />
-        <Icon name="dashboard_2_gear" />
+      <Card
+        color="primary"
+        floatingIcon={<Icon name="dashboard_2_gear" filled />}
+      >
+        <CardHeader title={subject?.name || "Subject"} titleVariant="h2" />
         <Chip
           color="secondary"
           label={`Prof: ${subject?.teacher || "N/A"}`}
           size="small"
         />
       </Card>
+      <Card title="Visão Geral">{subject?.description}</Card>
     </>
   );
 }

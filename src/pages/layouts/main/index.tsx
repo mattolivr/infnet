@@ -55,6 +55,11 @@ const MainLayoutMain = styled("main", {
   minHeight: 0,
   overflowY: "auto",
 
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "stretch",
+  gap: theme.spacing(1),
+
   [theme.breakpoints.only("xs")]: {
     padding: theme.spacing(1),
   },
