@@ -1,0 +1,85 @@
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+
+  thead {
+    tr {
+      background-color: #5a4438;
+    }
+
+    th {
+      padding: 14px 20px;
+      text-align: left;
+      color: #e5d4c1;
+      font-weight: 500;
+
+      &:first-child {
+        border-radius: 6px 0 0 6px;
+      }
+
+      &:last-child {
+        border-radius: 0 6px 6px 0;
+        width: 0;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      background-color: #7a6050;
+
+      &:hover {
+        background-color: #8b6f5c;
+      }
+    }
+
+    td {
+      padding: 16px 20px;
+      color: #f8f4f0;
+
+      &:first-child {
+        border-radius: 6px 0 0 6px;
+        font-weight: 500;
+      }
+
+      &:last-child {
+        border-radius: 0 6px 6px 0;
+        width: 0;
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.btn-excluir {
+  background-color: #d63838;
+  color: #f8f4f0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    background-color: #e84545;
+  }
+}
+
+.btn-editar {
+  background-color: #3a7ad6;
+  color: #f8f4f0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 8px;
+
+  &:hover {
+    background-color: #4a8ee8;
+  }
+}

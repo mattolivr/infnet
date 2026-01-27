@@ -35,7 +35,7 @@ const menuTheme = createTheme(global, {
                   display: "block",
                   position: "relative",
                   borderRadius: global.shape.borderRadius,
-                  maxWidth: 550,
+                  maxWidth: 650,
                 },
               },
             },

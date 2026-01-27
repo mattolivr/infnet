@@ -1,0 +1,55 @@
+@media screen and (prefers-color-scheme: light) {
+  :root {
+    --bg-primary: rgb(240, 240, 240);
+    --bg-secondary: white;
+    --txt-color: black;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: rgb(20, 20, 20);
+    --bg-secondary: rgb(40, 40, 40);
+    --txt-color: white;
+  }
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: min-content auto min-content;
+  gap: 16px;
+
+  min-height: 100vh;
+
+  background-color: var(--bg-primary);
+  color: var(--txt-color);
+}
+
+header {
+  grid-column: span 3;
+  text-align: center;
+}
+
+main {
+  grid-column: span 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+aside {
+  grid-column: 3;
+}
+
+article, aside {
+  background-color: var(--bg-secondary);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+footer {
+  grid-column: span 3;
+  text-align: center;
+}

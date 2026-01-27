@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+p {
+  line-height: 1.5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  padding-left: 2px;
+  padding-right: 6px;
+}
+
+@media screen and (min-width: 556px) {
+  img {
+    width: 330px;
+    height: fit-content;
+  }
+
+  body {
+    flex-direction: row;
+
+    padding: 24px;
+  }
+}

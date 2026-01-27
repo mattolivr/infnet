@@ -1,0 +1,94 @@
+.destaque {
+  position: relative;
+  width: 100%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  q {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 1;
+    margin: 0;
+  }
+}
+
+.biografiaCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagemContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.imagemPerfil {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.conteudoBiografia {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+
+  h3 {
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  p {
+    line-height: 1.6;
+    color: var(--text);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .destaque::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, transparent 100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .biografiaCard {
+    flex-direction: row;
+  }
+
+  .imagemContainer {
+    flex-basis: 550px;
+    flex-shrink: 0;
+    order: 2;
+  }
+
+  .imagemPerfil {
+    min-height: 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .conteudoBiografia {
+    order: 1;
+  }
+}

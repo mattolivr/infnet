@@ -1,0 +1,127 @@
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  width: 100%;
+}
+
+.mainSection {
+  margin-bottom: 32px;
+}
+
+.mainSection h2 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.mainForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.mainFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mainFormGroup label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.mainFormGroup input,
+.mainFormGroup textarea {
+  width: 100%;
+}
+
+.mainFormGroup textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.mainButtonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+.mainButtonGroup button {
+  width: 100%;
+}
+
+.mainList {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.mainList li {
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+@media (min-width: 576px) {
+  .mainContainer {
+    padding: 40px 24px;
+  }
+
+  .mainSection {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mainGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .mainContainer {
+    padding: 48px 24px;
+  }
+
+  .mainGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .mainForm {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .mainFormGroup:has(textarea) {
+    grid-column: span 2;
+  }
+
+  .mainButtonGroup {
+    flex-direction: row;
+  }
+
+  .mainButtonGroup button {
+    width: auto;
+  }
+}

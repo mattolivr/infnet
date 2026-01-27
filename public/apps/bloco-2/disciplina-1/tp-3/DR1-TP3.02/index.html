@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DR1 - TP 3.02</title>
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <h1>Layout Mobile-First</h1>
+      <button id="menu-toggle" class="menu-toggle" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <aside id="links">
+      <h2>Links Úteis</h2>
+      <ul>
+        <li><a href="#novidades">Novidades</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#suporte">Suporte</a></li>
+      </ul>
+    </aside>
+    <section id="conteudo">
+      <article id="inicio">
+        <h2>Bem-vindo!</h2>
+        <img src="https://picsum.photos/600/300" alt="Imagem principal">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+        <p>Labore ab exercitationem laborum aut tempora beatae cumque odio nulla dolores vel tenetur adipisci deserunt excepturi in iusto magnam ipsa itaque nihil optio et deleniti.</p>
+      </article>
+      <article id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div id="cards">
+          <div>
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit quam.</p>
+          </div>
+          <div>
+            <h3>Dolor Sit</h3>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+          </div>
+          <div>
+            <h3>Amet Consectetur</h3>
+            <p>Ut enim ad minim veniam quis nostrud exercitation ullamco.</p>
+          </div>
+        </div>
+      </article>
+      <article id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad veritatis eaque quod sed eum obcaecati corrupti animi quam accusantium molestias ratione mollitia magnam cum dicta consectetur esse facere sint quis.</p>
+        <p>Commodi doloremque saepe quod dolor nisi asperiores quis nemo blanditiis architecto ipsa enim accusamus et earum sint repellendus.</p>
+      </article>
+      <article id="contato">
+        <h2>Entre em Contato</h2>
+        <form>
+          <input type="text" placeholder="Nome" required>
+          <input type="email" placeholder="Email" required>
+          <textarea placeholder="Mensagem" rows="4" required></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </article>
+    </section>
+    <aside id="widgets">
+      <div>
+        <h3>Estatísticas</h3>
+        <ul>
+          <li>100+ Projetos</li>
+          <li>50+ Clientes</li>
+          <li>5 Anos</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Posts Populares</h3>
+        <ul>
+          <li><a href="#">Layouts responsivos</a></li>
+          <li><a href="#">CSS Grid vs Flexbox</a></li>
+          <li><a href="#">Mobile-First</a></li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+  <footer>
+    <div id="info">
+      <h3>Informação</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam iusto mollitia ullam provident sint nam consequuntur magnam nulla rerum modi.</p>
+      <ul>
+        <li><i class="fa-brands fa-facebook-f"></i></li>
+        <li><i class="fa-brands fa-twitter"></i></li>
+        <li><i class="fa-brands fa-instagram"></i></li>
+        <li><i class="fa-brands fa-linkedin-in"></i></li>
+      </ul>
+    </div>
+    <div id="navegacao">
+      <h3>Navegação</h3>
+      <ul>
+        <li><a href="#">Página Inicial</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </div>
+    <hr>
+    <div id="direitos">
+      <p>Por Matheus de Oliveira</p>
+    </div>
+  </footer>
+</body>
+</html>

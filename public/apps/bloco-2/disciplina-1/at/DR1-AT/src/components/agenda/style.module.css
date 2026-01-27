@@ -1,0 +1,23 @@
+.eventosContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.horario {
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .eventosContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .eventosContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
