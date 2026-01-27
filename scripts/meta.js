@@ -1,6 +1,5 @@
-import { log } from "console";
 import * as htmlReader from "./lib/html-reader.js";
-import fs, { read } from "fs";
+import fs from "fs";
 
 const PATH = "./public/apps";
 const META_FILES = new Map();
