@@ -60,6 +60,14 @@ export const global: Theme = createTheme({
       fontWeight: 500,
       fontSize: "1.5rem",
     },
+    h2: {
+      fontSize: "1.25rem",
+      fontWeight: 500,
+    },
+    h3: {
+      fontSize: "1.125rem",
+      fontWeight: 500,
+    },
     button: {
       fontFamily: "Inter",
       fontWeight: 700,
@@ -120,6 +128,35 @@ export const global: Theme = createTheme({
               props: { color: "default" },
               style: {
                 color: theme.palette.secondary.contrastText,
+              },
+            },
+          ],
+        }),
+      },
+    },
+    MuiChip: {
+      defaultProps: {
+        size: "small",
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          fontSize: "0.75rem",
+          fontWeight: 600,
+          width: "fit-content",
+
+          variants: [
+            {
+              props: { color: "primary" },
+              style: {
+                color: theme.palette?.primary?.contrastText,
+                backgroundColor: theme.palette?.primary?.main,
+              },
+            },
+            {
+              props: { color: "secondary" },
+              style: {
+                color: theme.palette?.secondary?.contrastText,
+                backgroundColor: theme.palette?.secondary?.main,
               },
             },
           ],
