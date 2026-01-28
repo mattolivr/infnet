@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { useManifest } from "../../../../hooks/useManifest";
 import Icon from "../../../icon";
 import { Link, useLocation } from "react-router";
-import { toggleMenu } from "../context";
+import { toggleMenu, useMenu } from "../context";
 
 const MenuContentRoot = styled("div", {
   name: "MenuContent",
@@ -202,6 +202,7 @@ interface MenuIndex {
 
 export default function MenuContent() {
   const { blocks, getRawId } = useManifest();
+  const { setVisible } = useMenu();
   const location = useLocation();
 
   const [index, setIndex] = useState<MenuIndex>({
@@ -253,7 +254,7 @@ export default function MenuContent() {
     });
 
     if (!hasChildren) {
-      toggleMenu();
+      setVisible(false);
     }
   };
 
@@ -263,7 +264,7 @@ export default function MenuContent() {
       original: index.original,
     });
 
-    toggleMenu();
+    setVisible(false);
   };
 
   return (
