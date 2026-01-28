@@ -4,8 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "gen:meta": "node ./scripts/meta.js",
-    "gen:manifest": "node ./scripts/manifest.js",
+    "gen:metadata": "node ./scripts/meta.js & node ./scripts/manifest.js",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

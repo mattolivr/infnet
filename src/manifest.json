@@ -3,13 +3,46 @@
   "title": "Caderno",
   "subtitle": "Repositório de Exercícios",
   "description": "Este projeto é um repositório de exercícios desenvolvidos pelo autor para o curso de Engenharia de Software no Instituto Infnet.",
-  "generatedAt": "2026-01-27T23:16:37.387Z",
+  "generatedAt": "2026-01-28T01:46:22.539Z",
   "blocks": [
     {
       "id": "b1",
       "name": "Fundamentos do desenvolvimento de software",
       "icon": "code",
-      "subjects": []
+      "subjects": [
+        {
+          "id": "b1-dr1",
+          "name": "Programação web com HTML5 e CSS3",
+          "icon": "web",
+          "teacher": "Lauro Victor Ramos Cavadas",
+          "description": "A disciplina aborda conceitos básicos de programação web, criando páginas com HTML5 e CSS3, incluindo estruturação de conteúdo, estilização visual e boas práticas de desenvolvimento front-end.",
+          "assignments": []
+        },
+        {
+          "id": "b1-dr2",
+          "name": "Programação web com Javascript",
+          "icon": "code",
+          "teacher": "Eduarda Gabriela Velho",
+          "description": "A disciplina aborda conceitos básicos de programação com Javascript, estruturando programas simples.",
+          "assignments": []
+        },
+        {
+          "id": "b1-dr3",
+          "name": "Interatividade em páginas web",
+          "icon": "ads_click",
+          "teacher": "Lauro Victor Ramos Cavadas",
+          "description": "A disciplina integra o Javascript com HTML5 e CSS3 para criar páginas web interativas, abordando manipulação do DOM e eventos.",
+          "assignments": []
+        },
+        {
+          "id": "b1-dr4",
+          "name": "Programação web com Javascript 2",
+          "icon": "move_down",
+          "teacher": "Eduarda Gabriela Velho",
+          "description": "O curso avança nos conceitos de programação com Javascript, abordando tópicos como funções avançadas, manipulação de arrays e objetos, além de introduzir conceitos de code debugging e uso avançado de funções.",
+          "assignments": []
+        }
+      ]
     },
     {
       "id": "b2",
@@ -276,6 +309,30 @@
               ]
             }
           ]
+        },
+        {
+          "id": "b2-dr2",
+          "name": "Fundamentos de React",
+          "icon": "orbit",
+          "teacher": "Wesley Bruno Barbosa Silva",
+          "description": "O curso aborda o que é o React, como funciona o seu sistema de componentes e como criar aplicações web interativas usando JSX, estado e props, ciclo de vida de componentes e gerenciamento de estado da aplicação.",
+          "assignments": []
+        },
+        {
+          "id": "b2-dr3",
+          "name": "Desenvolvimento mobile com React Native",
+          "icon": "mobile_code",
+          "teacher": "Cidcley Schmitt de Oliveira",
+          "description": "A matéria explora o framework React Native para o desenvolvimento de aplicações móveis, abordando a criação de interfaces nativas, navegação entre telas, gerenciamento de estado e integração com APIs.",
+          "assignments": []
+        },
+        {
+          "id": "b2-dr4",
+          "name": "Desenvolvimento web com React",
+          "icon": "dashboard_2_edit",
+          "teacher": "Wesley Bruno Barbosa Silva",
+          "description": "O curso aprofunda os conceitos do React para o desenvolvimento web, incluindo roteamento, hooks avançados, otimização de desempenho e integração com bibliotecas externas.",
+          "assignments": []
         }
       ]
     },

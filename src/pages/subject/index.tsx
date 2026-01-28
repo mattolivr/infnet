@@ -19,10 +19,7 @@ export default function SubjectPage() {
 
   return (
     <>
-      <Card
-        color="primary"
-        floatingIcon={<Icon name="dashboard_2_gear" filled />}
-      >
+      <Card color="primary" floatingIcon={<Icon name={subject?.icon} filled />}>
         <CardHeader title={subject?.name || "Subject"} titleVariant="h2" />
         <Chip
           color="secondary"

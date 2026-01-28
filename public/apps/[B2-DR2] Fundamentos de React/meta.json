@@ -1,0 +1,8 @@
+{
+  "id": "b2-dr2",
+  "name": "Fundamentos de React",
+  "icon": "orbit",
+  "teacher": "Wesley Bruno Barbosa Silva",
+  "description": "O curso aborda o que é o React, como funciona o seu sistema de componentes e como criar aplicações web interativas usando JSX, estado e props, ciclo de vida de componentes e gerenciamento de estado da aplicação.",
+  "assignments": []
+}
