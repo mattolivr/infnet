@@ -18,6 +18,7 @@ const CardHeaderRoot = styled("div", {
   justifyContent: "space-between",
   alignItems: "center",
   gap: theme.spacing(1),
+  flexGrow: 1,
 }));
 
 const CardHeaderTitle = styled(Typography, {

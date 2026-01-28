@@ -32,6 +32,24 @@ const CardRoot = styled(MuiCard, {
   boxShadow: "none",
 }));
 
+const CardBody = styled("div", {
+  name: "Card",
+  slot: "body",
+})(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "stretch",
+  justifyContent: "flex-start",
+  gap: theme.spacing(1),
+  position: "relative",
+
+  fontSize: theme.typography.body1.fontSize,
+  fontWeight: theme.typography.body1.fontWeight,
+  lineHeight: theme.typography.body1.lineHeight,
+  letterSpacing: theme.typography.body1.letterSpacing,
+  fontFamily: theme.typography.body1.fontFamily,
+}));
+
 const FloatingIcon = styled("div", {
   name: "Card",
   slot: "floatingIcon",
@@ -51,12 +69,24 @@ const cardTheme = createTheme(global, {
     Card: {
       styleOverrides: {
         root: {
+          backgroundColor: global.palette?.background?.paper,
+          color: global.palette?.text?.primary,
+          border: `2px solid ${global.palette?.divider}`,
+
           variants: [
             {
               props: { color: "primary" },
               style: {
                 backgroundColor: global.palette?.primary?.main,
                 color: global.palette?.primary?.contrastText,
+              },
+            },
+            {
+              props: { color: "secondary" },
+              style: {
+                backgroundColor: global.palette.grey[100],
+                color: global.palette?.text?.primary,
+                border: "none",
               },
             },
           ],
@@ -88,13 +118,7 @@ export default function Card(props: CardProps) {
       <ThemeProvider theme={cardTheme}>
         <CardRoot {...cardProps}>
           {title && <CardHeader title={title} />}
-
-          {typeof children === "string" ? (
-            <Typography>{children}</Typography>
-          ) : (
-            children
-          )}
-
+          <CardBody>{children}</CardBody>
           {floatingIcon && <FloatingIcon>{floatingIcon}</FloatingIcon>}
         </CardRoot>
       </ThemeProvider>

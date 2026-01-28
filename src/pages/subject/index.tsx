@@ -1,15 +1,68 @@
 import { useParams } from "react-router";
 import Card from "../../components/card";
 import CardHeader from "../../components/card/header";
-import { Chip } from "@mui/material";
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Avatar,
+  Button,
+  Chip,
+  Fade,
+  styled,
+  type AccordionSlots,
+} from "@mui/material";
 import Icon from "../../components/icon";
 import { useManifest } from "../../hooks/useManifest";
+
+const Assignment = styled(Accordion)(({ theme }) => ({
+  backgroundColor: "transparent",
+  boxShadow: "none",
+  border: "none",
+
+  "&:before": {
+    display: "none",
+  },
+
+  "&.Mui-expanded": {
+    margin: 0,
+  },
+}));
+
+const AssignmentHeader = styled(AccordionSummary)(({ theme }) => ({
+  padding: 0,
+  minHeight: "auto",
+
+  "&.Mui-expanded": {
+    minHeight: "auto",
+  },
+
+  "& .MuiAccordionSummary-content": {
+    margin: 0,
+
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(1),
+
+    "&.Mui-expanded": {
+      margin: 0,
+    },
+  },
+}));
+
+const AssignmentDetails = styled(AccordionDetails)(({ theme }) => ({
+  padding: 0,
+  paddingTop: theme.spacing(1),
+
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "stretch",
+  gap: theme.spacing(1),
+}));
 
 export default function SubjectPage() {
   const { blockId, subjectId } = useParams();
   const { subjects, getSubjectById, getId } = useManifest();
-
-  console.log("id", getId(blockId, subjectId));
 
   const subject = getSubjectById(getId(blockId, subjectId) || "");
   if (!subject) {
@@ -28,6 +81,36 @@ export default function SubjectPage() {
         />
       </Card>
       <Card title="Visão Geral">{subject?.description}</Card>
+      {subject?.assignments?.map((assignment, asgmtIndex) => (
+        <Card key={`asgmt-${asgmtIndex}`}>
+          <Assignment
+            slotProps={{ transition: { timeout: 250 } }}
+            disableGutters
+          >
+            <AssignmentHeader expandIcon={<Icon name="expand_more" />}>
+              <Avatar>
+                <Icon name="deployed_code" />
+              </Avatar>
+              <CardHeader title={assignment.title} />
+            </AssignmentHeader>
+            <AssignmentDetails>
+              {assignment.tasks.map((task, taskIndex) => (
+                <Card key={`asgn-${asgmtIndex}-${taskIndex}`} color="secondary">
+                  <CardHeader>
+                    <Avatar color="secondary">
+                      {(taskIndex + 1).toString().padStart(2, "0")}
+                    </Avatar>
+                    <CardHeader.Title variant="h3">
+                      {task.title}
+                    </CardHeader.Title>
+                  </CardHeader>
+                  {task.description}
+                </Card>
+              ))}
+            </AssignmentDetails>
+          </Assignment>
+        </Card>
+      ))}
     </>
   );
 }

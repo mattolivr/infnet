@@ -21,7 +21,7 @@ const menuTheme = createTheme(global, {
       styleOverrides: {
         paper: {
           background: global.palette?.background?.blueGradient,
-          border: "none",
+          border: `2px solid ${global.palette?.divider}`,
 
           variants: [
             {

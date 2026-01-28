@@ -57,20 +57,21 @@ export const global: Theme = createTheme({
     fontSize: 16,
     h1: {
       fontFamily: "Lexend",
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: "1.5rem",
     },
     h2: {
       fontSize: "1.25rem",
-      fontWeight: 500,
+      fontWeight: 600,
     },
     h3: {
       fontSize: "1.125rem",
-      fontWeight: 500,
+      fontWeight: 600,
     },
     button: {
       fontFamily: "Inter",
       fontWeight: 700,
+      textTransform: "none",
     },
   },
   shape: {
@@ -82,13 +83,46 @@ export const global: Theme = createTheme({
   components: {
     MuiButton: {
       defaultProps: {
-        variant: "contained",
-        color: "secondary",
-        sx: {
-          px: 3,
-          py: 1.5,
-          boxShadow: 0,
-        },
+        color: "primary",
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+
+          paddingInline: theme.spacing(3),
+          paddingBlock: theme.spacing(1.5),
+
+          variants: [
+            {
+              props: { color: "primary" },
+              style: {
+                color: theme.palette.primary.contrastText,
+                backgroundColor: theme.palette.primary.main,
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.dark,
+                },
+              },
+            },
+            {
+              props: { color: "secondary" },
+              style: {
+                color: theme.palette.text.secondary,
+                backgroundColor: theme.palette.grey[200],
+                "&:hover": {
+                  backgroundColor: theme.palette.grey[300],
+                },
+              },
+            },
+            {
+              props: { color: "default" },
+              style: {
+                color: theme.palette.secondary.contrastText,
+              },
+            },
+          ],
+        }),
       },
     },
     MuiIconButton: {
@@ -118,9 +152,9 @@ export const global: Theme = createTheme({
               props: { color: "secondary" },
               style: {
                 color: theme.palette.text.secondary,
-                backgroundColor: theme.palette.grey[300],
+                backgroundColor: theme.palette.grey[200],
                 "&:hover": {
-                  backgroundColor: theme.palette.grey[400],
+                  backgroundColor: theme.palette.grey[300],
                 },
               },
             },
@@ -128,6 +162,46 @@ export const global: Theme = createTheme({
               props: { color: "default" },
               style: {
                 color: theme.palette.secondary.contrastText,
+              },
+            },
+          ],
+        }),
+      },
+    },
+    MuiAvatar: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          width: 42,
+          height: 42,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+
+          "&:not(:has(.material-symbols-rounded))": {
+            fontFamily: "Lexend",
+            fontWeight: 600,
+            fontSize: 18,
+          },
+
+          color: theme.palette.text.secondary,
+          backgroundColor: theme.palette.grey[200],
+
+          variants: [
+            {
+              props: { color: "primary" },
+              style: {
+                color: theme.palette.primary.contrastText,
+                backgroundColor: theme.palette.primary.main,
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.dark,
+                },
+              },
+            },
+            {
+              props: { color: "secondary" },
+              style: {
+                backgroundColor: theme.palette.background.paper,
+                color: theme.palette.text.secondary,
               },
             },
           ],

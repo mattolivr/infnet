@@ -3,7 +3,7 @@
   "name": "Mobile-first UI com React",
   "icon": "devices_other",
   "teacher": "Cidcley Schmitt de Oliveira",
-  "description": "A disciplina abora a criação de interfaces de usuário pensadas em dispositivos móveis, focando em estratégias para design responsivo, otimização de recursos e usabilidade em diferentes tamanhos de tela e desenvolvendo habilidades para projetar aplicações mobile-first.",
+  "description": "A disciplina aborda a criação de interfaces de usuário pensadas em dispositivos móveis, focando em estratégias para design responsivo, otimização de recursos e usabilidade em diferentes tamanhos de tela e desenvolvendo habilidades para projetar aplicações mobile-first.",
   "assignments": [
     {
       "id": "b2-dr1-tp1",

@@ -10,16 +10,21 @@ const MainLayoutRoot = styled("div", {
 })(({ theme }) => ({
   background: theme.palette.background.default,
   width: "100%",
-  height: "100lvh",
+  minHeight: "100lvh",
 
   display: "flex",
   flexDirection: "column",
   alignItems: "stretch",
-  overflow: "hidden",
 
   [theme.breakpoints.up("sm")]: {
     background: theme.palette.background.lightBlueGradient,
     padding: theme.spacing(2),
+  },
+
+  [theme.breakpoints.up("lg")]: {
+    height: "100lvh",
+    minHeight: "auto",
+    overflow: "hidden",
   },
 }));
 
@@ -28,9 +33,8 @@ const MainLayoutContainer = styled("div", {
   slot: "container",
 })(({ theme }) => ({
   background: theme.palette.background.default,
-
   flexGrow: 1,
-  minHeight: 0,
+
   display: "flex",
   flexDirection: "column",
   alignItems: "stretch",
@@ -44,6 +48,7 @@ const MainLayoutContainer = styled("div", {
   [theme.breakpoints.up("lg")]: {
     flexDirection: "row",
     gap: theme.spacing(1),
+    minHeight: 0,
   },
 }));
 
@@ -51,10 +56,6 @@ const MainLayoutMain = styled("main", {
   name: "MainLayout",
   slot: "main",
 })(({ theme }) => ({
-  flexGrow: 1,
-  minHeight: 0,
-  overflowY: "auto",
-
   display: "flex",
   flexDirection: "column",
   alignItems: "stretch",
@@ -62,6 +63,18 @@ const MainLayoutMain = styled("main", {
 
   [theme.breakpoints.only("xs")]: {
     padding: theme.spacing(1),
+  },
+
+  [theme.breakpoints.up("lg")]: {
+    flex: "1 1 0",
+    minHeight: 0,
+    maxHeight: "100%",
+    overflowY: "scroll",
+    padding: theme.spacing(1),
+
+    "& > *": {
+      flexShrink: 0,
+    },
   },
 }));
 
