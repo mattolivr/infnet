@@ -14,40 +14,11 @@ import {
 } from "@mui/material";
 import { global } from "../../../../theme";
 import Header from "../../header";
-import {
-  AdsClickOutlined,
-  AdsClickRounded,
-  CottageOutlined,
-  CottageRounded,
-  DashboardOutlined,
-  DashboardRounded,
-  DeveloperModeOutlined,
-  DeveloperModeRounded,
-  DevicesOtherOutlined,
-  DevicesOtherRounded,
-  FlipCameraAndroidOutlined,
-  FlipCameraAndroidRounded,
-  InfoOutlined,
-  InfoRounded,
-  RocketLaunchOutlined,
-  RocketLaunchRounded,
-  SettingsSuggestOutlined,
-  SettingsSuggestRounded,
-  SourceOutlined,
-  SourceRounded,
-  WebOutlined,
-  WebRounded,
-  WidgetsOutlined,
-  WidgetsRounded,
-} from "@mui/icons-material";
-import { useState } from "react";
-
-/** TODO: Quando criar as rotas, puxar os dois da mesma definição */
-interface MenuItemProps {
-  label: string;
-  icon?: React.ReactNode[];
-  children?: MenuItemProps[];
-}
+import { useEffect, useState } from "react";
+import { useManifest } from "../../../../hooks/useManifest";
+import Icon from "../../../icon";
+import { Link, useLocation } from "react-router";
+import { toggleMenu } from "../context";
 
 const MenuContentRoot = styled("div", {
   name: "MenuContent",
@@ -146,16 +117,27 @@ const menuContentTheme = createTheme(global, {
           color: global.palette.secondary.contrastText,
           borderRadius: global.spacing(2),
           marginBlock: global.spacing(0.5),
-          paddingInline: global.spacing(1),
+          paddingInline: global.spacing(1.5),
+          gap: global.spacing(1),
 
-          "& .MuiSvgIcon-root": {
+          "& > a": {
+            display: "inherit",
+            alignItems: "inherit",
+            gap: "inherit",
+
+            width: "100%",
+            textDecoration: "none",
+          },
+
+          "& span": {
             color: global.palette.secondary.contrastText,
           },
 
           "&.Mui-selected": {
             backgroundColor: global.palette.primary.main,
             color: global.palette.primary.contrastText,
-            "& .MuiSvgIcon-root": {
+
+            "& span": {
               color: global.palette.primary.contrastText,
             },
           },
@@ -169,7 +151,7 @@ const menuContentTheme = createTheme(global, {
     MuiListItemIcon: {
       styleOverrides: {
         root: {
-          minWidth: global.spacing(5.5),
+          minWidth: global.spacing(0),
         },
       },
     },
@@ -206,9 +188,83 @@ const menuContentTheme = createTheme(global, {
   },
 });
 
+interface MenuItemModel {
+  label: string;
+  icon?: string;
+  children?: MenuItemModel[];
+  route?: string;
+}
+
+interface MenuIndex {
+  current: number[];
+  original: number[];
+}
+
 export default function MenuContent() {
-  const [current, setCurrent] = useState(0);
-  const [currentSecondary, setCurrentSecondary] = useState(0);
+  const { blocks, getRawId } = useManifest();
+  const location = useLocation();
+
+  const [index, setIndex] = useState<MenuIndex>({
+    current: [],
+    original: [],
+  });
+
+  const items: MenuItemModel[] = [
+    {
+      label: "Início",
+      icon: "home",
+      route: "/home",
+    },
+    {
+      label: "Blocos",
+      icon: "dashboard",
+      children: blocks
+        .filter((block) => block.subjects.length > 0)
+        .map((block) => ({
+          label: block.name,
+          icon: block.icon,
+          children: block.subjects.map((subject) => ({
+            label: subject.name,
+            icon: subject.icon,
+            route: `/block/${getRawId(block.id)}/subject/${getRawId(subject.id)}`,
+          })),
+        })),
+    },
+    {
+      label: "Sobre",
+      icon: "info",
+      route: "/about",
+    },
+  ];
+
+  useEffect(() => {
+    const newIndex = getCurrentIndex(location.pathname, items);
+
+    setIndex({
+      current: newIndex,
+      original: index.original.length === 0 ? newIndex : index.original,
+    });
+  }, [location.pathname]);
+
+  const handleItemClick = (newIndex: number, hasChildren: boolean) => {
+    setIndex({
+      current: [newIndex],
+      original: index.original,
+    });
+
+    if (!hasChildren) {
+      toggleMenu();
+    }
+  };
+
+  const handleSubItemClick = (newIndex: number) => {
+    setIndex({
+      current: [index.current[0], newIndex],
+      original: index.original,
+    });
+
+    toggleMenu();
+  };
 
   return (
     <MenuContentRoot>
@@ -217,61 +273,61 @@ export default function MenuContent() {
         <Divider />
         <MenuContentLists>
           <MenuContentSecondaryList disablePadding>
-            {getSecondaryItems(itens[current]).map((item, index) => {
+            {items[index.current[0]]?.children?.map((item, i) => {
               if (item.children) {
                 return (
-                  <ListSubheader key={"secondary-" + index} disableSticky>
-                    <Typography variant="body2" sx={{ fontWeight: 600 }}>
-                      {item.label}
-                    </Typography>
-                  </ListSubheader>
+                  <div key={"menu-sec-group-" + i}>
+                    <MenuItemHeader menuItem={item} />
+
+                    {item.children.map((subItem, j) => (
+                      <MenuItem
+                        key={"menu-sec-sub-item-" + i + "-" + j}
+                        menuItem={subItem}
+                        selected={j === index.current[1]}
+                        onClick={() => handleSubItemClick(j)}
+                      />
+                    ))}
+                  </div>
                 );
               }
+
               return (
-                <ListItemButton
-                  key={"secondary-" + index}
-                  selected={index === currentSecondary}
-                  onClick={() => setCurrentSecondary(index)}
-                >
-                  <ListItemIcon>
-                    {item.icon && item.icon[index === currentSecondary ? 1 : 0]}
-                  </ListItemIcon>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
+                <MenuItem
+                  key={"menu-sec-item" + i}
+                  menuItem={item}
+                  selected={i === index.current[1]}
+                  onClick={() => handleSubItemClick(i)}
+                />
               );
             })}
           </MenuContentSecondaryList>
           <Divider />
           <BottomNavigation
             showLabels
-            value={current}
+            value={index.current[0]}
             onChange={(_event, newValue) => {
-              setCurrent(newValue);
+              handleItemClick(newValue, !!items[newValue].children);
             }}
           >
-            {itens.map((item, index) => (
+            {items.map((item, i) => (
               <BottomNavigationAction
-                key={"bottomnav-" + index}
+                key={"bottomnav-" + i}
                 label={item.label}
-                icon={
-                  item.icon &&
-                  item.icon[current === itens.indexOf(item) ? 1 : 0]
-                }
+                icon={<Icon name={item.icon} filled={i === index.current[0]} />}
+                component={Link}
+                to={item.route || "#"}
+                sx={{ textDecoration: "none" }}
               />
             ))}
           </BottomNavigation>
           <MenuContentPrimaryList disablePadding>
-            {itens.map((item, index) => (
-              <ListItemButton
-                key={"primary-" + index}
-                selected={index === current}
-                onClick={() => setCurrent(index)}
-              >
-                <ListItemIcon>
-                  {item.icon && item.icon[index === current ? 1 : 0]}
-                </ListItemIcon>
-                <ListItemText primary={item.label} />
-              </ListItemButton>
+            {items.map((item, i) => (
+              <MenuItem
+                key={"menu-item" + i}
+                menuItem={item}
+                selected={i === index.current[0]}
+                onClick={() => handleItemClick(i, !!item.children)}
+              />
             ))}
           </MenuContentPrimaryList>
         </MenuContentLists>
@@ -280,79 +336,62 @@ export default function MenuContent() {
   );
 }
 
-function getSecondaryItems(current: MenuItemProps): MenuItemProps[] {
-  if (!current.children) {
-    return [];
-  }
+interface MenuItemHeaderProps {
+  menuItem: MenuItemModel;
+}
 
-  return current.children.flatMap((child) =>
-    child.children ? [child, ...child.children] : [child],
+function MenuItemHeader(props: MenuItemHeaderProps) {
+  return (
+    <ListSubheader disableSticky>
+      <Typography variant="body2" sx={{ fontWeight: 600 }}>
+        {props.menuItem.label}
+      </Typography>
+    </ListSubheader>
   );
 }
 
-const itens: MenuItemProps[] = [
-  {
-    label: "Início",
-    icon: [<CottageOutlined />, <CottageRounded />],
-  },
-  {
-    label: "Disciplinas",
-    icon: [<DashboardOutlined />, <DashboardRounded />],
-    children: [
-      {
-        label: "Fundamentos do Desenvolvimento de Software",
-        children: [
-          {
-            label: "Projeto de bloco",
-            icon: [<SourceOutlined />, <SourceRounded />],
-          },
-          {
-            label: "Programação web com HTML 5 e CSS 3",
-            icon: [<WebOutlined />, <WebRounded />],
-          },
-          {
-            label: "Programação web com JavaScript",
-            icon: [<SettingsSuggestOutlined />, <SettingsSuggestRounded />],
-          },
-          {
-            label: "Interatividade em páginas web",
-            icon: [<WidgetsOutlined />, <WidgetsRounded />],
-          },
-          {
-            label: "Programação web com JavaScript 2",
-            icon: [<RocketLaunchOutlined />, <RocketLaunchRounded />],
-          },
-        ],
-      },
-      {
-        label: "Desenvolvimento Front-end com Frameworks",
-        children: [
-          {
-            label: "Projeto de bloco",
-            icon: [<SourceOutlined />, <SourceRounded />],
-          },
-          {
-            label: "Mobile-first UI com React",
-            icon: [<DevicesOtherOutlined />, <DevicesOtherRounded />],
-          },
-          {
-            label: "Fundamentos de React",
-            icon: [<FlipCameraAndroidOutlined />, <FlipCameraAndroidRounded />],
-          },
-          {
-            label: "Desennvolvimento mobile com React Native",
-            icon: [<DeveloperModeOutlined />, <DeveloperModeRounded />],
-          },
-          {
-            label: "Desenvolvimento web com React",
-            icon: [<AdsClickOutlined />, <AdsClickRounded />],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Sobre",
-    icon: [<InfoOutlined />, <InfoRounded />],
-  },
-];
+interface MenuItemProps {
+  menuItem: MenuItemModel;
+  selected: boolean;
+  onClick: () => void;
+}
+
+function MenuItem(props: MenuItemProps) {
+  return (
+    <ListItemButton
+      selected={props.selected}
+      onClick={props.onClick}
+      component={props.menuItem.route ? Link : "div"}
+      to={props.menuItem.route}
+      sx={{ textDecoration: "none" }}
+    >
+      <ListItemIcon>
+        <Icon name={props.menuItem.icon} filled={props.selected} />
+      </ListItemIcon>
+      <ListItemText primary={props.menuItem.label} />
+    </ListItemButton>
+  );
+}
+
+function getCurrentIndex(
+  currentPath: string,
+  items: MenuItemModel[],
+  level: number = 0,
+): number[] {
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+
+    if (item.route === currentPath) {
+      return [i];
+    }
+
+    if (item.children) {
+      const childIndex = getCurrentIndex(currentPath, item.children, level + 1);
+      if (childIndex.length > 0) {
+        return [i, ...childIndex];
+      }
+    }
+  }
+
+  return [];
+}

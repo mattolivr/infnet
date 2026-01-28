@@ -3,7 +3,7 @@
   "title": "Caderno",
   "subtitle": "Repositório de Exercícios",
   "description": "Este projeto é um repositório de exercícios desenvolvidos pelo autor para o curso de Engenharia de Software no Instituto Infnet.",
-  "generatedAt": "2026-01-27T23:01:56.702Z",
+  "generatedAt": "2026-01-27T23:16:37.387Z",
   "blocks": [
     {
       "id": "b1",
@@ -311,8 +311,8 @@
     },
     {
       "id": "b8",
-      "name": "Engenharia disciplinada de softwares",
-      "icon": "architecture",
+      "name": "Projeto de bloco",
+      "icon": "team_dashboard",
       "subjects": []
     }
   ]

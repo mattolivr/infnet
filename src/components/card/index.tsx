@@ -81,21 +81,21 @@ const cardTheme = createTheme(global, {
 });
 
 export default function Card(props: CardProps) {
+  const { floatingIcon, title, children, ...cardProps } = props;
+
   return (
     <CardContext.Provider value={{ cardProps: props }}>
       <ThemeProvider theme={cardTheme}>
-        <CardRoot {...props}>
-          {props.title && <CardHeader title={props.title} />}
+        <CardRoot {...cardProps}>
+          {title && <CardHeader title={title} />}
 
-          {typeof props.children === "string" ? (
-            <Typography>{props.children}</Typography>
+          {typeof children === "string" ? (
+            <Typography>{children}</Typography>
           ) : (
-            props.children
+            children
           )}
 
-          {props.floatingIcon && (
-            <FloatingIcon>{props.floatingIcon}</FloatingIcon>
-          )}
+          {floatingIcon && <FloatingIcon>{floatingIcon}</FloatingIcon>}
         </CardRoot>
       </ThemeProvider>
     </CardContext.Provider>

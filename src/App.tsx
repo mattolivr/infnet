@@ -12,9 +12,9 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
+          <Route path="home" element={<HomePage />} />
           <Route
-            path="bloco/:blockId/materia/:subjectId"
+            path="block/:blockId/subject/:subjectId"
             element={<SubjectPage />}
           />
         </Route>

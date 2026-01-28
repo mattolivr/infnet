@@ -1,7 +1,7 @@
 import fs from "fs";
 
 const PATH = "./public/apps";
-const OUTPUT_FILE = "./public/manifest.json";
+const OUTPUT_FILE = "./src/manifest.json";
 
 function main() {
   const manifest = buildManifest();
