@@ -4,7 +4,6 @@ import {
   type CardProps as MuiCardProps,
   styled,
   ThemeProvider,
-  Typography,
 } from "@mui/material";
 import CardHeader from "./header";
 import { global } from "../../theme";

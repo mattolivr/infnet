@@ -14,11 +14,11 @@ import {
 } from "@mui/material";
 import { global } from "../../../../theme";
 import Header from "../../header";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useManifest } from "../../../../hooks/useManifest";
 import Icon from "../../../icon";
 import { Link, useLocation } from "react-router";
-import { toggleMenu, useMenu } from "../context";
+import { useMenu } from "../context";
 
 const MenuContentRoot = styled("div", {
   name: "MenuContent",
@@ -195,20 +195,12 @@ interface MenuItemModel {
   route?: string;
 }
 
-interface MenuIndex {
-  current: number[];
-  original: number[];
-}
-
 export default function MenuContent() {
   const { blocks, getRawId } = useManifest();
   const { setVisible } = useMenu();
   const location = useLocation();
 
-  const [index, setIndex] = useState<MenuIndex>({
-    current: [],
-    original: [],
-  });
+  const [index, setIndex] = useState(-1);
 
   const items: MenuItemModel[] = [
     {
@@ -238,33 +230,32 @@ export default function MenuContent() {
     },
   ];
 
-  useEffect(() => {
-    const newIndex = getCurrentIndex(location.pathname, items);
-
-    setIndex({
-      current: newIndex,
-      original: index.original.length === 0 ? newIndex : index.original,
-    });
-  }, [location.pathname]);
-
   const handleItemClick = (newIndex: number, hasChildren: boolean) => {
-    setIndex({
-      current: [newIndex],
-      original: index.original,
-    });
+    setIndex(newIndex);
 
     if (!hasChildren) {
       setVisible(false);
     }
   };
 
-  const handleSubItemClick = (newIndex: number) => {
-    setIndex({
-      current: [index.current[0], newIndex],
-      original: index.original,
-    });
-
+  const handleSubItemClick = () => {
     setVisible(false);
+  };
+
+  const isCurrentRoute = (route?: string): boolean => {
+    return (route && location.pathname.includes(route)) || false;
+  };
+
+  const hasActiveChild = (item: MenuItemModel): boolean => {
+    if (item.route && isCurrentRoute(item.route)) {
+      return true;
+    }
+
+    if (item.children) {
+      return item.children.some((child) => hasActiveChild(child));
+    }
+
+    return false;
   };
 
   return (
@@ -274,7 +265,7 @@ export default function MenuContent() {
         <Divider />
         <MenuContentLists>
           <MenuContentSecondaryList disablePadding>
-            {items[index.current[0]]?.children?.map((item, i) => {
+            {items[index]?.children?.map((item, i) => {
               if (item.children) {
                 return (
                   <div key={"menu-sec-group-" + i}>
@@ -284,8 +275,8 @@ export default function MenuContent() {
                       <MenuItem
                         key={"menu-sec-sub-item-" + i + "-" + j}
                         menuItem={subItem}
-                        selected={j === index.current[1]}
-                        onClick={() => handleSubItemClick(j)}
+                        selected={isCurrentRoute(subItem.route)}
+                        onClick={() => handleSubItemClick()}
                       />
                     ))}
                   </div>
@@ -296,8 +287,8 @@ export default function MenuContent() {
                 <MenuItem
                   key={"menu-sec-item" + i}
                   menuItem={item}
-                  selected={i === index.current[1]}
-                  onClick={() => handleSubItemClick(i)}
+                  selected={isCurrentRoute(item.route)}
+                  onClick={() => handleSubItemClick()}
                 />
               );
             })}
@@ -305,7 +296,7 @@ export default function MenuContent() {
           <Divider />
           <BottomNavigation
             showLabels
-            value={index.current[0]}
+            value={items.findIndex((item) => isCurrentRoute(item.route))}
             onChange={(_event, newValue) => {
               handleItemClick(newValue, !!items[newValue].children);
             }}
@@ -314,7 +305,9 @@ export default function MenuContent() {
               <BottomNavigationAction
                 key={"bottomnav-" + i}
                 label={item.label}
-                icon={<Icon name={item.icon} filled={i === index.current[0]} />}
+                icon={
+                  <Icon name={item.icon} filled={isCurrentRoute(item.route)} />
+                }
                 component={Link}
                 to={item.route || "#"}
                 sx={{ textDecoration: "none" }}
@@ -326,7 +319,7 @@ export default function MenuContent() {
               <MenuItem
                 key={"menu-item" + i}
                 menuItem={item}
-                selected={i === index.current[0]}
+                selected={hasActiveChild(item)}
                 onClick={() => handleItemClick(i, !!item.children)}
               />
             ))}
@@ -372,27 +365,4 @@ function MenuItem(props: MenuItemProps) {
       <ListItemText primary={props.menuItem.label} />
     </ListItemButton>
   );
-}
-
-function getCurrentIndex(
-  currentPath: string,
-  items: MenuItemModel[],
-  level: number = 0,
-): number[] {
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-
-    if (item.route === currentPath) {
-      return [i];
-    }
-
-    if (item.children) {
-      const childIndex = getCurrentIndex(currentPath, item.children, level + 1);
-      if (childIndex.length > 0) {
-        return [i, ...childIndex];
-      }
-    }
-  }
-
-  return [];
 }

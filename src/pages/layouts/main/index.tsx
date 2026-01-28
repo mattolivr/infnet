@@ -70,7 +70,6 @@ const MainLayoutMain = styled("main", {
     minHeight: 0,
     maxHeight: "100%",
     overflowY: "scroll",
-    padding: theme.spacing(1),
 
     "& > *": {
       flexShrink: 0,
