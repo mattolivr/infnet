@@ -6,15 +6,17 @@ export function readFile(filePath, subjectsPath) {
   const $ = extractRawHTML(content);
 
   const id = filePath.split("/").pop().replace(".html", "");
-  const title = getTitle($);
+  const rawTitle = $("h2").first().text().trim();
+  const title = sanitizeTitle(rawTitle);
+  const type = determineType(rawTitle);
   const description = getDescription($);
   const tasks = getTasks($, id, subjectsPath);
 
   const result = {
     id: id,
-    type: "exercise",
+    type: type,
     title: title,
-    description: description.substring(0, 200) + "...",
+    description: description,
     tasks: tasks,
   };
 
@@ -37,25 +39,61 @@ function extractRawHTML(viewSourceHTML) {
   return cheerio.load(rawHTML);
 }
 
-function getTitle($) {
-  return sanitizeTitle($("h2").first().text().trim());
-}
-
 function sanitizeTitle(title) {
   return title.split(/[-–—\[\(\{\|]/)[0].trim();
 }
 
-function getDescription($) {
-  const descriptionParagraphs = [];
+function determineType(title) {
+  const lowerTitle = title.toLowerCase();
 
-  $("p").each((i, elem) => {
+  if (lowerTitle.includes("teste de performance")) {
+    return "tasklist";
+  }
+
+  if (lowerTitle.includes("assessment")) {
+    return "assessment";
+  }
+
+  if (lowerTitle.includes("projeto")) {
+    return "project";
+  }
+
+  return "unknown";
+}
+
+function getDescription($) {
+  const descriptionElements = [];
+  const introDiv = $("#intro");
+
+  if (!introDiv.length) {
+    return "";
+  }
+
+  introDiv.find("p").each((i, elem) => {
     const text = $(elem).text().trim();
-    if (text && i < 5 && !text.includes("Matheus")) {
-      descriptionParagraphs.push(text);
+
+    if (i <= 1) {
+      return;
+    }
+
+    if (
+      text.toLowerCase().includes("uso de ias") ||
+      text.toLowerCase().includes("uso de ia") ||
+      text.toLowerCase().includes("ferramentas generativa") ||
+      text.toLowerCase().includes("todas as partes")
+    ) {
+      return false;
+    }
+
+    if (text.trim() !== "") {
+      const html = $(elem).html();
+      descriptionElements.push(`<p>${html}</p>`);
     }
   });
 
-  return descriptionParagraphs.join(" ");
+  // Remove <br> duplicados consecutivos
+  const description = descriptionElements.join("");
+  return description.replace(/(<br\s*\/?>[\s\n]*)+/gi, "<br>");
 }
 
 function getTasks($, id, subjectsPath) {
@@ -84,17 +122,24 @@ function extractTaskTitle($, elem) {
 }
 
 function extractTaskDescription($, elem) {
-  let description = "";
+  let descriptionHTML = "";
   let nextElem = $(elem).parent().next();
 
   while (nextElem.length && !nextElem.hasClass("editor-indent")) {
-    if (nextElem.is("p") || nextElem.is("ul")) {
-      description += nextElem.text().trim() + " ";
+    if (nextElem.is("p")) {
+      const html = nextElem.html();
+      descriptionHTML += `<p>${html}</p>`;
+    } else if (nextElem.is("ul")) {
+      const html = nextElem.html();
+      descriptionHTML += `<ul>${html}</ul>`;
+    } else if (nextElem.is("ol")) {
+      const html = nextElem.html();
+      descriptionHTML += `<ol>${html}</ol>`;
     }
     nextElem = nextElem.next();
   }
 
-  return description.trim() || "TODO";
+  return descriptionHTML.trim() || "<p>TODO</p>";
 }
 
 function findTaskFile(taskIndex, tasksFilesMap, id) {

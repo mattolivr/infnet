@@ -1,16 +1,14 @@
 import { useParams } from "react-router";
 import Card from "../../components/card";
 import CardHeader from "../../components/card/header";
+import HTMLContent from "../../components/html-content";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Avatar,
-  Button,
   Chip,
-  Fade,
   styled,
-  type AccordionSlots,
 } from "@mui/material";
 import Icon from "../../components/icon";
 import { useManifest } from "../../hooks/useManifest";
@@ -80,7 +78,9 @@ export default function SubjectPage() {
           size="small"
         />
       </Card>
-      <Card title="Visão Geral">{subject?.description}</Card>
+      <Card title="Visão Geral">
+        <HTMLContent html={subject?.description || ""} />
+      </Card>
       {subject?.assignments?.map((assignment, asgmtIndex) => (
         <Card key={`asgmt-${asgmtIndex}`}>
           <Assignment
@@ -94,6 +94,8 @@ export default function SubjectPage() {
               <CardHeader title={assignment.title} />
             </AssignmentHeader>
             <AssignmentDetails>
+              <HTMLContent html={assignment.description || ""} />
+
               {assignment.tasks.map((task, taskIndex) => (
                 <Card key={`asgn-${asgmtIndex}-${taskIndex}`} color="secondary">
                   <CardHeader>
@@ -104,7 +106,7 @@ export default function SubjectPage() {
                       {task.title}
                     </CardHeader.Title>
                   </CardHeader>
-                  {task.description}
+                  <HTMLContent html={task.description} />
                 </Card>
               ))}
             </AssignmentDetails>

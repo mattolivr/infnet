@@ -7,252 +7,252 @@
   "assignments": [
     {
       "id": "b2-dr1-tp1",
-      "type": "exercise",
+      "type": "tasklist",
       "title": "Teste de Performance",
-      "description": "Sections Página inicial do site Minhas disciplinas Páginas do site Tags...",
+      "description": "",
       "tasks": [
         {
           "index": 1,
           "title": "Entender flexbox através dos conceitos de direção e eixo",
-          "description": "Exercício 1: Crie um container flexível que distribua três itens em uma linha horizontal (row) e inverta a ordem dos itens. Use a propriedade flex-direction. Exercício 2: crie um container flexível que distribua quatro itens em uma coluna vertical (column) e inverta a ordem dos itens. Use a propriedade flex-direction.",
+          "description": "<p><span style=\"text-decoration: underline;\">Exercício 1:</span> Crie um container flexível que distribua três itens em uma linha horizontal (row) e inverta a ordem dos itens. Use a propriedade <span style=\"color: #008000;\">flex-direction</span>.</p><p><span style=\"text-decoration: underline;\">Exercício 2:</span> crie um container flexível que distribua quatro itens em uma coluna vertical (column) e inverta a ordem dos itens. Use a propriedade <span style=\"color: #008000;\">flex-direction</span>.</p>",
           "file": "b2-dr1-tp1.01"
         },
         {
           "index": 2,
           "title": "Utilizar propriedades flex-grow, flex-shrink e flex-basis para alterar o tamanho de containers e itens",
-          "description": "Exercício 3: Crie um container flexível com três itens. Configure o primeiro item para crescer (flex-grow) mais que os outros dois quando o container for redimensionado. Exercício 4: Crie um container flexível com quatro itens. Configure o terceiro item para encolher (flex-shrink) menos que os outros três quando o container for redimensionado. Exercício 5: Crie um container flexível com cinco itens. Configure o segundo item para ter uma base (flex-basis) de 200px, enquanto os outros itens têm bases automáticas.",
+          "description": "<p><span style=\"text-decoration: underline;\">Exercício 3:</span> Crie um container flexível com três itens. Configure o primeiro item para crescer (<span style=\"color: #008000;\">flex-grow</span>) mais que os outros dois quando o container for redimensionado.</p><p><span style=\"text-decoration: underline;\">Exercício 4:</span> Crie um container flexível com quatro itens. Configure o terceiro item para encolher (<span style=\"color: #008000;\">flex-shrink</span>) menos que os outros três quando o container for redimensionado.</p><p><span style=\"text-decoration: underline;\">Exercício 5:</span> Crie um container flexível com cinco itens. Configure o segundo item para ter uma base (<span style=\"color: #008000;\">flex-basis</span>) de 200px, enquanto os outros itens têm bases automáticas.</p>",
           "file": "b2-dr1-tp1.02"
         },
         {
           "index": 3,
           "title": "Utilizar propriedades como flex-start, flex-end, center, stretch para ajustar o alinhamento e o espaçamento de itens dentro de um container",
-          "description": "Exercício 6: Crie um container flexível com cinco itens e alinhe todos os itens ao início do container (flex-start). Exercício 7: Crie um container flexível com quatro itens e alinhe todos os itens ao final do container (flex-end). Exercício 8: Crie um container flexível com três itens e centralize todos os itens horizontalmente (center). Exercício 9: Crie um container flexível com seis itens e distribua o espaço de forma igual entre os itens (space-between).",
+          "description": "<p><span style=\"text-decoration: underline;\">Exercício 6:</span> Crie um container flexível com cinco itens e alinhe todos os itens ao início do container (<span style=\"color: #008000;\">flex-start</span>).</p><p><span style=\"text-decoration: underline;\">Exercício 7:</span> Crie um container flexível com quatro itens e alinhe todos os itens ao final do container (<span style=\"color: #008000;\">flex-end</span>).</p><p><span style=\"text-decoration: underline;\">Exercício 8:</span> Crie um container flexível com três itens e centralize todos os itens horizontalmente (<span style=\"color: #008000;\">center</span>).</p><p><span style=\"text-decoration: underline;\">Exercício 9:</span> Crie um container flexível com seis itens e distribua o espaço de forma igual entre os itens (<span style=\"color: #008000;\">space-between</span>).</p>",
           "file": "b2-dr1-tp1.03"
         },
         {
           "index": 4,
           "title": "Criar layouts com Flex containers aninhados com outros flex containers",
-          "description": "Exercício 10: Crie um layout com dois containers flexíveis aninhados. O container externo deve distribuir dois containers internos horizontalmente, e cada container interno deve distribuir três itens verticalmente. Exercício 11: Crie um layout com três containers flexíveis aninhados. O container externo deve distribuir três containers internos verticalmente, e cada container interno deve distribuir quatro itens horizontalmente.",
+          "description": "<p><span style=\"text-decoration: underline;\">Exercício 10:</span> Crie um layout com dois containers flexíveis aninhados. O container externo deve distribuir dois containers internos horizontalmente, e cada container interno deve distribuir três itens verticalmente.</p><p><span style=\"text-decoration: underline;\">Exercício 11:</span> Crie um layout com três containers flexíveis aninhados. O container externo deve distribuir três containers internos verticalmente, e cada container interno deve distribuir quatro itens horizontalmente.</p>",
           "file": "b2-dr1-tp1.04"
         },
         {
           "index": 5,
           "title": "Criar um layout onde elementos são centralizados em um container",
-          "description": "Exercício 12: Crie um container flexível onde todos os itens são centralizados tanto horizontalmente quanto verticalmente no container. Exercício 13: Crie um container flexível onde os itens são distribuídos ao redor do centro do container (space-around).",
+          "description": "<p><span style=\"text-decoration: underline;\">Exercício 12:</span> Crie um container flexível onde todos os itens são centralizados tanto horizontalmente quanto verticalmente no container.</p><p><span style=\"text-decoration: underline;\">Exercício 13:</span> Crie um container flexível onde os itens são distribuídos ao redor do centro do container (<span style=\"color: #008000;\">space-around</span>).</p>",
           "file": "b2-dr1-tp1.05"
         },
         {
           "index": 6,
           "title": "Construir layouts em CSS3 com Grid Layout",
-          "description": "Exercício 14: Crie um layout de grade (grid) com quatro colunas e três linhas. Preencha cada célula da grade com um item. Exercício 15: Crie um layout de grade onde o primeiro item ocupa duas colunas e o segundo item ocupa duas linhas. Exercício 16: Crie um layout de grade com três colunas e três linhas. Configure as colunas para terem larguras diferentes (e.g., 1fr, 2fr, 1fr). Assim que terminar, salve seu trabalho em PDF nomeando o arquivo conforme a regra “nome_sobrenome_DR1_TP1.PDF” e poste como resposta a este TP.",
+          "description": "<p><span style=\"text-decoration: underline;\">Exercício 14:</span> Crie um layout de grade (grid) com quatro colunas e três linhas. Preencha cada célula da grade com um item.</p><p><span style=\"text-decoration: underline;\">Exercício 15:</span> Crie um layout de grade onde o primeiro item ocupa duas colunas e o segundo item ocupa duas linhas.</p><p><span style=\"text-decoration: underline;\">Exercício 16:</span> Crie um layout de grade com três colunas e três linhas. Configure as colunas para terem larguras diferentes (e.g., 1fr, 2fr, 1fr).</p><p>Assim que terminar, salve seu trabalho em PDF nomeando o arquivo conforme a regra “nome_sobrenome_DR1_TP1.PDF” e poste como resposta a este TP.</p>",
           "file": "b2-dr1-tp1.06"
         }
       ]
     },
     {
       "id": "b2-dr1-tp2",
-      "type": "exercise",
+      "type": "tasklist",
       "title": "Teste de Performance",
-      "description": "Sections Página inicial do site Minhas disciplinas Páginas do site Tags...",
+      "description": "<p>Esse é o segundo teste de performance (TP) da disciplina regular <strong>Mobile-First UI com React</strong>, do Bloco de <strong>Desenvolvimento Front-end com Frameworks</strong>. É a partir daqui que você dará seus primeiros passos em sua formação.</p><p>Nesse TP2, temos como objetivo desenvolver a primeira competência prevista para nossa disciplina: <em>Criar páginas web responsivas com CSS3</em>. Para tal, você irá desenvolver algumas tarefas que irão passar por todo o conteúdo visto na primeira e segunda\n    etapas do curso. Crie uma conta no Codesandbox e desenvolva 16 arquivos dentro dele para a sua entrega.</p>",
       "tasks": [
         {
           "index": 1,
           "title": "Criação de Layouts com Imagens Fluídas I",
-          "description": "Crie um layout básico com imagem responsiva que se ajuste ao tamanho da tela usando a tag picture. Utilize a tag específica indicada para o uso de imagens na página HTML.\n    Defina a possível saída para 3 resoluções, 576px, 992px, e todas acima.\n    A imagem deve ocupar 100% da largura do Viewport.",
+          "description": "<p>Crie um layout básico com imagem responsiva que se ajuste ao tamanho da tela usando a tag picture.</p><ul>\n    <li>Utilize a <em>tag</em> específica indicada para o uso de imagens na página <em>HTML</em>.</li>\n    <li>Defina a possível saída para 3 resoluções, 576px, 992px, e todas acima.</li>\n    <li>A imagem deve ocupar 100% da largura do <em>Viewport</em>.</li>\n</ul>",
           "file": "b2-dr1-tp2.01"
         },
         {
           "index": 2,
           "title": "Criação de Layouts com Imagens Fluídas II",
-          "description": "Crie um layout básico com imagem responsiva que se ajuste ao tamanho da tela usando CSS. Utilize a tag img na página HTML.\n    Utilize adequadamente no CSS, a propriedade max-width para atender a todas as resoluções.\n    A imagem deve ocupar 100% da largura do Viewport.",
+          "description": "<p>Crie um layout básico com imagem responsiva que se ajuste ao tamanho da tela usando CSS.</p><ul>\n    <li>Utilize a <em>tag</em> img na página <em>HTML</em>.</li>\n    <li>Utilize adequadamente no CSS, a propriedade max-width para atender a todas as resoluções.</li>\n    <li>A imagem deve ocupar 100% da largura do <em>Viewport</em>.</li>\n</ul>",
           "file": "b2-dr1-tp2.02"
         },
         {
           "index": 3,
           "title": "Organização de elementos em um layout responsivo I",
-          "description": "Reproduza o layout da imagem, aplicando as técnicas de Mobile-first, usando Flexbox. Reproduza conforme a imagem, organizando e distribuindo os elementos com Flexbox.\n    Não use CSS no arquivo HTML. \n    O Container principal deve ocupar 100% da largura do Viewport, sendo que esta deve ser de até 576px.\n    A borda é apenas ilustrativa.",
+          "description": "<p>Reproduza o layout da imagem, aplicando as técnicas de Mobile-first, usando Flexbox.</p><ul>\n    <li>Reproduza conforme a imagem, organizando e distribuindo os elementos com Flexbox.</li>\n    <li>Não use CSS no arquivo HTML.&nbsp;</li>\n    <li>O Container principal deve ocupar 100% da largura do Viewport<em>, </em>sendo que esta deve ser de até 576px.</li>\n    <li>A borda é apenas ilustrativa.<br><br><img src=\"https://lms.infnet.edu.br/moodle/pluginfile.php/1172981/mod_assign/intro/S1.png\" alt=\"\" width=\"291\" height=\"512\" role=\"presentation\" class=\"img-responsive atto_image_button_text-bottom\"></li>\n</ul>",
           "file": "b2-dr1-tp2.03"
         },
         {
           "index": 4,
           "title": "Organização de elementos em um layout responsivo II",
-          "description": "Reproduza o layout da imagem, organizando o container com duas seções na vertical (menu e apresentação) e duas na horizontal (a seção de apresentação deve ser dividida entre textos e imagem). Reproduza conforme a imagem, organizando e distribuindo os elementos com Flexbox.\n    Não use CSS no arquivo HTML. \n    O Container principal deve ocupar 100% da largura do Viewport.\n    Use Media Query para ajustar o conteúdo do exercício anterior, para visualizações a partir de 992px.\n    A borda é meramente ilustrativa.",
+          "description": "<p>Reproduza o layout da imagem, organizando o container com duas seções na vertical (menu e apresentação) e duas na horizontal (a seção de apresentação deve ser dividida entre textos e imagem).</p><ul>\n    <li>Reproduza conforme a imagem, organizando e distribuindo os elementos com Flexbox.</li>\n    <li>Não use CSS no arquivo HTML.&nbsp;</li>\n    <li>O Container principal deve ocupar 100% da largura do <em>Viewport</em>.</li>\n    <li>Use Media Query para ajustar o conteúdo do exercício anterior, para visualizações a partir de 992px.</li>\n    <li>A borda é meramente ilustrativa.<br><br><img src=\"https://lms.infnet.edu.br/moodle/pluginfile.php/1172981/mod_assign/intro/s2.png\" alt=\"\" width=\"512\" height=\"264\" role=\"presentation\" class=\"img-responsive atto_image_button_text-bottom\"></li>\n</ul>",
           "file": "b2-dr1-tp2.04"
         },
         {
           "index": 5,
           "title": "Organização de elementos em um layout responsivo III - Centralização",
-          "description": "Criar um layout responsivo onde os elementos são centralizados vertical e horizontalmente em um container. Use display:grid para centralizar conteúdo de maneira eficaz em diferentes tamanhos de tela. Crie um arquivo HTML e um arquivo CSS. \n    Sua estrutura básica no arquivo HTML deve conter um elemento Container e três elementos filhos. \n    Alinhe os elementos filhos ao centro do container pai. \n    O container principal deve ter um fundo de cor diferente para evidenciar o espaço ocupado.\n    No arquivo CSS, defina estilos para o container principal de forma que ele ocupe 100% da altura da tela e use grid para centralizar os elementos internos vertical e horizontalmente.\n    Cada elemento interno deve ter tamanhos variados e cores diferentes.\n    Ao redimensionar a janela do navegador, os elementos devem permanecer centralizados e o layout deve se adaptar para telas menores (ex.: mudar de um layout horizontal para vertical).",
+          "description": "<p>Criar um layout responsivo onde os elementos são centralizados vertical e horizontalmente em um container. Use display:grid para centralizar conteúdo de maneira eficaz em diferentes tamanhos de tela.</p><ul>\n    <li>Crie um arquivo HTML e um arquivo CSS.&nbsp;</li>\n    <li>Sua estrutura básica no arquivo HTML deve conter um elemento Container e três elementos filhos.&nbsp;</li>\n    <li>Alinhe os elementos filhos ao centro do container pai.&nbsp;</li>\n    <li>O container principal deve ter um fundo de cor diferente para evidenciar o espaço ocupado.</li>\n    <li>No arquivo CSS, defina estilos para o container principal de forma que ele ocupe 100% da altura da tela e use grid para centralizar os elementos internos vertical e horizontalmente.</li>\n    <li>Cada elemento interno deve ter tamanhos variados e cores diferentes.</li>\n    <li>Ao redimensionar a janela do navegador, os elementos devem permanecer centralizados e o layout deve se adaptar para telas menores (ex.: mudar de um layout horizontal para vertical).</li>\n</ul>",
           "file": "b2-dr1-tp2.05"
         },
         {
           "index": 6,
           "title": "Construindo um layout básico com CSS Grid",
-          "description": "Criar um layout responsivo com CSS Grid contendo áreas de cabeçalho, uma barra lateral, um conteúdo principal e um rodapé. Crie uma estrutura básica em HTML, com elementos header, nav, main, aside e footer.\n    Defina o container principal como um grid com 3 colunas e pelo menos 3 linhas.\n    O cabeçalho e o rodapé devem ocupar todas as colunas, sendo a primeira e última linha, respectivamente.\n    A barra lateral deve ocupar a primeira coluna, o conteúdo principal a segunda, e a terceira coluna pode ser vazia ou usada para elementos adicionais.\n    Adicione um fundo de cor diferente para cada área para facilitar a visualização do layout.",
+          "description": "<p>Criar um layout responsivo com CSS Grid contendo áreas de cabeçalho, uma barra lateral, um conteúdo principal e um rodapé.</p><ul>\n    <li>Crie uma estrutura básica em HTML, com elementos header, nav, main, aside e footer.</li>\n    <li>Defina o container principal como um grid com 3 colunas e pelo menos 3 linhas.</li>\n    <li>O cabeçalho e o rodapé devem ocupar todas as colunas, sendo a primeira e última linha, respectivamente.</li>\n    <li>A barra lateral deve ocupar a primeira coluna, o conteúdo principal a segunda, e a terceira coluna pode ser vazia ou usada para elementos adicionais.</li>\n    <li>Adicione um fundo de cor diferente para cada área para facilitar a visualização do layout.</li>\n</ul>",
           "file": "b2-dr1-tp2.06"
         },
         {
           "index": 7,
           "title": "Ajustando a Responsividade com a Tag <meta> \"viewport\"",
-          "description": "Usando o arquivo do exercício anterior, defina a tag meta com os atributos: name=\"viewport\", content=\"width=device-width, initial-scale=1.0\". Teste sua página em diferentes resoluções. Remova a tag <meta> \"viewport\" e observe como o layout da página é afetado em dispositivos móveis. Descreva em um parágrafo no main, resumidamente, o que você observou mudar.\n    Modifique o valor de “ Initial-scale” para ver como o zoom inicial da página muda em dispositivos móveis. Teste e descreva mais uma parágrafo no main destacando o que você observou mudar.\n    Experimente outros valores para content, como width=500 ou initial-scale=2, e observe as mudanças no layout. Descreva em outro parágrafo no main, quais mudanças você observou.\n    Seu arquivo main terá 3 parágrafos, conforme solicitado acima.",
+          "description": "<p>Usando o arquivo do exercício anterior, defina a tag meta com os atributos: name=\"viewport\", content=\"width=device-width, initial-scale=1.0\".&nbsp;</p><p>Teste sua página em diferentes resoluções.</p><ul>\n    <li>Remova a tag &lt;meta&gt; \"viewport\" e observe como o layout da página é afetado em dispositivos móveis. Descreva em um parágrafo no main, resumidamente, o que você observou mudar.</li>\n    <li>Modifique o valor de “ Initial-scale” para ver como o zoom inicial da página muda em dispositivos móveis. Teste e descreva mais uma parágrafo no main destacando o que você observou mudar.</li>\n    <li>Experimente outros valores para content, como width=500 ou initial-scale=2, e observe as mudanças no layout. Descreva em outro parágrafo no main, quais mudanças você observou.</li>\n    <li>Seu arquivo main terá 3 parágrafos, conforme solicitado acima.</li>\n</ul>",
           "file": "b2-dr1-tp2.07"
         },
         {
           "index": 8,
           "title": "Usando Media Query I",
-          "description": "Criar um arquivo CSS e defina 5 (Cinco) breakpoints com media queries para diferentes tamanhos de dispositivos. Defina do menor para o maior, aplicando mobile-first.",
+          "description": "<p>Criar um arquivo CSS e defina 5 (Cinco) breakpoints com media queries para diferentes tamanhos de dispositivos.&nbsp;</p><ul>\n    <li>Defina do menor para o maior, aplicando mobile-first.</li>\n</ul>",
           "file": "b2-dr1-tp2.08"
         },
         {
           "index": 9,
           "title": "Usando Media Query II",
-          "description": "Num arquivo HTML, defina 3 (três) arquivos CSS a serem chamados pela tag link. Use o atributo media.\n    Uma das tags link deve estar apropriada para um arquivo css de impressão.",
+          "description": "<p>Num arquivo HTML, defina 3 (três) arquivos CSS a serem chamados pela tag link.</p><ul>\n    <li>Use o atributo media.</li>\n    <li>Uma das tags link deve estar apropriada para um arquivo css de impressão.</li>\n</ul>",
           "file": "b2-dr1-tp2.09"
         },
         {
           "index": 10,
           "title": "Usando Media Query III",
-          "description": "Num arquivo CSS, defina 3 (três) chamadas de arquivos CSS usando a regra @import. Combine testagens de orientação, largura mínima, altura, dentre outras. \n    Na combinação de testagens, use os conectores and ou or.",
+          "description": "<p>Num arquivo CSS, defina 3 (três) chamadas de arquivos CSS usando a regra @import.&nbsp;</p><ul>\n    <li>Combine testagens de orientação, largura mínima, altura, dentre outras.&nbsp;</li>\n    <li>Na combinação de testagens, use os conectores <em>and</em> ou <em>or</em>.</li>\n</ul>",
           "file": "b2-dr1-tp2.10"
         },
         {
           "index": 11,
           "title": "Organização de elementos num layout responsivo",
-          "description": "Crie uma página simples responsiva com uma imagem e um texto que se ajuste ao tamanho da tela usando CSS. O layout padrão deverá ser o vertical (mobile-first) e deve apresentar a imagem na parte superior da página, seguida do texto na parte inferior. Porém, para uma determinada largura da página, quando houver espaço adequado para, o texto deve aparecer ao lado da imagem, apresentando um layout horizontal. Veja um protótipo de exemplo:",
+          "description": "<p>Crie uma página simples responsiva com uma imagem e um texto que se ajuste ao tamanho da tela usando CSS.</p><p>O layout padrão deverá ser o vertical (mobile-first) e deve apresentar a imagem na parte superior da página, seguida do texto na parte inferior.</p><p>Porém, para uma determinada largura da página, quando houver espaço adequado para, o texto deve aparecer ao lado da imagem, apresentando um layout horizontal.</p><p>Veja um protótipo de exemplo:<br></p><p><img src=\"https://lms.infnet.edu.br/moodle/pluginfile.php/1172981/mod_assign/intro/s3.png\" alt=\"\" width=\"512\" height=\"265\" role=\"presentation\" class=\"img-responsive atto_image_button_text-bottom\"></p>",
           "file": "b2-dr1-tp2.11"
         },
         {
           "index": 12,
           "title": "Esquema de cores",
-          "description": "Crie uma página simples e responsiva apresentando um breve resumo sobre os benefícios da responsividade. Não implemente códigos CSS no arquivo HTML.\n    Implemente estilos diferentes para o esquema de cores light e dark.\n    Use textos e imagens.\n    Pense Mobile-first!",
+          "description": "<p>Crie uma página simples e responsiva apresentando um breve resumo sobre os benefícios da responsividade.</p><ul>\n    <li>Não implemente códigos CSS no arquivo HTML.</li>\n    <li>Implemente estilos diferentes para o esquema de cores <em>light</em> e <em>dark</em>.</li>\n    <li>Use textos e imagens.</li>\n    <li>Pense Mobile-first!</li>\n</ul>",
           "file": "b2-dr1-tp2.12"
         },
         {
           "index": 13,
           "title": "Utilizando Media Queries para o Recurso de Media pointer",
-          "description": "Utilize media queries para detectar o tipo de dispositivo apontador (pointer) e ajustar o estilo da página conforme a presença e a precisão do dispositivo de entrada, como um mouse, touchpad, ou tela sensível ao toque. No arquivo index.html, crie uma estrutura básica de HTML com um container principal que contém três botões. Cada botão terá uma ação visual diferente dependendo do tipo de dispositivo apontador detectado.\n    No arquivo style.css, use media queries para aplicar estilos diferentes aos botões com base no valor do recurso de mídia pointer. Adicione estilos específicos para os estados none, coarse, e fine.\n    Teste a página em diferentes dispositivos ou usando ferramentas de desenvolvedor do navegador para simular diferentes tipos de dispositivos apontadores.\n    Utilize media queries para cada um dos três estados possíveis de pointer: none, coarse, e fine.\n    Adicione estilos personalizados para cada estado de pointer para mostrar como o layout e a aparência dos botões mudam.\n    Garanta que o layout seja adaptativo, mostrando estilos distintos conforme o tipo de dispositivo apontador detectado.\n    Você pode testar os diferentes tipos de pointer alterando as cores do botão ou até mesmo o hover deles nas medias testadas.",
+          "description": "<p>Utilize media queries para detectar o tipo de dispositivo apontador (pointer) e ajustar o estilo da página conforme a presença e a precisão do dispositivo de entrada, como um mouse, touchpad, ou tela sensível ao toque.</p><ul>\n    <li>No arquivo index.html, crie uma estrutura básica de HTML com um container principal que contém três botões. Cada botão terá uma ação visual diferente dependendo do tipo de dispositivo apontador detectado.</li>\n    <li>No arquivo style.css, use media queries para aplicar estilos diferentes aos botões com base no valor do recurso de mídia pointer. Adicione estilos específicos para os estados none, coarse, e fine.</li>\n    <li>Teste a página em diferentes dispositivos ou usando ferramentas de desenvolvedor do navegador para simular diferentes tipos de dispositivos apontadores.</li>\n    <li>Utilize media queries para cada um dos três estados possíveis de pointer: none, coarse, e fine.</li>\n    <li>Adicione estilos personalizados para cada estado de pointer para mostrar como o layout e a aparência dos botões mudam.</li>\n    <li>Garanta que o layout seja adaptativo, mostrando estilos distintos conforme o tipo de dispositivo apontador detectado.</li>\n    <li>Você pode testar os diferentes tipos de pointer alterando as cores do botão ou até mesmo o hover deles nas medias testadas.</li>\n</ul>",
           "file": "b2-dr1-tp2.13"
         },
         {
           "index": 14,
           "title": "Utilizando Media Queries para o Recurso de Mídia hover",
-          "description": "Utilize media queries para detectar se um dispositivo de entrada permite ou não que o usuário passe o mouse (hover) sobre os elementos, e ajustar os estilos da página com base nessa capacidade. No arquivo index.html, crie uma estrutura básica de HTML com um container principal que contém dois botões. Cada botão terá uma ação visual diferente dependendo da capacidade do dispositivo de realizar um hover.\n    No arquivo style.css, use media queries para aplicar estilos diferentes aos botões com base no valor do recurso de mídia hover. Adicione estilos específicos para os estados none e hover.\n    Teste a página em diferentes dispositivos ou usando ferramentas de desenvolvedor do navegador para simular diferentes tipos de dispositivos de entrada.\n    Utilize media queries para cada um dos dois estados possíveis de hover: none (quando o dispositivo não permite hover) e hover (quando o dispositivo permite hover).\n    Adicione estilos personalizados para cada estado de hover para mostrar como a aparência dos botões muda.\n    Garanta que o layout seja adaptativo, mostrando estilos distintos conforme a capacidade de hover do dispositivo de entrada detectado.",
+          "description": "<p>Utilize media queries para detectar se um dispositivo de entrada permite ou não que o usuário passe o mouse (hover) sobre os elementos, e ajustar os estilos da página com base nessa capacidade.&nbsp;</p><ul>\n    <li>No arquivo index.html, crie uma estrutura básica de HTML com um container principal que contém dois botões. Cada botão terá uma ação visual diferente dependendo da capacidade do dispositivo de realizar um hover.</li>\n    <li>No arquivo style.css, use media queries para aplicar estilos diferentes aos botões com base no valor do recurso de mídia hover. Adicione estilos específicos para os estados none e hover.</li>\n    <li>Teste a página em diferentes dispositivos ou usando ferramentas de desenvolvedor do navegador para simular diferentes tipos de dispositivos de entrada.</li>\n    <li>Utilize media queries para cada um dos dois estados possíveis de hover: none (quando o dispositivo não permite hover) e hover (quando o dispositivo permite hover).</li>\n    <li>Adicione estilos personalizados para cada estado de hover para mostrar como a aparência dos botões muda.</li>\n    <li>Garanta que o layout seja adaptativo, mostrando estilos distintos conforme a capacidade de hover do dispositivo de entrada detectado.</li>\n</ul>",
           "file": "b2-dr1-tp2.14"
         },
         {
           "index": 15,
           "title": "Utilizando Media Queries para o Recurso de Mídia prefers-color-scheme",
-          "description": "Utilize media queries para detectar a preferência de esquema de cores do usuário (claro ou escuro) e ajustar o estilo da página de acordo com essa preferência. No arquivo index.html, crie uma estrutura básica de HTML com um container principal que contém três seções diferentes: um cabeçalho (header), um conteúdo principal (main), e um rodapé (footer).\n    No arquivo style.css, use media queries para aplicar estilos diferentes dependendo do valor do recurso de mídia prefers-color-scheme. Adicione estilos específicos para os esquemas de cores light (claro) e dark (escuro).\n    Utilize media queries para os dois possíveis estados de prefers-color-scheme: light (claro) e dark (escuro).\n    Adicione estilos personalizados para cada estado de esquema de cores para mostrar como o layout e a aparência mudam.\n    Garanta que o layout seja adaptativo, mostrando estilos distintos conforme a preferência de esquema de cores do usuário.",
+          "description": "<p>Utilize media queries para detectar a preferência de esquema de cores do usuário (claro ou escuro) e ajustar o estilo da página de acordo com essa preferência.</p><ul>\n    <li>No arquivo index.html, crie uma estrutura básica de HTML com um container principal que contém três seções diferentes: um cabeçalho (header), um conteúdo principal (main), e um rodapé (footer).</li>\n    <li>No arquivo style.css, use media queries para aplicar estilos diferentes dependendo do valor do recurso de mídia prefers-color-scheme. Adicione estilos específicos para os esquemas de cores light (claro) e dark (escuro).</li>\n    <li>Utilize media queries para os dois possíveis estados de prefers-color-scheme: light (claro) e dark (escuro).</li>\n    <li>Adicione estilos personalizados para cada estado de esquema de cores para mostrar como o layout e a aparência mudam.</li>\n    <li>Garanta que o layout seja adaptativo, mostrando estilos distintos conforme a preferência de esquema de cores do usuário.</li>\n</ul>",
           "file": "b2-dr1-tp2.15"
         },
         {
           "index": 16,
           "title": "Transmutação Mobile-First",
-          "description": "Você recebeu o wireframe a seguir e precisa implementá-lo apenas na versão mobile. Faça a transmutação para mobile, definindo cores e elementos para a composição do projeto, visualmente simples, porém, somente a versão mobile para Iphone de 414px de largura\n    em resolução. Você deve fazer as suas escolhas de cores, imagens e textos.\n    Entregue arquivos HTML e CSS testáveis na resolução solicitada.\n    A borda é meramente ilustrativa.\n    Pense Mobile-first! Execute Mobile-first! Assim que terminar, salve seu trabalho em PDF nomeando o arquivo conforme a regra “nome_sobrenome_DR1_TP2.PDF” e poste como resposta a este TP.",
+          "description": "<p>Você recebeu o wireframe a seguir e precisa implementá-lo apenas na versão mobile. Faça a transmutação para mobile, definindo cores e elementos para a composição do projeto, visualmente simples, porém, somente a versão mobile para Iphone de 414px de largura\n    em resolução.</p><ul>\n    <li>Você deve fazer as suas escolhas de cores, imagens e textos.</li>\n    <li>Entregue arquivos HTML e CSS testáveis na resolução solicitada.</li>\n    <li>A borda é meramente ilustrativa.</li>\n    <li>Pense Mobile-first! Execute Mobile-first!<br><br><img src=\"https://lms.infnet.edu.br/moodle/pluginfile.php/1172981/mod_assign/intro/s4.png\" alt=\"\" width=\"292\" height=\"512\" role=\"presentation\" class=\"img-responsive atto_image_button_text-bottom\"></li>\n</ul><p>Assim que terminar, salve seu trabalho em PDF nomeando o arquivo conforme a regra “nome_sobrenome_DR1_TP2.PDF” e poste como resposta a este TP.</p>",
           "file": "b2-dr1-tp2.16"
         }
       ]
     },
     {
       "id": "b2-dr1-tp3",
-      "type": "exercise",
+      "type": "tasklist",
       "title": "Teste de Performance",
-      "description": "Sections Página inicial do site Minhas disciplinas Páginas do site Tags...",
+      "description": "<p>É hora de exercitar mais e mais o que foi visto na disciplina regular <strong>Mobile-First UI com React</strong>, do Bloco de <strong>Desenvolvimento Front-end com Frameworks</strong>. <br>Nesse TP3, temos como objetivo desenvolver as competências\n    previstas para nossa disciplina: <em>Criar páginas web responsivas com CSS3 e Estilizar componentes React com CSS3</em>. Para tal, você irá desenvolver algumas tarefas que irão passar por todo o conteúdo visto nas etapas recentes dos nossos encontros.</p>",
       "tasks": [
         {
           "index": 1,
           "title": "Desenvolvendo Layout Mobile-First",
-          "description": "Crie um layout complexo envolvendo o uso de flexbox nos elementos, adotando a abordagem mobile-first e garantindo que a página seja responsiva e adaptável a resolução de tablet e desktop. Trabalhe com um arquivo html para estrutura, um arquivo css para estilização e um arquivo javascript para resposta a interação do menu.\n    Sua página deve conter os seguintes elementos principais:\n    \n        Cabeçalho (Header): Um cabeçalho contendo uma barra de navegação, com links para as seções \"Início\", \"Serviços\", \"Sobre\" e \"Contato\". Estes links apontam para seções na própria página.\n        Main Content: Uma seção principal main que conterá três colunas:\n        \n            Coluna Esquerda: Uma coluna com links de navegação adicionais ou informações adicionais.\n            Coluna Central: Uma área de conteúdo principal onde você pode colocar um texto ou imagens.\n            Coluna Direita: Uma coluna que pode conter widgets ou informações secundárias.\n        \n        Rodapé (Footer): Um rodapé com informações de direitos autorais e links para redes sociais.\n    \n    Estilização Mobile-First (CSS): No arquivo CSS, aplique a abordagem mobile-first, começando pelos estilos para telas pequenas (smartphones):\n    \n        Estilo para Navbar: A navbar deve ser exibida verticalmente (links empilhados) para telas pequenas.\n        Layout de Colunas: Para telas pequenas, as três colunas do main devem ser exibidas em uma única coluna (empilhadas verticalmente).\n        Espaçamento: Adicione espaçamento (padding) para que os elementos não fiquem colados uns aos outros. Opcionalmente, você poderá usar as propriedades de gap.",
+          "description": "<p>Crie um layout complexo envolvendo o uso de flexbox nos elementos, adotando a abordagem mobile-first e garantindo que a página seja responsiva e adaptável a resolução de tablet e desktop.</p><ul>\n    <li>Trabalhe com um arquivo html para estrutura, um arquivo css para estilização e um arquivo javascript para resposta a interação do menu.</li>\n    <li>Sua página deve conter os seguintes elementos principais:</li>\n    <ul>\n        <li><strong>Cabeçalho (Header)</strong>: Um cabeçalho contendo uma barra de navegação, com links para as seções \"Início\", \"Serviços\", \"Sobre\" e \"Contato\". Estes links apontam para seções na própria página.</li>\n        <li><strong>Main Content</strong>: Uma seção principal main que conterá três colunas:</li>\n        <ul>\n            <li><strong>Coluna Esquerda</strong>: Uma coluna com links de navegação adicionais ou informações adicionais.</li>\n            <li><strong>Coluna Central</strong>: Uma área de conteúdo principal onde você pode colocar um texto ou imagens.</li>\n            <li><strong>Coluna Direita</strong>: Uma coluna que pode conter widgets ou informações secundárias.</li>\n        </ul>\n        <li><strong>Rodapé (Footer)</strong>: Um rodapé com informações de direitos autorais e links para redes sociais.</li>\n    </ul>\n    <li><strong>Estilização Mobile-First (CSS):</strong></li>\n</ul><ul>\n    <li>No arquivo CSS, aplique a abordagem mobile-first, começando pelos estilos para telas pequenas (smartphones):</li>\n    <ul>\n        <li><strong>Estilo para Navbar</strong>: A navbar deve ser exibida verticalmente (links empilhados) para telas pequenas.</li>\n        <li><strong>Layout de Colunas</strong>: Para telas pequenas, as três colunas do main devem ser exibidas em uma única coluna (empilhadas verticalmente).</li>\n        <li><strong>Espaçamento</strong>: Adicione espaçamento (padding) para que os elementos não fiquem colados uns aos outros. Opcionalmente, você poderá usar as propriedades de gap.</li>\n    </ul>\n</ul>",
           "file": "b2-dr1-tp3.01"
         },
         {
           "index": 2,
           "title": "Estilização para telas maiores (Media Queries)",
-          "description": "Utilize media queries para ajustar o layout para telas maiores (tablets e desktops): Navbar: Em telas maiores, a navbar deve ser exibida horizontalmente, com os links alinhados à direita.\n    Layout de Colunas: Em tablets, as colunas esquerda e direita devem ser exibidas uma ao lado da outra, com a coluna central ocupando a maior parte do espaço. Em desktops, as três colunas devem ser exibidas em um layout de três colunas.\n    Ajustes Finais: Adicione ajustes de margens, fontes e espaçamentos para garantir uma boa legibilidade e usabilidade em diferentes dispositivos. Estilos aninhados em componentes",
+          "description": "<p>Utilize media queries para ajustar o layout para telas maiores (tablets e desktops):</p><ul>\n    <li><strong>Navbar</strong>: Em telas maiores, a navbar deve ser exibida horizontalmente, com os links alinhados à direita.</li>\n    <li><strong>Layout de Colunas</strong>: Em tablets, as colunas esquerda e direita devem ser exibidas uma ao lado da outra, com a coluna central ocupando a maior parte do espaço. Em desktops, as três colunas devem ser exibidas em um layout de três colunas.</li>\n    <li><strong>Ajustes Finais</strong>: Adicione ajustes de margens, fontes e espaçamentos para garantir uma boa legibilidade e usabilidade em diferentes dispositivos.</li>\n</ul><p><strong>Estilos aninhados em componentes</strong></p>",
           "file": "b2-dr1-tp3.02"
         },
         {
           "index": 3,
           "title": "Aplicando inline styles em componentes React",
-          "description": "Crie um projeto com componentes React, sendo: Componente principal, App.js, onde os outros componentes serão renderizados.\n    Componente Card.js e Button.js.\n    Estilize o componente Card.js com estilos inline:\n    \n        Utilize inline styles para estilizar o cartão com borda, sombra, padding, e um layout flexível.\n    \n    Estilize o componente Button.js com estilos inline:\n    \n        Utilize inline styles para estilizar o botão com uma cor de fundo, cor do texto, padding, e border-radius.",
+          "description": "<p>Crie um projeto com componentes React, sendo:</p><ul>\n    <li>Componente principal, App.js, onde os outros componentes serão renderizados.</li>\n    <li>Componente Card.js e Button.js.</li>\n    <li>Estilize o componente Card.js com estilos inline:</li>\n    <ul>\n        <li>Utilize inline styles para estilizar o cartão com borda, sombra, padding, e um layout flexível.</li>\n    </ul>\n    <li>Estilize o componente Button.js com estilos inline:</li>\n    <ul>\n        <li>Utilize inline styles para estilizar o botão com uma cor de fundo, cor do texto, padding, e border-radius.</li>\n    </ul>\n</ul>",
           "file": "b2-dr1-tp3.03"
         },
         {
           "index": 4,
           "title": "Aplicando inline styles em componentes React",
-          "description": "Crie um projeto com componentes React, sendo: Crie um novo arquivo chamado TextoEstilizado.js.\n    Este arquivo conterá um componente React que exibe um parágrafo de texto com estilos aplicados inline. O componente funcional chamado TextoEstilizado terá inline styles para estilizar o texto com uma cor de fundo clara, cor de texto escura, padding e fonte personalizada.\n    O parágrafo deve exibir o texto: \"Este é um texto estilizado usando inline styles em React.\"",
+          "description": "<p>Crie um projeto com componentes React, sendo:</p><ul>\n    <li>Crie um novo arquivo chamado TextoEstilizado.js.</li>\n    <li>Este arquivo conterá um componente React que exibe um parágrafo de texto com estilos aplicados inline.</li>\n</ul><ul>\n    <li>O componente funcional chamado TextoEstilizado terá inline styles para estilizar o texto com uma cor de fundo clara, cor de texto escura, padding e fonte personalizada.</li>\n    <li>O parágrafo deve exibir o texto: \"Este é um texto estilizado usando inline styles em React.\"</li>\n</ul>",
           "file": "b2-dr1-tp3.04"
         },
         {
           "index": 5,
           "title": "Componentes e JSX no React com Design Mobile First",
-          "description": "Crie componentes básicos em React usando a sintaxe JSX, e aplique um design mobile first que seja otimizado para telas com largura de até 576px. Crie um novo projeto React.\n    Crie dois componentes React: um componente chamado Header e outro chamado Footer. Ambos devem ser componentes de função que retornam um bloco de código JSX.\n    O Header deve exibir um título e o Footer deve exibir uma mensagem de rodapé.\n    Estilize os componentes no arquivo CSS (import css) para que a interface seja otimizada inicialmente para dispositivos móveis (largura de até 576px).\n    Importe e utilize esses componentes no componente principal App para que eles sejam exibidos na página.",
+          "description": "<p>Crie componentes básicos em React usando a sintaxe JSX, e aplique um design mobile first que seja otimizado para telas com largura de até 576px.</p><ul>\n    <li>Crie um novo projeto React.</li>\n    <li>Crie dois componentes React: um componente chamado Header e outro chamado Footer. Ambos devem ser componentes de função que retornam um bloco de código JSX.</li>\n    <li>O Header deve exibir um título e o Footer deve exibir uma mensagem de rodapé.</li>\n    <li>Estilize os componentes no arquivo CSS (import css) para que a interface seja otimizada inicialmente para dispositivos móveis (largura de até 576px).</li>\n    <li>Importe e utilize esses componentes no componente principal App para que eles sejam exibidos na página.</li>\n</ul>",
           "file": "b2-dr1-tp3.05~3.07"
         },
         {
           "index": 6,
           "title": "Componentes e JSX no React com Design Mobile First - Continuação",
-          "description": "Continue com o código do projeto anterior. Crie um componente chamado Main. Exiba-o entre o Header e o Footer. Mantenha o foco em mobile first.\n    O novo componente Main também deve ser componente de função que retorna um bloco de código JSX.\n    Insira parágrafos com textos e insira imagens.\n    Estilize o componente no arquivo CSS criado anteriormente.\n    Importe e utilize esse componente no componente principal App para que ele seja exibido na página.",
+          "description": "<p>Continue com o código do projeto anterior. Crie um componente chamado Main. Exiba-o entre o Header e o Footer.</p><ul>\n    <li>Mantenha o foco em mobile first.</li>\n    <li>O novo componente Main também deve ser componente de função que retorna um bloco de código JSX.</li>\n    <li>Insira parágrafos com textos e insira imagens.</li>\n    <li>Estilize o componente no arquivo CSS criado anteriormente.</li>\n    <li>Importe e utilize esse componente no componente principal App para que ele seja exibido na página.</li>\n</ul>",
           "file": "b2-dr1-tp3.05~3.07"
         },
         {
           "index": 7,
           "title": "Componentes e JSX no React com Design Mobile First - Continuação",
-          "description": "Continue com o código do projeto anterior. Estilize no CSS, breakpoints para tratar das exibições em telas maiores. Para tablet, a partir de 768px. Para Desktop, a partir de 1200px.",
+          "description": "<p>Continue com o código do projeto anterior. Estilize no CSS, breakpoints para tratar das exibições em telas maiores. Para tablet, a partir de 768px. Para Desktop, a partir de 1200px.&nbsp;</p>",
           "file": "b2-dr1-tp3.05~3.07"
         },
         {
           "index": 8,
           "title": "Módulos de estilo",
-          "description": "Crie um projeto React que usará módulos de estilo. Crie um novo projeto React.\n    Crie um componente React chamado Card que utilizará um módulo de estilo CSS para estilização.\n    Crie um módulo de estilo CSS chamado Card.module.css na pasta src. Esse módulo de estilo conterá classes CSS específicas para o componente Card, como imagem, título e descrição.\n    Estilize o componente Card usando o módulo de estilo CSS criado. Aplique estilos como bordas, sombras, espaçamento interno, e ajuste de fontes.\n    Importe e utilize o componente Card no componente principal App para exibir o resultado estilizado na página.",
+          "description": "<p>Crie um projeto React que usará módulos de estilo.</p><ul>\n    <li>Crie um novo projeto React.</li>\n    <li>Crie um componente React chamado Card que utilizará um módulo de estilo CSS para estilização.</li>\n    <li>Crie um módulo de estilo CSS chamado Card.module.css na pasta src. Esse módulo de estilo conterá classes CSS específicas para o componente Card, como imagem, título e descrição.</li>\n    <li>Estilize o componente Card usando o módulo de estilo CSS criado. Aplique estilos como bordas, sombras, espaçamento interno, e ajuste de fontes.</li>\n    <li>Importe e utilize o componente Card no componente principal App para exibir o resultado estilizado na página.</li>\n</ul>",
           "file": "b2-dr1-tp3.08~3.09"
         },
         {
           "index": 9,
           "title": "Módulos de estilo - Continuação",
-          "description": "Continue o exercício anterior, criando um novo componente chamado Button. Esse componente também deverá usar um módulo de estilo CSS (Button.module.css) para organização e escopo de estilos.\n    Insira estilização para o elemento button e suas variações de estado, como hover e active, por exemplo. \n    Importe o componente para o seu projeto.",
+          "description": "<p>Continue o exercício anterior, criando um novo componente chamado Button.</p><ul>\n    <li>Esse componente também deverá usar um módulo de estilo CSS (Button.module.css) para organização e escopo de estilos.</li>\n    <li>Insira estilização para o elemento button e suas variações de estado, como hover e active, por exemplo.&nbsp;</li>\n    <li>Importe o componente para o seu projeto.</li>\n</ul>",
           "file": "b2-dr1-tp3.08~3.09"
         },
         {
           "index": 10,
           "title": "Módulos de estilo",
-          "description": "Vamos criar um projeto que utilizará módulos de estilo em três componentes diferentes. Módulos de estilo são utilizados para manter seus estilos organizados e específicos para cada componente, evitando conflito de classes e melhorando a manutenção do\n    seu código. Crie um novo projeto React, com três componentes React: Header, Content e Footer. Cada um deve ser estilizado com seu próprio módulo de estilo CSS.\n    Crie módulos de estilo CSS chamados Header.module.css, Content.module.css e Footer.module.css na pasta src. Cada módulo de estilo conterá classes CSS específicas para seu respectivo componente.\n    Estilize cada componente usando seu módulo de estilo CSS correspondente. Aplique estilos como cores de fundo, margens, espaçamento interno, e ajuste de fontes.\n    Importe e utilize esses componentes no componente principal App para que eles sejam exibidos na página, com cada componente mostrando seus próprios estilos.",
+          "description": "<p>Vamos criar um projeto que utilizará módulos de estilo em três componentes diferentes. Módulos de estilo são utilizados para manter seus estilos organizados e específicos para cada componente, evitando conflito de classes e melhorando a manutenção do\n    seu código.&nbsp;</p><ul>\n    <li>Crie um novo projeto React, com três componentes React: Header, Content e Footer. Cada um deve ser estilizado com seu próprio módulo de estilo CSS.</li>\n    <li>Crie módulos de estilo CSS chamados Header.module.css, Content.module.css e Footer.module.css na pasta src. Cada módulo de estilo conterá classes CSS específicas para seu respectivo componente.</li>\n    <li>Estilize cada componente usando seu módulo de estilo CSS correspondente. Aplique estilos como cores de fundo, margens, espaçamento interno, e ajuste de fontes.</li>\n    <li>Importe e utilize esses componentes no componente principal App para que eles sejam exibidos na página, com cada componente mostrando seus próprios estilos.</li>\n</ul>",
           "file": "b2-dr1-tp3.10"
         },
         {
           "index": 11,
           "title": "Estilização Global com CSS no React (Grupo de até 4 pessoas)",
-          "description": "Desenvolva um projeto e aplique estilos globais em uma aplicação React utilizando arquivos CSS. Crie um novo projeto React.\n    Crie um arquivo chamado global.css na pasta src do seu projeto.\n    Defina estilos globais que afetam toda a aplicação. Exemplo: estilos para o body, h1, parágrafos, dentre outros.\n    Import o arquivo global.css no React.\n    No arquivo App.js, crie uma estrutura simples que se beneficie dos estilos globais definidos.\n    Modifique o arquivo global.css para adicionar mais estilos globais e personalize o visual da aplicação de acordo com seu gosto. Teste cores, fontes, espaçamentos, etc.",
+          "description": "<p>Desenvolva um projeto e aplique estilos globais em uma aplicação React utilizando arquivos CSS.&nbsp;</p><ul>\n    <li>Crie um novo projeto React.</li>\n    <li>Crie um arquivo chamado global.css na pasta src do seu projeto.</li>\n    <li>Defina estilos globais que afetam toda a aplicação. Exemplo: estilos para o body, h1, parágrafos, dentre outros.</li>\n    <li>Import o arquivo global.css no React.</li>\n    <li>No arquivo App.js, crie uma estrutura simples que se beneficie dos estilos globais definidos.</li>\n    <li>Modifique o arquivo global.css para adicionar mais estilos globais e personalize o visual da aplicação de acordo com seu gosto. Teste cores, fontes, espaçamentos, etc.</li>\n</ul>",
           "file": "b2-dr1-tp3.11~3.16"
         },
         {
           "index": 12,
           "title": "Estilização Global com CSS no React (Grupo de até 4 pessoas)Grupo de até 4 pessoas",
-          "description": "Continue o projeto anterior. Crie um arquivo chamado styles.css na pasta src do seu projeto.\n    Defina estilos com escopo voltado para o componente App.js.\n    Importe o arquivo styles.css no seu componente principal, App.js.\n    No arquivo App.js, crie uma estrutura simples com elementos que utilizarão classes apropriadas para alguns seletores inseridos no App.js.",
+          "description": "<p>Continue o projeto anterior.&nbsp;</p><ul>\n    <li>Crie um arquivo chamado styles.css na pasta src do seu projeto.</li>\n    <li>Defina estilos com escopo voltado para o componente App.js.</li>\n    <li>Importe o arquivo styles.css no seu componente principal, App.js.</li>\n    <li>No arquivo App.js, crie uma estrutura simples com elementos que utilizarão classes apropriadas para alguns seletores inseridos no App.js.&nbsp;</li>\n</ul>",
           "file": "b2-dr1-tp3.11~3.16"
         },
         {
           "index": 13,
           "title": "Estilização Global com CSS no React (Grupo de até 4 pessoas)Grupo de até 4 pessoas",
-          "description": "Continue o projeto anterior. Agora, crie um componente menu para elementos de navegação que apontarão para Ids na própria interface do seu projeto, simulando uma single page application. \n    Crie um arquivo chamado menu.css na pasta src do seu projeto.\n    Defina estilos com escopo voltado para o componente Menu.js.\n    Sua navegação deve estar preparada para mobile-first, depois, configurada para exibição em dispositivos de até 992px, e por fim, uma terceira visualização para dispositivos maiores que 992px.\n    Até 576px, cada item de menu ocupará a largura total da página. Até 992px, itens de menu serão disponibilizados na horizontal, lado a lado, sem espaçamento entre eles. Em telas acima de 992px, itens de menu devem estar disponíveis na horizontal, distribuídos\n        na largura da página, com espaços regulares entre eles.\n    Importe o arquivo menu.css no seu componente Menu.js.\n    Agora no App.js, importe e utilize o componente Menu.",
+          "description": "<p>Continue o projeto anterior.&nbsp;</p><ul>\n    <li>Agora, crie um componente menu para elementos de navegação que apontarão para Ids na própria interface do seu projeto, simulando uma single page application.&nbsp;</li>\n    <li>Crie um arquivo chamado menu.css na pasta src do seu projeto.</li>\n    <li>Defina estilos com escopo voltado para o componente Menu.js.</li>\n    <li>Sua navegação deve estar preparada para mobile-first, depois, configurada para exibição em dispositivos de até 992px, e por fim, uma terceira visualização para dispositivos maiores que 992px.</li>\n    <li>Até 576px, cada item de menu ocupará a largura total da página. Até 992px, itens de menu serão disponibilizados na horizontal, lado a lado, sem espaçamento entre eles. Em telas acima de 992px, itens de menu devem estar disponíveis na horizontal, distribuídos\n        na largura da página, com espaços regulares entre eles.</li>\n    <li>Importe o arquivo menu.css no seu componente Menu.js.</li>\n    <li>Agora no App.js, importe e utilize o componente Menu.&nbsp;</li>\n</ul>",
           "file": "b2-dr1-tp3.11~3.16"
         },
         {
           "index": 14,
           "title": "Estilização Global com CSS no React (Grupo de até 4 pessoas)Grupo de até 4 pessoas",
-          "description": "Continue o projeto anterior. Defina um componente de destaque para o seu projeto, um hero. \n    Para tanto, crie um arquivo para o componente Hero na pasta src do seu projeto.\n    Faça a chamada de imagem responsiva, com as técnicas aprendidas em aula, privilegiando mobile, tablet e desktop na estilização (Sua navegação deve estar preparada para mobile-first, depois, configurada para exibição em dispositivos de até 992px, e\n        por fim, uma terceira visualização para dispositivos maiores que 992px).\n    Defina estilos com escopo voltado para o componente Hero.\n    Vincule o css ao componente e, no App.js, importe e utilize o componente Hero.",
+          "description": "<p>Continue o projeto anterior.&nbsp;</p><ul>\n    <li>Defina um componente de destaque para o seu projeto, um hero.&nbsp;</li>\n    <li>Para tanto, crie um arquivo para o componente Hero na pasta src do seu projeto.</li>\n    <li>Faça a chamada de imagem responsiva, com as técnicas aprendidas em aula, privilegiando mobile, tablet e desktop na estilização (Sua navegação deve estar preparada para mobile-first, depois, configurada para exibição em dispositivos de até 992px, e\n        por fim, uma terceira visualização para dispositivos maiores que 992px).</li>\n    <li>Defina estilos com escopo voltado para o componente Hero.</li>\n    <li>Vincule o css ao componente e, no App.js, importe e utilize o componente Hero.&nbsp;</li>\n</ul>",
           "file": "b2-dr1-tp3.11~3.16"
         },
         {
           "index": 15,
           "title": "Estilização Global com CSS no React (Grupo de até 4 pessoas)Grupo de até 4 pessoas",
-          "description": "Continue o projeto anterior. Crie um componente Main. Defina a estilização necessária.\n    Depois, importe o componente de destaque para o seu projeto, um hero, dentro do Main. \n    Vincule o css ao componente e, no App.js, importe e utilize o componente Main.",
+          "description": "<p>Continue o projeto anterior.&nbsp;</p><ul>\n    <li>Crie um componente Main. Defina a estilização necessária.</li>\n    <li>Depois, importe o componente de destaque para o seu projeto, um hero, dentro do Main.&nbsp;</li>\n    <li>Vincule o css ao componente e, no App.js, importe e utilize o componente Main.&nbsp;</li>\n</ul>",
           "file": "b2-dr1-tp3.11~3.16"
         },
         {
           "index": 16,
           "title": "Estilização Global com CSS no React (Grupo de até 4 pessoas)Grupo de até 4 pessoas",
-          "description": "Continue o projeto anterior. Crie um componente de Footer.\n    Detalhe o nome dos membros do grupo com um avatar ao lado, e seu contato Linkedin. \n    Defina estilos com escopo voltado para o componente Footer.\n    Vincule o css ao componente e, no App.js, importe e utilize o componente Footer no seu projeto. Assim que terminar, salve seu trabalho em PDF nomeando o arquivo conforme a regra “nome_sobrenome_DR1_TP3.PDF” e poste como resposta a este TP.",
+          "description": "<p>Continue o projeto anterior.&nbsp;</p><ul>\n    <li>Crie um componente de Footer.</li>\n    <li>Detalhe o nome dos membros do grupo com um avatar ao lado, e seu contato Linkedin. </li>\n    <li>Defina estilos com escopo voltado para o componente Footer.</li>\n    <li>Vincule o css ao componente e, no App.js, importe e utilize o componente Footer no seu projeto.&nbsp;</li>\n</ul><p>Assim que terminar, salve seu trabalho em PDF nomeando o arquivo conforme a regra “nome_sobrenome_DR1_TP3.PDF” e poste como resposta a este TP.</p>",
           "file": "b2-dr1-tp3.11~3.16"
         }
       ]
