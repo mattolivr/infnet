@@ -3,17 +3,19 @@ import DOMPurify from "dompurify";
 
 interface HTMLContentProps {
   html: string;
-  className?: string;
 }
 
-const ContentWrapper = styled("div")(({ theme }) => ({
+const HTMLContentRoot = styled("div", {
+  name: "HTMLContent",
+  slot: "root",
+})(({ theme }) => ({
   color: theme.palette.text.primary,
   fontSize: theme.typography.fontSize,
   lineHeight: 1.6,
 
   "& p": {
     margin: theme.spacing(1, 0),
-    lineHeight: 1.6,
+    lineHeight: theme.typography.body1.lineHeight,
 
     "&:first-of-type": {
       marginTop: 0,
@@ -32,7 +34,7 @@ const ContentWrapper = styled("div")(({ theme }) => ({
 
   "& li": {
     marginBottom: theme.spacing(0.75),
-    lineHeight: 1.6,
+    lineHeight: theme.typography.body1.lineHeight,
   },
 
   "& strong, & b": {
@@ -42,6 +44,7 @@ const ContentWrapper = styled("div")(({ theme }) => ({
 
   "& em, & i": {
     fontStyle: "italic",
+    lineHeight: theme.typography.body1.lineHeight,
   },
 
   "& a": {
@@ -102,7 +105,7 @@ const ContentWrapper = styled("div")(({ theme }) => ({
   },
 }));
 
-export default function HTMLContent({ html, className }: HTMLContentProps) {
+export default function HTMLContent({ html }: HTMLContentProps) {
   const sanitizedHTML = DOMPurify.sanitize(html, {
     ALLOWED_TAGS: [
       "p",
@@ -128,9 +131,6 @@ export default function HTMLContent({ html, className }: HTMLContentProps) {
   });
 
   return (
-    <ContentWrapper
-      className={className}
-      dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
-    />
+    <HTMLContentRoot dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
   );
 }

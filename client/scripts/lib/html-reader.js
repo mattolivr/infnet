@@ -40,7 +40,17 @@ function extractRawHTML(viewSourceHTML) {
 }
 
 function sanitizeTitle(title) {
-  return title.split(/[-–—\[\(\{\|]/)[0].trim();
+  let sanitized = title.replace(/[-–—]/g, " ");
+
+  sanitized = sanitized.replace(/[\[\(\{\|].*/g, "");
+
+  const tpMatch = sanitized.match(/\b([A-Z]{2,})(\d+)\b/);
+  if (tpMatch) {
+    sanitized = sanitized.replace(tpMatch[0], tpMatch[2]);
+  }
+
+  sanitized = sanitized.replace(/\s+/g, " ");
+  return sanitized.trim();
 }
 
 function determineType(title) {
@@ -87,13 +97,19 @@ function getDescription($) {
 
     if (text.trim() !== "") {
       const html = $(elem).html();
-      descriptionElements.push(`<p>${html}</p>`);
+      descriptionElements.push(html);
     }
   });
 
-  // Remove <br> duplicados consecutivos
-  const description = descriptionElements.join("");
-  return description.replace(/(<br\s*\/?>[\s\n]*)+/gi, "<br>");
+  const fullHTML = descriptionElements.join(" ");
+  const parts = fullHTML.split(/<br\s*\/?>/gi);
+
+  const paragraphs = parts
+    .map((part) => part.trim())
+    .filter((part) => part !== "")
+    .map((part) => `<p>${part}</p>`);
+
+  return paragraphs.join("");
 }
 
 function getTasks($, id, subjectsPath) {

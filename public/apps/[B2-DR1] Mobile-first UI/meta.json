@@ -6,9 +6,16 @@
   "description": "A disciplina aborda a criação de interfaces de usuário pensadas em dispositivos móveis, focando em estratégias para design responsivo, otimização de recursos e usabilidade em diferentes tamanhos de tela e desenvolvendo habilidades para projetar aplicações mobile-first.",
   "assignments": [
     {
+      "id": "b2-dr1-at",
+      "type": "assessment",
+      "title": "Assessment",
+      "description": "<p>Esta é a hora de avaliarmos sua evolução e desenvolvimento neste trimestre, na disciplina de Mobile-first UI com React. Todos os detalhes estão descritos abaixo. Lembrem-se que o Assessment é uma entrega individual e caso tenham dúvidas, me acionem por\n    favor.</p>",
+      "tasks": []
+    },
+    {
       "id": "b2-dr1-tp1",
       "type": "tasklist",
-      "title": "Teste de Performance",
+      "title": "Teste de Performance 1",
       "description": "",
       "tasks": [
         {
@@ -52,8 +59,8 @@
     {
       "id": "b2-dr1-tp2",
       "type": "tasklist",
-      "title": "Teste de Performance",
-      "description": "<p>Esse é o segundo teste de performance (TP) da disciplina regular <strong>Mobile-First UI com React</strong>, do Bloco de <strong>Desenvolvimento Front-end com Frameworks</strong>. É a partir daqui que você dará seus primeiros passos em sua formação.</p><p>Nesse TP2, temos como objetivo desenvolver a primeira competência prevista para nossa disciplina: <em>Criar páginas web responsivas com CSS3</em>. Para tal, você irá desenvolver algumas tarefas que irão passar por todo o conteúdo visto na primeira e segunda\n    etapas do curso. Crie uma conta no Codesandbox e desenvolva 16 arquivos dentro dele para a sua entrega.</p>",
+      "title": "Teste de Performance 2",
+      "description": "<p>Esse é o segundo teste de performance (TP) da disciplina regular <strong>Mobile-First UI com React</strong>, do Bloco de <strong>Desenvolvimento Front-end com Frameworks</strong>. É a partir daqui que você dará seus primeiros passos em sua formação. Nesse TP2, temos como objetivo desenvolver a primeira competência prevista para nossa disciplina: <em>Criar páginas web responsivas com CSS3</em>. Para tal, você irá desenvolver algumas tarefas que irão passar por todo o conteúdo visto na primeira e segunda\n    etapas do curso. Crie uma conta no Codesandbox e desenvolva 16 arquivos dentro dele para a sua entrega.</p>",
       "tasks": [
         {
           "index": 1,
@@ -156,8 +163,8 @@
     {
       "id": "b2-dr1-tp3",
       "type": "tasklist",
-      "title": "Teste de Performance",
-      "description": "<p>É hora de exercitar mais e mais o que foi visto na disciplina regular <strong>Mobile-First UI com React</strong>, do Bloco de <strong>Desenvolvimento Front-end com Frameworks</strong>. <br>Nesse TP3, temos como objetivo desenvolver as competências\n    previstas para nossa disciplina: <em>Criar páginas web responsivas com CSS3 e Estilizar componentes React com CSS3</em>. Para tal, você irá desenvolver algumas tarefas que irão passar por todo o conteúdo visto nas etapas recentes dos nossos encontros.</p>",
+      "title": "Teste de Performance 3",
+      "description": "<p>É hora de exercitar mais e mais o que foi visto na disciplina regular <strong>Mobile-First UI com React</strong>, do Bloco de <strong>Desenvolvimento Front-end com Frameworks</strong>.</p><p>Nesse TP3, temos como objetivo desenvolver as competências\n    previstas para nossa disciplina: <em>Criar páginas web responsivas com CSS3 e Estilizar componentes React com CSS3</em>. Para tal, você irá desenvolver algumas tarefas que irão passar por todo o conteúdo visto nas etapas recentes dos nossos encontros.</p>",
       "tasks": [
         {
           "index": 1,

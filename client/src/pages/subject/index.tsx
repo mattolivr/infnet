@@ -8,12 +8,17 @@ import {
   AccordionSummary,
   Avatar,
   Chip,
+  createTheme,
   styled,
+  ThemeProvider,
 } from "@mui/material";
 import Icon from "../../components/icon";
 import { useManifest } from "../../hooks/useManifest";
+import { useState, useRef } from "react";
+import { global } from "../../theme";
+import type Assignment from "../../interfaces/assignment";
 
-const Assignment = styled(Accordion)(({ theme }) => ({
+const AssignmentAccordion = styled(Accordion)(({ theme }) => ({
   backgroundColor: "transparent",
   boxShadow: "none",
   border: "none",
@@ -58,9 +63,42 @@ const AssignmentDetails = styled(AccordionDetails)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
+const subjectTheme = createTheme(global, {
+  components: {
+    HTMLContent: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "red",
+          padding: global.spacing(2),
+        },
+      },
+    },
+  },
+});
+
 export default function SubjectPage() {
   const { blockId, subjectId } = useParams();
-  const { subjects, getSubjectById, getId } = useManifest();
+  const { getSubjectById, getId } = useManifest();
+
+  const [expanded, setExpanded] = useState<string | false>("panel1");
+  const headerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  const handleChange =
+    (panel: string) => (_event: React.SyntheticEvent, newExpanded: boolean) => {
+      setExpanded(newExpanded ? panel : false);
+
+      if (newExpanded) {
+        setTimeout(() => {
+          const headerElement = headerRefs.current[panel];
+          if (headerElement) {
+            headerElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
+            });
+          }
+        }, 250);
+      }
+    };
 
   const subject = getSubjectById(getId(blockId, subjectId) || "");
   if (!subject) {
@@ -69,7 +107,7 @@ export default function SubjectPage() {
   console.log("subject", subject);
 
   return (
-    <>
+    <ThemeProvider theme={subjectTheme}>
       <Card color="primary" floatingIcon={<Icon name={subject?.icon} filled />}>
         <CardHeader title={subject?.name || "Subject"} titleVariant="h2" />
         <Chip
@@ -83,13 +121,20 @@ export default function SubjectPage() {
       </Card>
       {subject?.assignments?.map((assignment, asgmtIndex) => (
         <Card key={`asgmt-${asgmtIndex}`}>
-          <Assignment
+          <AssignmentAccordion
+            expanded={expanded === `panel${asgmtIndex}`}
+            onChange={handleChange(`panel${asgmtIndex}`)}
             slotProps={{ transition: { timeout: 250 } }}
             disableGutters
           >
-            <AssignmentHeader expandIcon={<Icon name="expand_more" />}>
+            <AssignmentHeader
+              ref={(el) => {
+                headerRefs.current[`panel${asgmtIndex}`] = el;
+              }}
+              expandIcon={<Icon name="expand_more" />}
+            >
               <Avatar>
-                <Icon name="deployed_code" />
+                <Icon name={getIconType(assignment)} />
               </Avatar>
               <CardHeader title={assignment.title} />
             </AssignmentHeader>
@@ -110,9 +155,22 @@ export default function SubjectPage() {
                 </Card>
               ))}
             </AssignmentDetails>
-          </Assignment>
+          </AssignmentAccordion>
         </Card>
       ))}
-    </>
+    </ThemeProvider>
   );
+}
+
+function getIconType(assignment: Assignment): string {
+  switch (assignment.type) {
+    case "project":
+      return "drive_folder_upload";
+    case "assessment":
+      return "stacks";
+    case "tasklist":
+      return "deployed_code";
+    default:
+      return "check";
+  }
 }

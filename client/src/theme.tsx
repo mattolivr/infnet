@@ -73,6 +73,9 @@ export const global: Theme = createTheme({
       fontWeight: 700,
       textTransform: "none",
     },
+    body1: {
+      lineHeight: 1.7,
+    },
   },
   shape: {
     borderRadiusSm: 12,
