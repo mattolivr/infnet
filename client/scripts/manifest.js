@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const PATH = "./public/apps";
+const PATH = "../public/apps";
 const OUTPUT_FILE = "./src/manifest.json";
 
 function main() {

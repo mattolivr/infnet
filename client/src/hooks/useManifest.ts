@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import manifestData from "../../src/manifest.json";
+import manifestData from "../manifest.json";
 import type Manifest from "../interfaces/manifest";
 
 export function useManifest() {

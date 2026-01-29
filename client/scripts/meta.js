@@ -1,7 +1,7 @@
 import * as htmlReader from "./lib/html-reader.js";
 import fs from "fs";
 
-const PATH = "./public/apps";
+const PATH = "../public/apps";
 const META_FILES = new Map();
 const ASSIGNMENTS = new Map();
 
