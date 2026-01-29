@@ -4,5 +4,6 @@
   "icon": "ads_click",
   "teacher": "Lauro Victor Ramos Cavadas",
   "description": "A disciplina integra o Javascript com HTML5 e CSS3 para criar páginas web interativas, abordando manipulação do DOM e eventos.",
-  "assignments": []
+  "assignments": [],
+  "folder": "b1-dr3_interatividade-em-paginas"
 }

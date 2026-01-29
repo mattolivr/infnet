@@ -4,5 +4,6 @@
   "icon": "web",
   "teacher": "Lauro Victor Ramos Cavadas",
   "description": "A disciplina aborda conceitos básicos de programação web, criando páginas com HTML5 e CSS3, incluindo estruturação de conteúdo, estilização visual e boas práticas de desenvolvimento front-end.",
-  "assignments": []
+  "assignments": [],
+  "folder": "b1-dr1_programacao-web-html"
 }

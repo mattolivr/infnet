@@ -4,5 +4,6 @@
   "icon": "dashboard_2_edit",
   "teacher": "Wesley Bruno Barbosa Silva",
   "description": "O curso aprofunda os conceitos do React para o desenvolvimento web, incluindo roteamento, hooks avançados, otimização de desempenho e integração com bibliotecas externas.",
-  "assignments": []
+  "assignments": [],
+  "folder": "b2-dr4_desenvolvimento-web-react"
 }

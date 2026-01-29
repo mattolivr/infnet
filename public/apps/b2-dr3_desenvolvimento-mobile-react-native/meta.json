@@ -4,5 +4,6 @@
   "icon": "mobile_code",
   "teacher": "Cidcley Schmitt de Oliveira",
   "description": "A matéria explora o framework React Native para o desenvolvimento de aplicações móveis, abordando a criação de interfaces nativas, navegação entre telas, gerenciamento de estado e integração com APIs.",
-  "assignments": []
+  "assignments": [],
+  "folder": "b2-dr3_desenvolvimento-mobile-react-native"
 }

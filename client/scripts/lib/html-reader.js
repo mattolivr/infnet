@@ -200,10 +200,13 @@ function getTasksFiles(id, subjectsPath) {
 }
 
 function findSubjectFolder(id, subjectsPath) {
-  const subjectId = `[${id.split("-").slice(0, 2).join("-").toUpperCase()}]`;
+  const subjectId = id.split("-").slice(0, 2).join("-");
   const folders = fs.readdirSync(subjectsPath);
 
-  return folders.find((folder) => folder.startsWith(subjectId));
+  return folders.find((folder) => {
+    const folderId = folder.split("_")[0];
+    return folderId === subjectId;
+  });
 }
 
 function getFilteredTaskFiles(id, subjectsPath, subjectFolder) {

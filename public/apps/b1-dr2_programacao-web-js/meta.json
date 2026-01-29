@@ -4,5 +4,6 @@
   "icon": "code",
   "teacher": "Eduarda Gabriela Velho",
   "description": "A disciplina aborda conceitos básicos de programação com Javascript, estruturando programas simples.",
-  "assignments": []
+  "assignments": [],
+  "folder": "b1-dr2_programacao-web-js"
 }

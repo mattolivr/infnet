@@ -4,6 +4,7 @@ import fs from "fs";
 const PATH = "../public/apps";
 const META_FILES = new Map();
 const ASSIGNMENTS = new Map();
+const SUBJECT_FOLDERS = new Map();
 
 function main() {
   registerMetaFiles();
@@ -26,6 +27,7 @@ function registerMetaFiles() {
     const id = JSON.parse(content).id;
 
     META_FILES.set(id, content);
+    SUBJECT_FOLDERS.set(id, dir);
   }
 }
 
@@ -45,24 +47,32 @@ function readAssignmentFiles() {
 function appendAssignmentsToMeta() {
   for (const [subjectId, metaContent] of META_FILES.entries()) {
     const assignments = [];
+    const folderName = SUBJECT_FOLDERS.get(subjectId);
 
     for (const [assignmentId, assignmentContent] of ASSIGNMENTS.entries()) {
       if (assignmentId.startsWith(subjectId)) {
-        assignments.push(JSON.parse(assignmentContent));
+        const assignment = JSON.parse(assignmentContent);
+
+        if (assignment.tasks && folderName) {
+          assignment.tasks = assignment.tasks.map((task) => ({
+            ...task,
+            file: `${folderName}/${task.file}`,
+          }));
+        }
+
+        assignments.push(assignment);
       }
     }
     assignments.sort((a, b) => a.id.localeCompare(b.id));
 
     const meta = JSON.parse(metaContent);
     meta.assignments = assignments;
+    meta.folder = folderName;
 
-    const subjectName = fs
-      .readdirSync(PATH)
-      .find((dir) =>
-        dir.startsWith(
-          `[${subjectId.split("-").slice(0, 2).join("-").toUpperCase()}]`,
-        ),
-      );
+    const subjectName = fs.readdirSync(PATH).find((dir) => {
+      const dirId = dir.split("_")[0];
+      return dirId === subjectId;
+    });
 
     const outputPath = `${PATH}/${subjectName}/meta.json`;
     fs.writeFileSync(outputPath, JSON.stringify(meta, null, 2), "utf-8");
