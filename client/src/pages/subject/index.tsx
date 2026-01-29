@@ -7,8 +7,11 @@ import {
   AccordionDetails,
   AccordionSummary,
   Avatar,
+  Box,
+  Button,
   Chip,
   createTheme,
+  IconButton,
   styled,
   ThemeProvider,
 } from "@mui/material";
@@ -17,6 +20,7 @@ import { useManifest } from "../../hooks/useManifest";
 import { useState, useRef } from "react";
 import { global } from "../../theme";
 import type Assignment from "../../interfaces/assignment";
+import useExternal from "../../hooks/useExternal";
 
 const AssignmentAccordion = styled(Accordion)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -63,24 +67,12 @@ const AssignmentDetails = styled(AccordionDetails)(({ theme }) => ({
   gap: theme.spacing(1),
 }));
 
-const subjectTheme = createTheme(global, {
-  components: {
-    HTMLContent: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "red",
-          padding: global.spacing(2),
-        },
-      },
-    },
-  },
-});
-
 export default function SubjectPage() {
   const { blockId, subjectId } = useParams();
   const { getSubjectById, getId } = useManifest();
+  const { getGithubUrl, getCodesandboxUrl } = useExternal();
 
-  const [expanded, setExpanded] = useState<string | false>("panel1");
+  const [expanded, setExpanded] = useState<string | false>(false);
   const headerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const handleChange =
@@ -107,7 +99,7 @@ export default function SubjectPage() {
   console.log("subject", subject);
 
   return (
-    <ThemeProvider theme={subjectTheme}>
+    <>
       <Card color="primary" floatingIcon={<Icon name={subject?.icon} filled />}>
         <CardHeader title={subject?.name || "Subject"} titleVariant="h2" />
         <Chip
@@ -139,7 +131,25 @@ export default function SubjectPage() {
               <CardHeader title={assignment.title} />
             </AssignmentHeader>
             <AssignmentDetails>
-              <HTMLContent html={assignment.description || ""} />
+              <Box sx={{ padding: global.spacing(1) }}>
+                <HTMLContent html={assignment.description || ""} />
+              </Box>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  paddingBlock: global.spacing(1),
+                  gap: global.spacing(1),
+                }}
+              >
+                <Button color="secondary">
+                  <Icon name="folder_code" /> Ver no repositório
+                </Button>
+                <Button>
+                  <Icon name="file_export" /> Exportar para PDF
+                </Button>
+              </Box>
 
               {assignment.tasks.map((task, taskIndex) => (
                 <Card key={`asgn-${asgmtIndex}-${taskIndex}`} color="secondary">
@@ -150,15 +160,21 @@ export default function SubjectPage() {
                     <CardHeader.Title variant="h3">
                       {task.title}
                     </CardHeader.Title>
+                    <IconButton>
+                      <Icon name="arrow_outward" filled />
+                    </IconButton>
                   </CardHeader>
-                  <HTMLContent html={task.description} />
+                  <span>{getCodesandboxUrl(task.file)}</span>
+                  <Box sx={{ padding: global.spacing(1) }}>
+                    <HTMLContent html={task.description || ""} />
+                  </Box>
                 </Card>
               ))}
             </AssignmentDetails>
           </AssignmentAccordion>
         </Card>
       ))}
-    </ThemeProvider>
+    </>
   );
 }
 

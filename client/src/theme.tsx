@@ -94,6 +94,7 @@ export const global: Theme = createTheme({
           alignItems: "center",
           justifyContent: "center",
 
+          gap: theme.spacing(1),
           paddingInline: theme.spacing(3),
           paddingBlock: theme.spacing(1.5),
 
@@ -111,17 +112,14 @@ export const global: Theme = createTheme({
             {
               props: { color: "secondary" },
               style: {
-                color: theme.palette.text.secondary,
-                backgroundColor: theme.palette.grey[200],
+                color: theme.palette.primary.contrastText,
+                border: `2px solid ${theme.palette.primary.contrastText}`,
+                backgroundColor: "transparent",
                 "&:hover": {
-                  backgroundColor: theme.palette.grey[300],
+                  borderColor: theme.palette.primary.contrastText,
+                  backgroundColor: theme.palette.primary.contrastText,
+                  color: theme.palette.secondary.contrastText,
                 },
-              },
-            },
-            {
-              props: { color: "default" },
-              style: {
-                color: theme.palette.secondary.contrastText,
               },
             },
           ],
