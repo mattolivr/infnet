@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import { global } from "./theme";
 import { ThemeProvider } from "@mui/material";
-import MainLayout from "./pages/layouts/main";
+import BaseLayout from "./pages/layouts/base";
 import HomePage from "./pages/home";
 import SubjectPage from "./pages/subject";
 
@@ -11,7 +11,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
+        <Route path="/" element={<BaseLayout />}>
           <Route path="home" element={<HomePage />} />
           <Route
             path="block/:blockId/subject/:subjectId"

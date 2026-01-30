@@ -48,8 +48,8 @@ export function useManifest() {
       return id.join("-");
     },
 
-    getRawId: (id: string) => {
-      const matches = id.match(/\d+/g);
+    getRawId: (id?: string) => {
+      const matches = id?.match(/\d+/g);
       return matches ? parseInt(matches[matches.length - 1]) : null;
     },
   };

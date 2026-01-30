@@ -10,7 +10,7 @@ const HTMLContentRoot = styled("div", {
   slot: "root",
 })(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontSize: theme.typography.fontSize,
+  fontSize: "inherit",
   lineHeight: 1.6,
 
   "& p": {
@@ -66,7 +66,7 @@ const HTMLContentRoot = styled("div", {
         : "rgba(0, 0, 0, 0.05)",
     color: theme.palette.secondary.main,
     padding: theme.spacing(0.25, 0.75),
-    borderRadius: theme.shape.borderRadiusSm / 2,
+    borderRadius: theme.shape.borderRadiusInner,
     fontFamily: "'Fira Code', 'Courier New', monospace",
     fontSize: "0.875em",
     fontWeight: 500,
@@ -78,7 +78,7 @@ const HTMLContentRoot = styled("div", {
         ? "rgba(255, 255, 255, 0.05)"
         : "rgba(0, 0, 0, 0.03)",
     padding: theme.spacing(2),
-    borderRadius: theme.shape.borderRadiusSm,
+    borderRadius: theme.shape.borderRadiusInner,
     overflow: "auto",
     border: `1px solid ${theme.palette.divider}`,
 
