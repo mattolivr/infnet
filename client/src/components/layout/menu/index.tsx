@@ -13,7 +13,6 @@ import { global } from "../../../theme";
 import { useMenu } from "./context";
 import { useManifest } from "../../../hooks/useManifest";
 import Card, { CardHeader } from "../../card";
-import Header from "../header";
 
 const menuTheme = createTheme(global, {
   components: {
@@ -111,6 +110,7 @@ const menuContentTheme = createTheme(global, {
         root: {
           paddingInline: global.spacing(1),
           paddingBlock: 88, // Header and Bottom Nav height
+          overflow: "hidden",
         },
         group: {
           "&:first-child > li:first-child": {

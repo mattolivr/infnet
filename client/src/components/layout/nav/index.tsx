@@ -1,5 +1,4 @@
 import {
-  createTheme,
   List,
   ListItemButton,
   styled,
@@ -7,26 +6,20 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { global } from "../../../theme";
 import { Link, useLocation } from "react-router";
 import Icon from "../../icon";
+import { useMenu } from "../menu/context";
+import { useState } from "react";
+import nav from "./theme";
 
-// TODO: verificar como será implementado quando colocar a pesquisa
-interface NavRoute {
-  name: string;
-  icon: string;
-  route: string;
-  selectedName?: string;
-}
-
-const NavRoot = styled("nav", {
+const Root = styled("nav", {
   name: "Nav",
   slot: "root",
 })({
   display: "flex",
 });
 
-const NavDock = styled(List, {
+const Dock = styled(List, {
   name: "Nav",
   slot: "dock",
 })(({ theme }) => ({
@@ -38,172 +31,114 @@ const NavDock = styled(List, {
   },
 }));
 
-const NavButton = styled(ListItemButton, {
+const Button = styled(ListItemButton, {
   name: "Nav",
   slot: "button",
-})(() => ({
+})(({ theme }) => ({
   padding: 0,
-  borderRadius: global.shape.borderRadius,
+  borderRadius: theme.shape.borderRadius,
 }));
 
-const navTheme = createTheme(global, {
-  components: {
-    Nav: {
-      styleOverrides: {
-        root: {
-          width: "100%",
-          position: "fixed",
-          bottom: 0,
-          justifyContent: "center",
-          alignItems: "center",
-
-          padding: global.spacing(1),
-          zIndex: global.zIndex.nav,
-
-          [global.breakpoints.up("md")]: {
-            height: "100%",
-            position: "static",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "center",
-
-            padding: 0,
-          },
-        },
-        dock: {
-          backgroundColor: global.palette.background.paper,
-          backdropFilter: "blur(4px)",
-          WebkitBackdropFilter: "blur(4px)",
-
-          flexGrow: 1,
-          padding: global.spacing(1.5),
-          borderRadius: global.shape.borderRadius,
-          gap: global.spacing(1),
-
-          [global.breakpoints.up("md")]: {
-            backgroundColor: "transparent",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "center",
-
-            padding: 0,
-          },
-        },
-        button: {
-          "& a": {
-            color: global.palette.text.primary,
-
-            flexGrow: 1,
-
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center",
-
-            gap: global.spacing(0.75),
-            paddingBlock: global.spacing(1.5),
-            paddingInline: global.spacing(3),
-            borderRadius: global.shape.borderRadius,
-
-            textDecoration: "none",
-          },
-
-          "&:not(&.Mui-selected) span:not(:first-of-type)": {
-            display: "none",
-          },
-
-          "&.Mui-selected": {
-            background: global.palette.background.blueGradient,
-            transition: "background 0s",
-
-            "&:hover": {
-              background: global.palette.primary.light,
-            },
-
-            "& a": {
-              color: global.palette.text.white,
-            },
-          },
-
-          [global.breakpoints.up("md")]: {
-            backgroundColor: global.palette.background.paper,
-
-            "& a": {
-              padding: global.spacing(1),
-            },
-
-            "& span:not(:first-of-type)": {
-              display: "none",
-            },
-          },
-        },
-      },
-    },
-  },
-});
+interface Route {
+  index: number;
+  name: string;
+  icon: string;
+  path?: string;
+  onClick?: () => void;
+  isSelected?: (item: Route) => boolean;
+}
 
 export default function Nav() {
   const location = useLocation();
-  const tablet = useMediaQuery(global.breakpoints.only("sm"));
-  const desktop = useMediaQuery(global.breakpoints.up("md"));
+  const { toggleMenu, visible } = useMenu();
+  const [selected, setSelected] = useState(-1);
 
-  const navRoutes: NavRoute[] = [
-    {
-      name: "Início",
-      icon: "cottage",
-      route: "/",
-    },
-    {
-      name: "Explorar",
-      icon: "explore",
-      route: "/explore",
-    },
-    {
-      name: "Sobre",
-      icon: "info",
-      route: "/about",
-    },
-  ];
+  const tablet = useMediaQuery(nav.breakpoints.only("sm"));
+  const desktop = useMediaQuery(nav.breakpoints.up("md"));
 
-  if (tablet) {
-    navRoutes.unshift({
+  const routes: Route[] = [
+    tablet && {
+      index: 0,
       name: "Voltar",
       icon: "arrow_back",
-      route: "/",
-    });
+      path: "/",
+      isSelected: () => false,
+    },
+    {
+      index: 1,
+      name: "Início",
+      icon: "cottage",
+      path: "/",
+    },
+    {
+      index: 2,
+      name: "Explorar",
+      icon: "explore",
+      path: "/explore",
+      isSelected: (item: Route) =>
+        item.path === "/explore" && location.pathname.startsWith("/block"),
+    },
+    {
+      index: 3,
+      name: "Sobre",
+      icon: "info",
+      path: "/about",
+    },
+    tablet && {
+      index: 4,
+      name: visible ? "Fechar" : "Menu",
+      icon: visible ? "close" : "menu",
+      onClick: () => {
+        if (!visible) {
+          toggleMenu();
+          return;
+        }
+        setSelected(-1);
+      },
+      isSelected: () => visible,
+    },
+  ].filter(Boolean) as Route[];
 
-    navRoutes.push({
-      name: "Menu",
-      icon: "menu",
-      route: "/",
-    });
-  }
-
-  const isSelected = (route: string) => {
-    if (route === "/explore" && location.pathname.startsWith("/block")) {
-      return true;
+  const isSelected = (route: Route) => {
+    if (selected >= 0 && selected !== route.index) {
+      return false;
     }
-    return route === location.pathname;
+
+    if (route.isSelected) {
+      return route.isSelected(route);
+    }
+
+    return route.path === location.pathname;
   };
 
   return (
-    <ThemeProvider theme={navTheme}>
-      <NavRoot>
-        <NavDock>
-          {navRoutes.map((navRoute, index) => {
-            const selected = isSelected(navRoute.route);
+    <ThemeProvider theme={nav}>
+      <Root>
+        <Dock>
+          {routes.map((route, index) => {
+            const selected = isSelected(route);
             return (
-              <NavButton key={`nav-item-${index}`} selected={selected}>
-                <Link key={navRoute.name} to={navRoute.route}>
-                  <Icon name={navRoute.icon} filled={selected} />
-                  <Typography variant="button">{navRoute.name}</Typography>
+              <Button
+                key={`nav-item-${index}`}
+                selected={selected}
+                onClick={() => {
+                  if (visible) {
+                    toggleMenu();
+                  }
+                  setSelected(route.index);
+                  route.onClick?.();
+                }}
+              >
+                <Link key={route.name} to={route.path || "#"}>
+                  <Icon name={route.icon} filled={selected} />
+                  <Typography variant="button">{route.name}</Typography>
                 </Link>
-              </NavButton>
+              </Button>
             );
           })}
-        </NavDock>
+        </Dock>
         {desktop && <NavCredits />}
-      </NavRoot>
+      </Root>
     </ThemeProvider>
   );
 }
@@ -234,11 +169,11 @@ function NavCredits() {
   return (
     <NavCreditsRoot>
       <NavCreditsText variant="caption">Mattolivr</NavCreditsText>
-      <NavButton sx={{ flexGrow: 0 }}>
+      <Button sx={{ flexGrow: 0 }}>
         <Link to="">
           <Icon name="folder_open" />
         </Link>
-      </NavButton>
+      </Button>
     </NavCreditsRoot>
   );
 }
