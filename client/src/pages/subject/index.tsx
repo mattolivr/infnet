@@ -87,8 +87,6 @@ export default function SubjectPage() {
   if (!subject) {
     // TODO: Retornar uma página 404 adequada
   }
-  console.log("subject", subject);
-  console.log("block", block);
 
   return (
     <>

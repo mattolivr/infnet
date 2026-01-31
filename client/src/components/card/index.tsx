@@ -1,13 +1,10 @@
 import {
   Avatar,
-  createTheme,
   Card as MuiCard,
   type CardProps as MuiCardProps,
   styled,
-  ThemeProvider,
   Typography,
 } from "@mui/material";
-import { global } from "../../theme";
 import { CardContext } from "./context";
 import Icon from "../icon";
 
@@ -28,6 +25,8 @@ const Root = styled(MuiCard, {
   alignItems: "stretch",
   justifyContent: "flex-start",
 
+  backgroundColor: theme.palette.background.paper,
+
   gap: theme.spacing(2),
   padding: theme.spacing(2),
   borderRadius: theme.shape.borderRadius,
@@ -38,42 +37,29 @@ const Root = styled(MuiCard, {
 const Body = styled("div", {
   name: "Card",
   slot: "body",
-})(({ theme }) => ({
+  shouldForwardProp: (prop) => prop !== "hasHeader",
+})<{ hasHeader?: boolean }>(({ theme, hasHeader }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "stretch",
   justifyContent: "flex-start",
 
   gap: theme.spacing(2),
-  paddingInline: theme.spacing(0.5),
+  paddingInline: hasHeader ? theme.spacing(0.5) : 0,
 }));
-
-const cardTheme = createTheme(global, {
-  components: {
-    Card: {
-      styleOverrides: {
-        root: {
-          backgroundColor: global.palette?.background?.paper,
-          color: global.palette?.text?.primary,
-        },
-      },
-    },
-  },
-});
 
 export default function Card(props: CardProps) {
   const { title, subtitle, selected, index, icon, children, ...cardProps } =
     props;
   const headerProps = { title, subtitle, selected, index, icon };
+  const hasHeader = Boolean(title || subtitle || index !== undefined || icon);
 
   return (
     <CardContext.Provider value={{ cardProps: props }}>
-      <ThemeProvider theme={cardTheme}>
-        <Root {...cardProps}>
-          {headerProps && <CardHeader {...headerProps} />}
-          {children && <Body>{children}</Body>}
-        </Root>
-      </ThemeProvider>
+      <Root {...cardProps}>
+        {hasHeader && <CardHeader {...headerProps} />}
+        {children && <Body hasHeader={hasHeader}>{children}</Body>}
+      </Root>
     </CardContext.Provider>
   );
 }
@@ -94,7 +80,7 @@ const HeaderRoot = styled("div", {
   alignItems: "center",
   justifyContent: "space-between",
 
-  gap: theme.spacing(1),
+  gap: theme.spacing(1.5),
 }));
 
 const HeaderTitleRoot = styled("div", {

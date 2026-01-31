@@ -3,7 +3,7 @@
   "title": "Caderno",
   "subtitle": "Repositório de Exercícios",
   "description": "Este projeto é um repositório de exercícios desenvolvidos pelo autor para o curso de Engenharia de Software no Instituto Infnet.",
-  "generatedAt": "2026-01-29T16:02:12.667Z",
+  "generatedAt": "2026-01-31T19:33:41.861Z",
   "blocks": [
     {
       "id": "b1",
@@ -13,7 +13,7 @@
         {
           "id": "b1-dr1",
           "name": "Programação web com HTML5 e CSS3",
-          "icon": "web",
+          "icon": "widgets",
           "teacher": "Lauro Victor Ramos Cavadas",
           "description": "A disciplina aborda conceitos básicos de programação web, criando páginas com HTML5 e CSS3, incluindo estruturação de conteúdo, estilização visual e boas práticas de desenvolvimento front-end.",
           "assignments": [],
@@ -22,7 +22,7 @@
         {
           "id": "b1-dr2",
           "name": "Programação web com Javascript",
-          "icon": "code",
+          "icon": "function",
           "teacher": "Eduarda Gabriela Velho",
           "description": "A disciplina aborda conceitos básicos de programação com Javascript, estruturando programas simples.",
           "assignments": [],
@@ -31,7 +31,7 @@
         {
           "id": "b1-dr3",
           "name": "Interatividade em páginas web",
-          "icon": "ads_click",
+          "icon": "web_traffic",
           "teacher": "Lauro Victor Ramos Cavadas",
           "description": "A disciplina integra o Javascript com HTML5 e CSS3 para criar páginas web interativas, abordando manipulação do DOM e eventos.",
           "assignments": [],

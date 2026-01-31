@@ -58,6 +58,7 @@ const navTheme = createTheme(global, {
           alignItems: "center",
 
           padding: global.spacing(1),
+          zIndex: global.zIndex.nav,
 
           [global.breakpoints.up("md")]: {
             height: "100%",
@@ -113,6 +114,11 @@ const navTheme = createTheme(global, {
 
           "&.Mui-selected": {
             background: global.palette.background.blueGradient,
+            transition: "background 0s",
+
+            "&:hover": {
+              background: global.palette.primary.light,
+            },
 
             "& a": {
               color: global.palette.text.white,

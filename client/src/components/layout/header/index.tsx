@@ -11,15 +11,12 @@ import {
 import { global } from "../../../theme";
 import Icon from "../../icon";
 import { useLocation } from "react-router";
+import { useMenu } from "../menu/context";
 
-const PageName = styled(Typography, {
+const HeaderRoot = styled(AppBar, {
   name: "Header",
-  slot: "pageName",
-})(({ theme }) => ({
-  flexGrow: 1,
-  textAlign: "center",
-  color: theme.palette.text.primary,
-}));
+  slot: "root",
+})();
 
 const headerTheme = createTheme(global, {
   components: {
@@ -60,6 +57,9 @@ const headerTheme = createTheme(global, {
     },
     Header: {
       styleOverrides: {
+        root: {
+          zIndex: global.zIndex.header,
+        },
         logoText: {
           [global.breakpoints.up("md")]: {
             position: "absolute",
@@ -95,6 +95,15 @@ const LogoTextRoot = styled(Typography, {
   slot: "logoText",
 })();
 
+const PageName = styled(Typography, {
+  name: "Header",
+  slot: "pageName",
+})(({ theme }) => ({
+  flexGrow: 1,
+  textAlign: "center",
+  color: theme.palette.text.primary,
+}));
+
 export const LogoIcon = () => (
   <LogoIconRoot>
     <Icon name="school" />
@@ -103,6 +112,7 @@ export const LogoIcon = () => (
 
 export default function Header() {
   const location = useLocation();
+  const { toggleMenu, visible } = useMenu();
 
   const mobile = useMediaQuery(global.breakpoints.down("sm"));
   const isHomePage = location.pathname === "/";
@@ -111,18 +121,18 @@ export default function Header() {
 
   const MobileHeader = () => (
     <>
-      <IconButton>
+      <IconButton sx={{ visibility: visible ? "hidden" : "visible" }}>
         <Icon name="arrow_back" />
       </IconButton>
 
-      {isHomePage ? (
-        <LogoText />
-      ) : (
+      {!visible && isHomePage && <LogoText />}
+      {!visible && !isHomePage && (
         <PageName variant="h2">Mobile-first UI com React</PageName>
       )}
+      {visible && <PageName variant="h2">Menu</PageName>}
 
-      <IconButton>
-        <Icon name="menu" />
+      <IconButton onClick={toggleMenu}>
+        <Icon name={visible ? "close" : "menu"} />
       </IconButton>
     </>
   );
@@ -159,12 +169,12 @@ export default function Header() {
 
   return (
     <ThemeProvider theme={headerTheme}>
-      <AppBar>
+      <HeaderRoot>
         <Toolbar>
           {mobile && <MobileHeader />}
           {!mobile && <MainHeader />}
         </Toolbar>
-      </AppBar>
+      </HeaderRoot>
     </ThemeProvider>
   );
 }

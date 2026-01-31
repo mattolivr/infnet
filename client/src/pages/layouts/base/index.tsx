@@ -75,8 +75,8 @@ export default function BaseLayout() {
         {medium && <LogoIcon />}
         <Header />
         {medium && <Nav />}
-        {/* <Menu /> */}
         <Main>
+          <Menu />
           <Outlet />
         </Main>
         {!medium && <Nav />}

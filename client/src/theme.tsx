@@ -7,6 +7,10 @@ declare module "@mui/material/styles" {
       borderRadiusInner: number;
       borderRadiusOuter: number;
     };
+    zIndex: {
+      header: number;
+      nav: number;
+    };
   }
 
   interface ThemeOptions {
@@ -14,6 +18,10 @@ declare module "@mui/material/styles" {
       borderRadius: number;
       borderRadiusInner: number;
       borderRadiusOuter: number;
+    };
+    zIndex: {
+      header: number;
+      nav: number;
     };
   }
 
@@ -63,7 +71,7 @@ export const global: Theme = createTheme({
     h1: {
       fontFamily: "Lexend",
       fontWeight: 300,
-      fontSize: "2rem",
+      fontSize: "1.5rem",
       letterSpacing: "0.01em",
     },
     h2: {
@@ -99,6 +107,10 @@ export const global: Theme = createTheme({
     borderRadiusInner: 16,
     borderRadiusOuter: 32,
   },
+  zIndex: {
+    header: 1900,
+    nav: 2000,
+  },
   components: {
     MuiTypography: {
       styleOverrides: {
@@ -110,12 +122,17 @@ export const global: Theme = createTheme({
                 color: theme.palette.text.primary,
                 flexGrow: 1,
                 textAlign: "center",
+
+                [theme.breakpoints.up("sm")]: {
+                  fontSize: "2rem",
+                },
               },
             },
             {
               props: (props) =>
                 ["h1", "h2", "h3"].includes(props.variant || ""),
               style: {
+                color: theme.palette.text.primary,
                 display: "-webkit-box",
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: "vertical",
@@ -152,6 +169,8 @@ export const global: Theme = createTheme({
           paddingInline: theme.spacing(4),
           paddingBlock: theme.spacing(2),
 
+          transition: "background 0s",
+
           variants: [
             {
               props: { color: "primary" },
@@ -159,7 +178,7 @@ export const global: Theme = createTheme({
                 color: theme.palette.primary.contrastText,
                 background: theme.palette.background.blueGradient,
                 "&:hover": {
-                  backgroundColor: theme.palette.primary.dark,
+                  background: theme.palette.primary.light,
                 },
               },
             },
@@ -167,7 +186,11 @@ export const global: Theme = createTheme({
               props: { color: "secondary" },
               style: {
                 color: theme.palette.primary.contrastText,
+                backgroundColor: theme.palette.grey[900],
                 background: theme.palette.background.blackGradient,
+                "&:hover": {
+                  background: theme.palette.grey[800],
+                },
               },
             },
             {

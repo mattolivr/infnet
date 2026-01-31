@@ -1,13 +1,19 @@
 import {
   createTheme,
   Drawer,
+  List,
+  ListItemButton,
+  ListSubheader,
+  styled,
   SwipeableDrawer,
   ThemeProvider,
+  Typography,
 } from "@mui/material";
 import { global } from "../../../theme";
-import { useEffect } from "react";
 import { useMenu } from "./context";
-import MenuContent from "./content";
+import { useManifest } from "../../../hooks/useManifest";
+import Card, { CardHeader } from "../../card";
+import Header from "../header";
 
 const menuTheme = createTheme(global, {
   components: {
@@ -20,8 +26,8 @@ const menuTheme = createTheme(global, {
       },
       styleOverrides: {
         paper: {
-          background: global.palette?.background?.blueGradient,
-          border: `2px solid ${global.palette?.divider}`,
+          background: global.palette?.background?.lightBlueGradient,
+          padding: global.spacing(0),
 
           variants: [
             {
@@ -64,32 +70,104 @@ const menuTheme = createTheme(global, {
 });
 
 export default function Menu() {
-  const { visible, setVisible } = useMenu();
-
-  useEffect(() => {
-    const handleToggleMenu = () => {
-      setVisible(!visible);
-    };
-
-    window.addEventListener("toggle-menu", handleToggleMenu);
-
-    return () => {
-      window.removeEventListener("toggle-menu", handleToggleMenu);
-    };
-  }, [setVisible, visible]);
+  const { visible, toggleMenu } = useMenu();
 
   return (
     <ThemeProvider theme={menuTheme}>
-      <SwipeableDrawer
-        open={visible}
-        onClose={() => setVisible(false)}
-        onOpen={() => setVisible(true)}
-      >
+      <SwipeableDrawer open={visible} onClose={toggleMenu} onOpen={toggleMenu}>
         <MenuContent />
       </SwipeableDrawer>
       <Drawer variant="permanent">
         <MenuContent />
       </Drawer>
+    </ThemeProvider>
+  );
+}
+
+const MenuContentRoot = styled(List, {
+  name: "MenuContent",
+  slot: "root",
+})();
+
+const MenuContentHeader = styled(ListSubheader, {
+  name: "MenuContent",
+  slot: "subheader",
+})();
+
+const MenuContentGroup = styled("div", {
+  name: "MenuContent",
+  slot: "group",
+})();
+
+const MenuContentItem = styled(ListItemButton, {
+  name: "MenuContent",
+  slot: "item",
+})();
+
+const menuContentTheme = createTheme(global, {
+  components: {
+    MenuContent: {
+      styleOverrides: {
+        root: {
+          paddingInline: global.spacing(1),
+          paddingBlock: 88, // Header and Bottom Nav height
+        },
+        group: {
+          "&:first-child > li:first-child": {
+            paddingTop: 0,
+          },
+        },
+        subheader: {
+          backgroundColor: "transparent",
+          paddingBlock: global.spacing(2),
+          paddingInline: global.spacing(1),
+        },
+        item: {
+          padding: global.spacing(2),
+        },
+      },
+    },
+    Card: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
+        body: {
+          gap: 0,
+        },
+      },
+    },
+  },
+});
+
+function MenuContent() {
+  const { blocks } = useManifest();
+
+  return (
+    <ThemeProvider theme={menuContentTheme}>
+      <MenuContentRoot>
+        {blocks
+          ?.filter((block) => block.subjects.length > 0)
+          ?.map((block) => (
+            <MenuContentGroup key={"menu-group-" + block.id}>
+              <MenuContentHeader disableSticky>
+                <Typography variant="h3">{block.name}</Typography>
+              </MenuContentHeader>
+
+              <Card>
+                {block.subjects.map((subject) => (
+                  <MenuContentItem key={"menu-item-" + subject.id}>
+                    <CardHeader
+                      title={subject.name}
+                      subtitle={subject.teacher}
+                      icon={subject.icon}
+                    />
+                  </MenuContentItem>
+                ))}
+              </Card>
+            </MenuContentGroup>
+          ))}
+      </MenuContentRoot>
     </ThemeProvider>
   );
 }

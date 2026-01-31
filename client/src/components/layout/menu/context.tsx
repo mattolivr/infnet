@@ -2,7 +2,7 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 
 interface MenuContextType {
   visible: boolean;
-  setVisible: (visible: boolean) => void;
+  toggleMenu: () => void;
 }
 
 const MenuContext = createContext<MenuContextType | undefined>(undefined);
@@ -10,8 +10,12 @@ const MenuContext = createContext<MenuContextType | undefined>(undefined);
 export function MenuProvider({ children }: { children: ReactNode }) {
   const [visible, setVisible] = useState(false);
 
+  const toggleMenu = () => {
+    setVisible((prevVisible) => !prevVisible);
+  };
+
   return (
-    <MenuContext.Provider value={{ visible, setVisible }}>
+    <MenuContext.Provider value={{ visible, toggleMenu }}>
       {children}
     </MenuContext.Provider>
   );
@@ -23,9 +27,4 @@ export function useMenu() {
     throw new Error("useMenu deve ser usado dentro de MenuProvider");
   }
   return context;
-}
-
-export function toggleMenu() {
-  const event = new CustomEvent("toggle-menu");
-  window.dispatchEvent(event);
 }
