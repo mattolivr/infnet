@@ -2,9 +2,10 @@ import { Outlet } from "react-router";
 import Header, { LogoIcon } from "../../../components/layout/header";
 import Menu from "../../../components/layout/menu";
 import { MenuProvider } from "../../../components/layout/menu/context";
-import { styled, useMediaQuery } from "@mui/material";
+import { styled, ThemeProvider, useMediaQuery } from "@mui/material";
 import Nav from "../../../components/layout/nav";
-import { global } from "../../../theme";
+import { global } from "../../../global.theme";
+import { header } from "../../../components/layout/header/theme";
 
 const LayoutRoot = styled("div", {
   name: "BaseLayout",
@@ -87,7 +88,11 @@ export default function BaseLayout() {
   return (
     <MenuProvider>
       <LayoutRoot>
-        {medium && <LogoIcon />}
+        {medium && (
+          <ThemeProvider theme={header}>
+            <LogoIcon />
+          </ThemeProvider>
+        )}
         <Header />
         {medium && <Nav />}
         <Main>

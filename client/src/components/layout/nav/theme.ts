@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import { global } from "../../../theme";
+import { global } from "../../../global.theme";
 
 const nav = createTheme(global, {
   components: {

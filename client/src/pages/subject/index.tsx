@@ -17,7 +17,7 @@ import {
 import Icon from "../../components/icon";
 import { useManifest } from "../../hooks/useManifest";
 import { useState, useRef, useMemo } from "react";
-import { global } from "../../theme";
+import { global } from "../../global.theme";
 import type Assignment from "../../interfaces/assignment";
 import useExternal from "../../hooks/useExternal";
 

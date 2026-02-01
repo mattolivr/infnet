@@ -9,7 +9,7 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
-import { global } from "../../../theme";
+import { global } from "../../../global.theme";
 import { useMenu } from "./context";
 import { useManifest } from "../../../hooks/useManifest";
 import Card, { CardHeader } from "../../card";

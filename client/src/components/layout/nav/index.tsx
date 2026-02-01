@@ -6,7 +6,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Icon from "../../icon";
 import { useMenu } from "../menu/context";
 import { useState } from "react";
@@ -51,6 +51,8 @@ interface Route {
 export default function Nav() {
   const location = useLocation();
   const { toggleMenu, visible } = useMenu();
+  const navigate = useNavigate();
+
   const [selected, setSelected] = useState(-1);
 
   const tablet = useMediaQuery(nav.breakpoints.only("sm"));
@@ -61,8 +63,10 @@ export default function Nav() {
       index: 0,
       name: "Voltar",
       icon: "arrow_back",
-      path: "/",
       isSelected: () => false,
+      onClick: () => {
+        navigate(-1);
+      },
     },
     {
       index: 1,

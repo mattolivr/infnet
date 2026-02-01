@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { global } from "./theme";
+import { global } from "./global.theme";
 import { ThemeProvider } from "@mui/material";
 import BaseLayout from "./pages/layouts/base";
 import HomePage from "./pages/home";

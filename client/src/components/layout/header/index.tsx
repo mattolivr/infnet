@@ -1,6 +1,5 @@
 import {
   AppBar,
-  createTheme,
   IconButton,
   styled,
   ThemeProvider,
@@ -8,89 +7,21 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { global } from "../../../theme";
+import { global } from "../../../global.theme";
 import Icon from "../../icon";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useMenu } from "../menu/context";
+import { header } from "./theme";
 
 const HeaderRoot = styled(AppBar, {
   name: "Header",
   slot: "root",
 })();
 
-const headerTheme = createTheme(global, {
-  components: {
-    MuiAppBar: {
-      defaultProps: {
-        position: "sticky",
-      },
-      styleOverrides: {
-        root: {
-          background: "transparent",
-          color: global.palette?.secondary?.contrastText,
-          boxShadow: "none",
-
-          paddingInline: global.spacing(2),
-          paddingBlock: global.spacing(1.5),
-
-          [global.breakpoints.up("md")]: {
-            padding: 0,
-          },
-        },
-      },
-    },
-    MuiToolbar: {
-      defaultProps: {
-        disableGutters: true,
-      },
-      styleOverrides: {
-        root: {
-          gap: global.spacing(2),
-
-          [global.breakpoints.up("md")]: {
-            minHeight: "40px",
-            flexDirection: "row",
-            justifyContent: "flex-end",
-          },
-        },
-      },
-    },
-    Header: {
-      styleOverrides: {
-        root: {
-          zIndex: global.zIndex.header,
-        },
-        logoText: {
-          [global.breakpoints.up("md")]: {
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-          },
-        },
-      },
-    },
-  },
-});
-
 const LogoIconRoot = styled(IconButton, {
   name: "Header",
   slot: "logoIcon",
-})(() => ({
-  backgroundColor: "transparent",
-  padding: 0,
-  width: 42,
-  height: 42,
-
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-
-  zIndex: global.zIndex.header + 1,
-
-  "& span": {
-    fontSize: 32,
-  },
-}));
+})();
 
 const LogoTextRoot = styled(Typography, {
   name: "Header",
@@ -100,30 +31,34 @@ const LogoTextRoot = styled(Typography, {
 const PageName = styled(Typography, {
   name: "Header",
   slot: "pageName",
-})(({ theme }) => ({
-  flexGrow: 1,
-  textAlign: "center",
-  color: theme.palette.text.primary,
-}));
+})();
 
 export const LogoIcon = () => (
-  <LogoIconRoot>
+  <LogoIconRoot disableRipple>
     <Icon name="school" />
   </LogoIconRoot>
 );
 
 export default function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { toggleMenu, visible } = useMenu();
 
   const mobile = useMediaQuery(global.breakpoints.down("sm"));
   const isHomePage = location.pathname === "/";
 
+  const handleBack = () => {
+    if (visible) {
+      toggleMenu();
+    }
+    navigate(-1);
+  };
+
   const LogoText = () => <LogoTextRoot variant="h1">Caderno</LogoTextRoot>;
 
   const MobileHeader = () => (
     <>
-      <IconButton sx={{ visibility: visible ? "hidden" : "visible" }}>
+      <IconButton onClick={handleBack}>
         <Icon name="arrow_back" />
       </IconButton>
 
@@ -152,12 +87,8 @@ export default function Header() {
 
       {useMediaQuery(global.breakpoints.only("md")) && (
         <>
-          <IconButton>
+          <IconButton onClick={handleBack}>
             <Icon name="arrow_back" />
-          </IconButton>
-
-          <IconButton>
-            <Icon name="arrow_forward" />
           </IconButton>
 
           <IconButton onClick={toggleMenu}>
@@ -169,7 +100,7 @@ export default function Header() {
   );
 
   return (
-    <ThemeProvider theme={headerTheme}>
+    <ThemeProvider theme={header}>
       <HeaderRoot>
         <Toolbar>
           {mobile && <MobileHeader />}
