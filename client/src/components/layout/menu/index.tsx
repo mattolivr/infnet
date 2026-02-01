@@ -255,6 +255,7 @@ const menuContentTheme = createTheme(global, {
             height: "auto",
 
             padding: 0,
+            borderRadius: 0,
 
             "& span": {
               fontSize: "1rem",
