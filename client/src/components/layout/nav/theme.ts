@@ -91,6 +91,20 @@ const nav = createTheme(global, {
               display: "none",
             },
           },
+
+          [global.breakpoints.up("lg")]: {
+            "& a": {
+              display: "flex",
+              flexDirection: "column-reverse",
+            },
+
+            "& span:not(:first-of-type)": {
+              display: "inline",
+              writingMode: "sideways-lr",
+              textOrientation: "mixed",
+              paddingTop: global.spacing(1),
+            },
+          },
         },
       },
     },

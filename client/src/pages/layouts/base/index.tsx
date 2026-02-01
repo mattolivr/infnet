@@ -86,23 +86,25 @@ export default function BaseLayout() {
   const medium = useMediaQuery(global.breakpoints.up("md"));
 
   return (
-    <MenuProvider>
-      <LayoutRoot>
-        {medium && (
-          <ThemeProvider theme={header}>
-            <LogoIcon />
-          </ThemeProvider>
-        )}
-        <Header />
-        {medium && <Nav />}
-        <Main>
-          <Menu />
-          <Section>
-            <Outlet />
-          </Section>
-        </Main>
-        {!medium && <Nav />}
-      </LayoutRoot>
-    </MenuProvider>
+    <ThemeProvider theme={global}>
+      <MenuProvider>
+        <LayoutRoot>
+          {medium && (
+            <ThemeProvider theme={header}>
+              <LogoIcon />
+            </ThemeProvider>
+          )}
+          <Header />
+          {medium && <Nav />}
+          <Main>
+            <Menu />
+            <Section>
+              <Outlet />
+            </Section>
+          </Main>
+          {!medium && <Nav />}
+        </LayoutRoot>
+      </MenuProvider>
+    </ThemeProvider>
   );
 }
