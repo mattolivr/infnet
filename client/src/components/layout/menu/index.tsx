@@ -13,7 +13,7 @@ import { global } from "../../../theme";
 import { useMenu } from "./context";
 import { useManifest } from "../../../hooks/useManifest";
 import Card, { CardHeader } from "../../card";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import type Subject from "../../../interfaces/subject";
 import type Block from "../../../interfaces/block";
 
@@ -169,6 +169,12 @@ const menuContentTheme = createTheme(global, {
             padding: global.spacing(2),
           },
 
+          [global.breakpoints.down("sm")]: {
+            "&.Mui-selected": {
+              backgroundColor: "transparent",
+            },
+          },
+
           [global.breakpoints.up("sm")]: {
             backgroundColor: global.palette.background.paper,
             borderRadius: global.shape.borderRadius,
@@ -178,6 +184,14 @@ const menuContentTheme = createTheme(global, {
 
           [global.breakpoints.up("lg")]: {
             backgroundColor: "transparent",
+
+            "&.Mui-selected": {
+              backgroundColor: "transparent",
+
+              "& a *": {
+                color: global.palette.primary.main,
+              },
+            },
 
             "& a": {
               paddingBlock: global.spacing(1.5),
@@ -230,6 +244,9 @@ const menuContentTheme = createTheme(global, {
           },
         },
         avatar: {
+          backgroundColor: global.palette.background.lightGray,
+          color: global.palette.text.tertiary,
+
           [global.breakpoints.up("lg")]: {
             backgroundColor: "transparent",
             color: global.palette.text.primary,
@@ -243,6 +260,16 @@ const menuContentTheme = createTheme(global, {
               fontSize: "1rem",
             },
           },
+
+          variants: [
+            {
+              props: { color: "primary" },
+              style: {
+                backgroundColor: global.palette.secondary.main,
+                color: global.palette.secondary.contrastText,
+              },
+            },
+          ],
         },
         titleContainer: {
           [global.breakpoints.up("lg")]: {
@@ -268,9 +295,15 @@ const menuContentTheme = createTheme(global, {
 function MenuContent() {
   const { blocks, getRawId } = useManifest();
   const { toggleMenu } = useMenu();
+  const location = useLocation();
 
   const getSubjectRoute = (block: Block, subject: Subject): string => {
     return `/block/${getRawId(block.id)}/subject/${getRawId(subject.id)}`;
+  };
+
+  const isSelected = (block: Block, subject: Subject): boolean => {
+    const subjectRoute = getSubjectRoute(block, subject);
+    return location.pathname === subjectRoute;
   };
 
   const handleClick = () => {
@@ -291,12 +324,14 @@ function MenuContent() {
                   <MenuContentItem
                     key={"menu-item-" + subject.id}
                     onClick={handleClick}
+                    selected={isSelected(block, subject)}
                   >
                     <Link to={getSubjectRoute(block, subject)}>
                       <CardHeader
                         title={subject.name}
                         subtitle={subject.teacher}
                         icon={subject.icon}
+                        selected={isSelected(block, subject)}
                       />
                     </Link>
                   </MenuContentItem>

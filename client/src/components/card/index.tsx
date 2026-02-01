@@ -117,12 +117,16 @@ export function CardHeader(props: CardHeaderProps) {
   return (
     <HeaderRoot>
       {icon && (
-        <HeaderAvatar>
+        <HeaderAvatar color={selected ? "primary" : undefined}>
           <Icon name={icon} filled={selected} />
         </HeaderAvatar>
       )}
 
-      {index !== undefined && <HeaderAvatar>{index}</HeaderAvatar>}
+      {index !== undefined && (
+        <HeaderAvatar color={selected ? "primary" : undefined}>
+          {index}
+        </HeaderAvatar>
+      )}
 
       {title && (
         <HeaderTitleContainer>
