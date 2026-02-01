@@ -144,8 +144,7 @@ export default function Header() {
       {!useMediaQuery(global.breakpoints.up("md")) && <LogoIcon />}
       <LogoText />
 
-      {(useMediaQuery(global.breakpoints.only("sm")) ||
-        useMediaQuery(global.breakpoints.up("lg"))) && (
+      {useMediaQuery(global.breakpoints.only("sm")) && (
         <IconButton>
           <Icon name="folder_open" />
         </IconButton>

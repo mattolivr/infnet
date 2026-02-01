@@ -7,7 +7,6 @@ import {
   styled,
   SwipeableDrawer,
   ThemeProvider,
-  Typography,
   useMediaQuery,
 } from "@mui/material";
 import { global } from "../../../theme";
@@ -29,7 +28,12 @@ const menuTheme = createTheme(global, {
       styleOverrides: {
         paper: {
           background: global.palette?.background?.lightBlueGradient,
+          border: "none",
           padding: global.spacing(0),
+
+          [global.breakpoints.up("lg")]: {
+            background: "transparent",
+          },
 
           variants: [
             {
@@ -37,7 +41,7 @@ const menuTheme = createTheme(global, {
               style: {
                 display: "none",
                 position: "relative",
-                minWidth: "250px",
+                maxWidth: "320px",
 
                 [global.breakpoints.up("lg")]: {
                   display: "block",
@@ -126,6 +130,10 @@ const menuContentTheme = createTheme(global, {
             paddingBottom: global.spacing(2),
             paddingLeft: 72, // Nav width
           },
+
+          [global.breakpoints.up("lg")]: {
+            padding: global.spacing(0),
+          },
         },
         group: {
           "&:first-of-type > li:first-of-type": {
@@ -137,14 +145,28 @@ const menuContentTheme = createTheme(global, {
         },
         subheader: {
           backgroundColor: "transparent",
+          color: global.palette.text.primary,
           paddingBlock: global.spacing(2),
           paddingInline: global.spacing(1),
+
+          ...global.typography.h3,
+
+          [global.breakpoints.up("lg")]: {
+            paddingInline: global.spacing(1),
+
+            ...global.typography.small,
+
+            fontWeight: 400,
+          },
         },
         item: {
-          padding: global.spacing(2),
+          padding: 0,
 
           "& a": {
             textDecoration: "none",
+            width: "100%",
+
+            padding: global.spacing(2),
           },
 
           [global.breakpoints.up("sm")]: {
@@ -152,6 +174,15 @@ const menuContentTheme = createTheme(global, {
             borderRadius: global.shape.borderRadius,
 
             alignItems: "start",
+          },
+
+          [global.breakpoints.up("lg")]: {
+            backgroundColor: "transparent",
+
+            "& a": {
+              paddingBlock: global.spacing(1.5),
+              paddingInline: global.spacing(1.5),
+            },
           },
         },
       },
@@ -163,6 +194,7 @@ const menuContentTheme = createTheme(global, {
 
           [global.breakpoints.up("sm")]: {
             backgroundColor: "transparent",
+            borderRadius: 0,
           },
         },
         body: {
@@ -173,6 +205,12 @@ const menuContentTheme = createTheme(global, {
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
             gap: global.spacing(2),
           },
+
+          [global.breakpoints.up("lg")]: {
+            display: "flex",
+            flexDirection: "column",
+            gap: global.spacing(0),
+          },
         },
       },
     },
@@ -182,6 +220,44 @@ const menuContentTheme = createTheme(global, {
           [global.breakpoints.up("sm")]: {
             flexDirection: "column",
             alignItems: "flex-start",
+          },
+
+          [global.breakpoints.up("lg")]: {
+            flexDirection: "row",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            gap: global.spacing(1),
+          },
+        },
+        avatar: {
+          [global.breakpoints.up("lg")]: {
+            backgroundColor: "transparent",
+            color: global.palette.text.primary,
+
+            width: "auto",
+            height: "auto",
+
+            padding: 0,
+
+            "& span": {
+              fontSize: "1rem",
+            },
+          },
+        },
+        titleContainer: {
+          [global.breakpoints.up("lg")]: {
+            paddingInline: 0,
+          },
+        },
+        title: {
+          [global.breakpoints.up("lg")]: {
+            ...global.typography.small,
+            lineHeight: 1.4,
+          },
+        },
+        subtitle: {
+          [global.breakpoints.up("lg")]: {
+            display: "none",
           },
         },
       },
@@ -208,9 +284,7 @@ function MenuContent() {
           ?.filter((block) => block.subjects.length > 0)
           ?.map((block) => (
             <MenuContentGroup key={"menu-group-" + block.id}>
-              <MenuContentHeader disableSticky>
-                <Typography variant="h3">{block.name}</Typography>
-              </MenuContentHeader>
+              <MenuContentHeader disableSticky>{block.name}</MenuContentHeader>
 
               <Card>
                 {block.subjects.map((subject) => (

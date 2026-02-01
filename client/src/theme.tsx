@@ -1,3 +1,4 @@
+import type { TypographyStyle } from "@mui/material/styles";
 import { createTheme, type Theme } from "@mui/material/styles";
 
 declare module "@mui/material/styles" {
@@ -23,6 +24,14 @@ declare module "@mui/material/styles" {
       header: number;
       nav: number;
     };
+  }
+
+  interface TypographyVariants {
+    small: React.CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    small?: React.CSSProperties;
   }
 
   interface TypeText {
@@ -100,6 +109,11 @@ export const global: Theme = createTheme({
       fontSize: "1rem",
       fontWeight: 600,
       letterSpacing: "0.02em",
+    },
+    small: {
+      fontSize: "0.825rem",
+      fontWeight: 600,
+      lineHeight: 1.2,
     },
   },
   shape: {

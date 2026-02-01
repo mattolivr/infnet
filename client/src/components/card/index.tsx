@@ -83,9 +83,14 @@ const HeaderRoot = styled("div", {
   gap: theme.spacing(1.5),
 }));
 
-const HeaderTitleRoot = styled("div", {
+const HeaderAvatar = styled(Avatar, {
   name: "CardHeader",
-  slot: "title",
+  slot: "avatar",
+})();
+
+const HeaderTitleContainer = styled("div", {
+  name: "CardHeader",
+  slot: "titleContainer",
 })(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
@@ -96,24 +101,36 @@ const HeaderTitleRoot = styled("div", {
   paddingInline: theme.spacing(0.5),
 }));
 
+const HeaderTitle = styled(Typography, {
+  name: "CardHeader",
+  slot: "title",
+})();
+
+const HeaderSubtitle = styled(Typography, {
+  name: "CardHeader",
+  slot: "subtitle",
+})();
+
 export function CardHeader(props: CardHeaderProps) {
   const { title, subtitle, index, icon, selected } = props;
 
   return (
     <HeaderRoot>
       {icon && (
-        <Avatar>
+        <HeaderAvatar>
           <Icon name={icon} filled={selected} />
-        </Avatar>
+        </HeaderAvatar>
       )}
 
-      {index !== undefined && <Avatar>{index}</Avatar>}
+      {index !== undefined && <HeaderAvatar>{index}</HeaderAvatar>}
 
       {title && (
-        <HeaderTitleRoot>
-          <Typography variant="h3">{title}</Typography>
-          {subtitle && <Typography variant="subtitle1">{subtitle}</Typography>}
-        </HeaderTitleRoot>
+        <HeaderTitleContainer>
+          <HeaderTitle variant="h3">{title}</HeaderTitle>
+          {subtitle && (
+            <HeaderSubtitle variant="subtitle1">{subtitle}</HeaderSubtitle>
+          )}
+        </HeaderTitleContainer>
       )}
     </HeaderRoot>
   );

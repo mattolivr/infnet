@@ -40,11 +40,25 @@ const Main = styled("main", {
 })(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
+
+  [theme.breakpoints.up("lg")]: {
+    flexDirection: "row",
+    gap: theme.spacing(2),
+  },
+}));
+
+const Section = styled("section", {
+  name: "Base Layout",
+  slot: "section",
+})(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
   alignItems: "stretch",
   gap: theme.spacing(1),
   position: "relative",
 
   paddingInline: theme.spacing(1),
+  flexGrow: 1,
 
   [theme.breakpoints.up("sm")]: {
     paddingInline: theme.spacing(2),
@@ -78,7 +92,9 @@ export default function BaseLayout() {
         {medium && <Nav />}
         <Main>
           <Menu />
-          <Outlet />
+          <Section>
+            <Outlet />
+          </Section>
         </Main>
         {!medium && <Nav />}
       </LayoutRoot>
