@@ -172,17 +172,32 @@ export const global: Theme = createTheme({
       },
       styleOverrides: {
         root: ({ theme }) => ({
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-
-          minHeight: "24px",
-
-          gap: theme.spacing(1),
-          paddingInline: theme.spacing(4),
-          paddingBlock: theme.spacing(2),
-
           transition: "background 0s",
+
+          "&:not(:has(a)), &:has(a) > a": {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+
+            gap: theme.spacing(1),
+            paddingInline: theme.spacing(4),
+            paddingBlock: theme.spacing(2),
+          },
+
+          "&:has(a)": {
+            padding: 0,
+          },
+
+          "& > a": {
+            textDecoration: "none",
+            color: "inherit",
+            width: "100%",
+            height: "100%",
+          },
+
+          [theme.breakpoints.up("md")]: {
+            borderRadius: global.shape.borderRadiusInner,
+          },
 
           variants: [
             {
@@ -207,10 +222,13 @@ export const global: Theme = createTheme({
               },
             },
             {
-              props: { borderRadius: theme.shape.borderRadiusInner },
+              props: { size: "small" },
               style: {
-                paddingInline: theme.spacing(2),
-                paddingBlock: theme.spacing(1.5),
+                ...theme.typography.button,
+
+                "&:not(:has(a)), &:has(a) > a": {
+                  padding: theme.spacing(1.5, 3),
+                },
               },
             },
           ],

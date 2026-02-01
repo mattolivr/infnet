@@ -9,7 +9,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router";
 import Icon from "../../icon";
 import { useMenu } from "../menu/context";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import nav from "./theme";
 
 const Root = styled("nav", {
@@ -57,6 +57,10 @@ export default function Nav() {
 
   const tablet = useMediaQuery(nav.breakpoints.only("sm"));
   const desktop = useMediaQuery(nav.breakpoints.up("md"));
+
+  useEffect(() => {
+    setSelected(-1);
+  }, [location]);
 
   const routes: Route[] = [
     tablet && {

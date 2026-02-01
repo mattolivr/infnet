@@ -41,6 +41,7 @@ const Main = styled("main", {
 })(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
+  flexGrow: 1,
 
   [theme.breakpoints.up("lg")]: {
     flexDirection: "row",
