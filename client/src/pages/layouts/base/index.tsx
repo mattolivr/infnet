@@ -42,6 +42,7 @@ const Main = styled("main", {
   flexDirection: "column",
   alignItems: "stretch",
   gap: theme.spacing(1),
+  position: "relative",
 
   paddingInline: theme.spacing(1),
 

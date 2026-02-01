@@ -95,7 +95,7 @@ export default function Nav() {
         }
         setSelected(-1);
       },
-      isSelected: () => visible,
+      isSelected: () => tablet && visible,
     },
   ].filter(Boolean) as Route[];
 

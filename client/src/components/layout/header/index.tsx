@@ -85,6 +85,8 @@ const LogoIconRoot = styled(IconButton, {
   alignItems: "center",
   justifyContent: "center",
 
+  zIndex: global.zIndex.header + 1,
+
   "& span": {
     fontSize: 32,
   },
@@ -159,8 +161,8 @@ export default function Header() {
             <Icon name="arrow_forward" />
           </IconButton>
 
-          <IconButton>
-            <Icon name="menu" />
+          <IconButton onClick={toggleMenu}>
+            <Icon name={visible ? "close" : "menu"} />
           </IconButton>
         </>
       )}

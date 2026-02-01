@@ -8,18 +8,21 @@ import {
   SwipeableDrawer,
   ThemeProvider,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { global } from "../../../theme";
 import { useMenu } from "./context";
 import { useManifest } from "../../../hooks/useManifest";
 import Card, { CardHeader } from "../../card";
+import { Link } from "react-router";
+import type Subject from "../../../interfaces/subject";
+import type Block from "../../../interfaces/block";
 
 const menuTheme = createTheme(global, {
   components: {
     MuiDrawer: {
       defaultProps: {
         ModalProps: {
-          container: document.getElementById("container"),
           keepMounted: true,
         },
       },
@@ -39,21 +42,14 @@ const menuTheme = createTheme(global, {
                 [global.breakpoints.up("lg")]: {
                   display: "block",
                   position: "relative",
-                  borderRadius: global.shape.borderRadius,
-                  maxWidth: 650,
                 },
               },
             },
             {
               props: { variant: "temporary" },
               style: {
-                display: "block",
                 position: "absolute",
                 width: "100%",
-
-                [global.breakpoints.up("lg")]: {
-                  display: "none",
-                },
               },
             },
           ],
@@ -70,15 +66,24 @@ const menuTheme = createTheme(global, {
 
 export default function Menu() {
   const { visible, toggleMenu } = useMenu();
+  const desktop = useMediaQuery(global.breakpoints.up("lg"));
 
   return (
     <ThemeProvider theme={menuTheme}>
-      <SwipeableDrawer open={visible} onClose={toggleMenu} onOpen={toggleMenu}>
-        <MenuContent />
-      </SwipeableDrawer>
-      <Drawer variant="permanent">
-        <MenuContent />
-      </Drawer>
+      {!desktop && (
+        <SwipeableDrawer
+          open={visible}
+          onClose={toggleMenu}
+          onOpen={toggleMenu}
+        >
+          <MenuContent />
+        </SwipeableDrawer>
+      )}
+      {desktop && (
+        <Drawer variant="permanent">
+          <MenuContent />
+        </Drawer>
+      )}
     </ThemeProvider>
   );
 }
@@ -111,11 +116,24 @@ const menuContentTheme = createTheme(global, {
           paddingInline: global.spacing(1),
           paddingBlock: 88, // Header and Bottom Nav height
           overflow: "hidden",
+
+          [global.breakpoints.up("sm")]: {
+            paddingInline: global.spacing(2),
+          },
+
+          [global.breakpoints.up("md")]: {
+            paddingTop: 72, // Header height
+            paddingBottom: global.spacing(2),
+            paddingLeft: 72, // Nav width
+          },
         },
         group: {
-          "&:first-child > li:first-child": {
+          "&:first-of-type > li:first-of-type": {
             paddingTop: 0,
           },
+
+          display: "flex",
+          flexDirection: "column",
         },
         subheader: {
           backgroundColor: "transparent",
@@ -124,6 +142,17 @@ const menuContentTheme = createTheme(global, {
         },
         item: {
           padding: global.spacing(2),
+
+          "& a": {
+            textDecoration: "none",
+          },
+
+          [global.breakpoints.up("sm")]: {
+            backgroundColor: global.palette.background.paper,
+            borderRadius: global.shape.borderRadius,
+
+            alignItems: "start",
+          },
         },
       },
     },
@@ -131,9 +160,29 @@ const menuContentTheme = createTheme(global, {
       styleOverrides: {
         root: {
           padding: 0,
+
+          [global.breakpoints.up("sm")]: {
+            backgroundColor: "transparent",
+          },
         },
         body: {
           gap: 0,
+
+          [global.breakpoints.up("sm")]: {
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: global.spacing(2),
+          },
+        },
+      },
+    },
+    CardHeader: {
+      styleOverrides: {
+        root: {
+          [global.breakpoints.up("sm")]: {
+            flexDirection: "column",
+            alignItems: "flex-start",
+          },
         },
       },
     },
@@ -141,7 +190,16 @@ const menuContentTheme = createTheme(global, {
 });
 
 function MenuContent() {
-  const { blocks } = useManifest();
+  const { blocks, getRawId } = useManifest();
+  const { toggleMenu } = useMenu();
+
+  const getSubjectRoute = (block: Block, subject: Subject): string => {
+    return `/block/${getRawId(block.id)}/subject/${getRawId(subject.id)}`;
+  };
+
+  const handleClick = () => {
+    toggleMenu();
+  };
 
   return (
     <ThemeProvider theme={menuContentTheme}>
@@ -156,12 +214,17 @@ function MenuContent() {
 
               <Card>
                 {block.subjects.map((subject) => (
-                  <MenuContentItem key={"menu-item-" + subject.id}>
-                    <CardHeader
-                      title={subject.name}
-                      subtitle={subject.teacher}
-                      icon={subject.icon}
-                    />
+                  <MenuContentItem
+                    key={"menu-item-" + subject.id}
+                    onClick={handleClick}
+                  >
+                    <Link to={getSubjectRoute(block, subject)}>
+                      <CardHeader
+                        title={subject.name}
+                        subtitle={subject.teacher}
+                        icon={subject.icon}
+                      />
+                    </Link>
                   </MenuContentItem>
                 ))}
               </Card>
