@@ -8,7 +8,7 @@ const landing = createTheme(global, {
         root: {
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
+          alignItems: "stretch",
           justifyContent: "center",
 
           flexGrow: 1,
@@ -28,16 +28,25 @@ const landing = createTheme(global, {
         },
         title: {
           ...global.typography.h1,
-          fontSize: "6rem",
+          fontSize: "4rem",
           fontWeight: 200,
+          textAlign: "center",
         },
         description: {
           maxWidth: "600px",
           textAlign: "center",
+          alignSelf: "center",
         },
         buttons: {
           display: "flex",
-          gap: global.spacing(2),
+          flexDirection: "column",
+          gap: global.spacing(1),
+
+          [global.breakpoints.up("sm")]: {
+            flexDirection: "row",
+            justifyContent: "center",
+            gap: global.spacing(2),
+          },
         },
       },
     },

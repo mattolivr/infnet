@@ -180,8 +180,8 @@ function NavCredits() {
     <NavCreditsRoot>
       <NavCreditsText variant="caption">Mattolivr</NavCreditsText>
       <Button sx={{ flexGrow: 0 }}>
-        <Link to="">
-          <Icon name="folder_open" />
+        <Link to="https://github.com/mattolivr/infnet" target="_blank">
+          <Icon name="github" />
         </Link>
       </Button>
     </NavCreditsRoot>

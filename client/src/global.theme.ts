@@ -125,6 +125,15 @@ export const global: Theme = createTheme({
     nav: 2000,
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: (theme) => ({
+        a: {
+          color: theme.palette.text.primary,
+          textDecoration: "none",
+          fontWeight: 600,
+        },
+      }),
+    },
     MuiTypography: {
       styleOverrides: {
         root: ({ theme }) => ({
@@ -195,6 +204,10 @@ export const global: Theme = createTheme({
             height: "100%",
           },
 
+          [theme.breakpoints.down("sm")]: {
+            flexGrow: 1,
+          },
+
           [theme.breakpoints.up("md")]: {
             borderRadius: global.shape.borderRadiusInner,
           },
@@ -203,21 +216,25 @@ export const global: Theme = createTheme({
             {
               props: { color: "primary" },
               style: {
-                color: theme.palette.primary.contrastText,
                 background: theme.palette.background.blueGradient,
                 "&:hover": {
                   background: theme.palette.primary.light,
+                },
+                "&, & div": {
+                  color: theme.palette.text.white,
                 },
               },
             },
             {
               props: { color: "secondary" },
               style: {
-                color: theme.palette.primary.contrastText,
                 backgroundColor: theme.palette.grey[900],
                 background: theme.palette.background.blackGradient,
                 "&:hover": {
                   background: theme.palette.grey[800],
+                },
+                "&, & div": {
+                  color: theme.palette.text.white,
                 },
               },
             },
@@ -227,7 +244,9 @@ export const global: Theme = createTheme({
                 ...theme.typography.button,
 
                 "&:not(:has(a)), &:has(a) > a": {
-                  padding: theme.spacing(1.5, 3),
+                  [theme.breakpoints.up("md")]: {
+                    padding: theme.spacing(1.5, 3),
+                  },
                 },
               },
             },
@@ -243,8 +262,11 @@ export const global: Theme = createTheme({
           justifyContent: "center",
           padding: theme.spacing(1),
 
-          color: theme.palette.text.primary,
           background: theme.palette.background.paper,
+
+          "&, & div": {
+            color: theme.palette.text.primary,
+          },
 
           variants: [
             {

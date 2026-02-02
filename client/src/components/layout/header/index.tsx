@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { global } from "../../../global.theme";
 import Icon from "../../icon";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useMenu } from "../menu/context";
 import { header } from "./theme";
 
@@ -54,7 +54,11 @@ export default function Header() {
     navigate(-1);
   };
 
-  const LogoText = () => <LogoTextRoot variant="h1">Caderno</LogoTextRoot>;
+  const LogoText = ({ visible }: { visible: boolean }) => (
+    <LogoTextRoot variant="h1" visibility={visible ? "visible" : "hidden"}>
+      Caderno
+    </LogoTextRoot>
+  );
 
   const MobileHeader = () => (
     <>
@@ -62,7 +66,7 @@ export default function Header() {
         <Icon name="arrow_back" />
       </IconButton>
 
-      {!visible && isHomePage && <LogoText />}
+      {!visible && <LogoText visible={!isHomePage} />}
       {!visible && !isHomePage && (
         <PageName variant="h2">Mobile-first UI com React</PageName>
       )}
@@ -77,11 +81,13 @@ export default function Header() {
   const MainHeader = () => (
     <>
       {!useMediaQuery(global.breakpoints.up("md")) && <LogoIcon />}
-      <LogoText />
+      <LogoText visible={!isHomePage} />
 
       {useMediaQuery(global.breakpoints.only("sm")) && (
         <IconButton>
-          <Icon name="folder_open" />
+          <Link to="https://github.com/mattolivr/infnet" target="_blank">
+            <Icon name="github" />
+          </Link>
         </IconButton>
       )}
 

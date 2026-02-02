@@ -29,8 +29,19 @@ export default function LandingPage() {
       <Section>
         <Title>Caderno</Title>
         <Description>
-          Bem vindo(a) ao Caderno, um repositório de exercícios realizados por
-          Mattolivr para o curso de engenharia de software no Instituto Infnet.
+          Bem vindo(a) ao Caderno, um repositório de exercícios realizados por{" "}
+          <Link
+            to="https://github.com/mattolivr"
+            target="_blank"
+            style={{ whiteSpace: "nowrap" }}
+          >
+            Mattolivr
+          </Link>{" "}
+          para o curso de engenharia de software no{" "}
+          <Link to="https://www.infnet.edu.br/" target="_blank">
+            Instituto Infnet
+          </Link>
+          .
         </Description>
         <Buttons>
           <Button size="small">

@@ -2,7 +2,12 @@ import { Outlet } from "react-router";
 import Header, { LogoIcon } from "../../../components/layout/header";
 import Menu from "../../../components/layout/menu";
 import { MenuProvider } from "../../../components/layout/menu/context";
-import { styled, ThemeProvider, useMediaQuery } from "@mui/material";
+import {
+  CssBaseline,
+  styled,
+  ThemeProvider,
+  useMediaQuery,
+} from "@mui/material";
 import Nav from "../../../components/layout/nav";
 import { global } from "../../../global.theme";
 import { header } from "../../../components/layout/header/theme";
@@ -88,6 +93,7 @@ export default function BaseLayout() {
 
   return (
     <ThemeProvider theme={global}>
+      <CssBaseline />
       <MenuProvider>
         <LayoutRoot>
           {medium && (

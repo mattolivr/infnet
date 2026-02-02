@@ -3,6 +3,7 @@ import { styled } from "@mui/material";
 interface IconProps {
   name?: string;
   filled?: boolean;
+  style?: React.CSSProperties;
 }
 
 const IconMaterial = styled("span", {
@@ -29,21 +30,24 @@ const IconSvg = styled("div", {
   maskRepeat: "no-repeat",
   WebkitMaskPosition: "center",
   maskPosition: "center",
+  color: "inherit",
 }));
 
-const externalIcons = ["github"];
+const svgIcons = ["github"];
 
-export default function Icon({ name, filled }: IconProps) {
+export default function Icon({ name, filled, style }: IconProps) {
   if (!name) return <></>;
-  const isExternalIcon = externalIcons.includes(name);
-  const externalIconPath = `/src/assets/icons/${name}.svg`;
 
-  if (isExternalIcon) {
+  const isSvgIcon = svgIcons.includes(name);
+  const svgPath = `/src/assets/icons/${name}.svg`;
+
+  if (isSvgIcon) {
     return (
       <IconSvg
         style={{
-          WebkitMaskImage: `url("${externalIconPath}")`,
-          maskImage: `url("${externalIconPath}")`,
+          WebkitMaskImage: `url("${svgPath}")`,
+          maskImage: `url("${svgPath}")`,
+          ...style,
         }}
       ></IconSvg>
     );
@@ -52,6 +56,7 @@ export default function Icon({ name, filled }: IconProps) {
   return (
     <IconMaterial
       className={`material-symbols-rounded${filled ? " filled" : ""}`}
+      style={style}
     >
       {name}
     </IconMaterial>
