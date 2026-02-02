@@ -40,8 +40,8 @@ export default function LandingPage() {
             </Link>
           </Button>
           <Button size="small" color="secondary">
-            <Link to="https://github.com/mattolivr/infnet">
-              <Icon name="folder_open" filled />
+            <Link to="https://github.com/mattolivr/infnet" target="_blank">
+              <Icon name="github" filled />
               Ver repositório Github
             </Link>
           </Button>

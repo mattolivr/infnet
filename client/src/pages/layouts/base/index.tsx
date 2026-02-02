@@ -58,6 +58,7 @@ const Section = styled("section", {
   alignItems: "stretch",
   gap: theme.spacing(1),
   position: "relative",
+  overflowY: "auto",
 
   paddingInline: theme.spacing(1),
   flexGrow: 1,
@@ -75,7 +76,6 @@ const Section = styled("section", {
     flex: "1 1 0",
     minHeight: 0,
     maxHeight: "100%",
-    overflowY: "scroll",
 
     "& > *": {
       flexShrink: 0,
