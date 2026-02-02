@@ -54,40 +54,6 @@ const Main = styled("main", {
   },
 }));
 
-const Section = styled("section", {
-  name: "Base Layout",
-  slot: "section",
-})(({ theme }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "stretch",
-  gap: theme.spacing(1),
-  position: "relative",
-  overflowY: "auto",
-
-  paddingInline: theme.spacing(1),
-  flexGrow: 1,
-
-  [theme.breakpoints.up("sm")]: {
-    paddingInline: theme.spacing(2),
-    paddingBlock: theme.spacing(1),
-  },
-
-  [theme.breakpoints.up("md")]: {
-    padding: 0,
-  },
-
-  [theme.breakpoints.up("lg")]: {
-    flex: "1 1 0",
-    minHeight: 0,
-    maxHeight: "100%",
-
-    "& > *": {
-      flexShrink: 0,
-    },
-  },
-}));
-
 export default function BaseLayout() {
   const medium = useMediaQuery(global.breakpoints.up("md"));
 
@@ -95,6 +61,7 @@ export default function BaseLayout() {
     <ThemeProvider theme={global}>
       <CssBaseline />
       <MenuProvider>
+        <Menu mobile />
         <LayoutRoot>
           {medium && (
             <ThemeProvider theme={header}>
@@ -104,10 +71,7 @@ export default function BaseLayout() {
           <Header />
           {medium && <Nav />}
           <Main>
-            <Menu />
-            <Section>
-              <Outlet />
-            </Section>
+            <Outlet />
           </Main>
           {!medium && <Nav />}
         </LayoutRoot>
