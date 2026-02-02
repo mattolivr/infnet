@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import Header, { LogoIcon } from "../../../components/layout/header";
 import Menu from "../../../components/layout/menu";
 import { MenuProvider } from "../../../components/layout/menu/context";
@@ -11,6 +11,11 @@ import {
 import Nav from "../../../components/layout/nav";
 import { global } from "../../../global.theme";
 import { header } from "../../../components/layout/header/theme";
+import {
+  HeaderProvider,
+  useHeader,
+} from "../../../components/layout/header/context";
+import { useEffect } from "react";
 
 const LayoutRoot = styled("div", {
   name: "BaseLayout",
@@ -54,28 +59,44 @@ const Main = styled("main", {
   },
 }));
 
-export default function BaseLayout() {
+function BaseLayoutContent() {
   const medium = useMediaQuery(global.breakpoints.up("md"));
+  const location = useLocation();
+  const { setPagename } = useHeader();
 
+  useEffect(() => {
+    setPagename(undefined);
+  }, [location.pathname, setPagename]);
+
+  return (
+    <>
+      <Menu mobile />
+      <LayoutRoot>
+        {medium && (
+          <ThemeProvider theme={header}>
+            <LogoIcon />
+          </ThemeProvider>
+        )}
+        <Header />
+        {medium && <Nav />}
+        <Main>
+          <Outlet />
+        </Main>
+        {!medium && <Nav />}
+      </LayoutRoot>
+    </>
+  );
+}
+
+export default function BaseLayout() {
   return (
     <ThemeProvider theme={global}>
       <CssBaseline />
-      <MenuProvider>
-        <Menu mobile />
-        <LayoutRoot>
-          {medium && (
-            <ThemeProvider theme={header}>
-              <LogoIcon />
-            </ThemeProvider>
-          )}
-          <Header />
-          {medium && <Nav />}
-          <Main>
-            <Outlet />
-          </Main>
-          {!medium && <Nav />}
-        </LayoutRoot>
-      </MenuProvider>
+      <HeaderProvider>
+        <MenuProvider>
+          <BaseLayoutContent />
+        </MenuProvider>
+      </HeaderProvider>
     </ThemeProvider>
   );
 }

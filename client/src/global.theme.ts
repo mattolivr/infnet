@@ -68,7 +68,7 @@ export const global: Theme = createTheme({
       paper: "#f6f6f6a6",
       lightGray: "#E5E5E5",
       blueGradient: "linear-gradient(to bottom right, #0575E6, #5433FF)",
-      blackGradient: "linear-gradient(to bottom right, #1C1C1C, #0B0B0B)",
+      blackGradient: "linear-gradient(to bottom right, #2e2e2e, #0B0B0B)",
       lightBlueGradient: "linear-gradient(to bottom right, #d7ebff, #91b4e6)",
     },
   },

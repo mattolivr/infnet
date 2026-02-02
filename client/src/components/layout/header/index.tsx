@@ -12,6 +12,7 @@ import Icon from "../../icon";
 import { Link, useLocation, useNavigate } from "react-router";
 import { useMenu } from "../menu/context";
 import { header } from "./theme";
+import { useHeader } from "./context";
 
 const HeaderRoot = styled(AppBar, {
   name: "Header",
@@ -43,6 +44,7 @@ export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const { toggleMenu, visible } = useMenu();
+  const { pagename } = useHeader();
 
   const mobile = useMediaQuery(global.breakpoints.down("sm"));
   const isHomePage = location.pathname === "/";
@@ -60,17 +62,19 @@ export default function Header() {
     </LogoTextRoot>
   );
 
+  const PageTitle = () => {
+    if (visible) return <PageName variant="h2">Menu</PageName>;
+    if (pagename) return <PageName variant="h2">{pagename}</PageName>;
+    return <LogoText visible={!isHomePage} />;
+  };
+
   const MobileHeader = () => (
     <>
       <IconButton onClick={handleBack}>
         <Icon name="arrow_back" />
       </IconButton>
 
-      {!visible && <LogoText visible={!isHomePage} />}
-      {!visible && !isHomePage && (
-        <PageName variant="h2">Mobile-first UI com React</PageName>
-      )}
-      {visible && <PageName variant="h2">Menu</PageName>}
+      <PageTitle />
 
       <IconButton onClick={toggleMenu}>
         <Icon name={visible ? "close" : "menu"} />

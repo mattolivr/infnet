@@ -5,21 +5,15 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Avatar,
-  Box,
   Button,
-  Chip,
-  createTheme,
-  IconButton,
   styled,
-  ThemeProvider,
 } from "@mui/material";
 import Icon from "../../components/icon";
 import { useManifest } from "../../hooks/useManifest";
-import { useState, useRef, useMemo } from "react";
-import { global } from "../../global.theme";
+import { useState, useRef, useMemo, useEffect } from "react";
 import type Assignment from "../../interfaces/assignment";
 import useExternal from "../../hooks/useExternal";
+import { useHeader } from "../../components/layout/header/context";
 
 const AssignmentAccordion = styled(Accordion)(({ theme }) => ({
   backgroundColor: "transparent",
@@ -70,6 +64,7 @@ export default function SubjectPage() {
   const { blockId, subjectId } = useParams();
   const { getSubjectById, getBlockById, getId, getRawId } = useManifest();
   const { getGithubUrl, getCodesandboxUrl } = useExternal();
+  const { setPagename } = useHeader();
 
   const [expanded, setExpanded] = useState<string | false>(false);
   const headerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -87,6 +82,10 @@ export default function SubjectPage() {
   if (!subject) {
     // TODO: Retornar uma página 404 adequada
   }
+
+  useEffect(() => {
+    setPagename(subject?.name);
+  }, [location.pathname, setPagename]);
 
   return (
     <>
