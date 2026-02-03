@@ -36,7 +36,9 @@ export const about = createTheme(global, {
           borderRadius: global.shape.borderRadiusInner,
           fontWeight: 600,
           fontSize: "0.9rem",
-          paddingLeft: global.spacing(1),
+          paddingBlock: global.spacing(2),
+          paddingLeft: global.spacing(2),
+          paddingRight: global.spacing(1),
           color: global.palette.primary.dark,
         },
       },
@@ -128,10 +130,10 @@ export const about = createTheme(global, {
             borderRadius: global.shape.borderRadiusInner,
 
             "&:first-of-type": {
-              background: "linear-gradient(to bottom right, #02B2F4, #0477b1)",
+              background: "linear-gradient(to bottom right, #0a66c2, #2b72d0)",
 
               "&:hover": {
-                background: "#3b98c7",
+                background: "#4688df",
               },
             },
           },

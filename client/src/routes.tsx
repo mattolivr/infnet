@@ -33,7 +33,11 @@ const router = createBrowserRouter([
         Component: MainLayout,
         children: [
           {
-            path: "explore",
+            path: "blocks",
+            Component: ExplorePage,
+          },
+          {
+            path: "block/:blockId/subjects",
             Component: ExplorePage,
           },
           {

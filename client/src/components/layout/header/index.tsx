@@ -43,14 +43,14 @@ export const LogoIcon = () => (
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { toggleMenu, visible } = useMenu();
+  const { toggleMenu, visible: isMenuVisible } = useMenu();
   const { pagename } = useHeader();
 
   const mobile = useMediaQuery(global.breakpoints.down("sm"));
   const isHomePage = location.pathname === "/";
 
   const handleBack = () => {
-    if (visible) {
+    if (isMenuVisible) {
       toggleMenu();
     }
     navigate(-1);
@@ -63,7 +63,7 @@ export default function Header() {
   );
 
   const PageTitle = () => {
-    if (visible) return <PageName variant="h2">Menu</PageName>;
+    if (isMenuVisible) return <PageName variant="h2">Menu</PageName>;
     if (pagename) return <PageName variant="h2">{pagename}</PageName>;
     return <LogoText visible={!isHomePage} />;
   };
@@ -77,7 +77,7 @@ export default function Header() {
       <PageTitle />
 
       <IconButton onClick={toggleMenu}>
-        <Icon name={visible ? "close" : "menu"} />
+        <Icon name={isMenuVisible ? "close" : "menu"} />
       </IconButton>
     </>
   );
@@ -102,7 +102,7 @@ export default function Header() {
           </IconButton>
 
           <IconButton onClick={toggleMenu}>
-            <Icon name={visible ? "close" : "menu"} />
+            <Icon name={isMenuVisible ? "close" : "menu"} />
           </IconButton>
         </>
       )}

@@ -3,12 +3,12 @@
   "title": "Caderno",
   "subtitle": "Repositório de Exercícios",
   "description": "Este projeto é um repositório de exercícios desenvolvidos pelo autor para o curso de Engenharia de Software no Instituto Infnet.",
-  "generatedAt": "2026-01-31T19:33:41.861Z",
+  "generatedAt": "2026-02-03T02:33:06.476Z",
   "blocks": [
     {
       "id": "b1",
       "name": "Fundamentos do desenvolvimento de software",
-      "icon": "code",
+      "icon": "automation",
       "subjects": [
         {
           "id": "b1-dr1",
@@ -51,7 +51,7 @@
     {
       "id": "b2",
       "name": "Desenvolvimento front-end com frameworks",
-      "icon": "stylus_note",
+      "icon": "landscape_2_edit",
       "subjects": [
         {
           "id": "b2-dr1",
@@ -354,25 +354,25 @@
     {
       "id": "b3",
       "name": "Fundamentos de dados",
-      "icon": "database",
+      "icon": "join_right",
       "subjects": []
     },
     {
       "id": "b4",
       "name": "Desenvolvimento back-end",
-      "icon": "cloud_download",
+      "icon": "neurology",
       "subjects": []
     },
     {
       "id": "b5",
       "name": "Análise e segurança de agentes de IA",
-      "icon": "borg",
+      "icon": "smart_toy",
       "subjects": []
     },
     {
       "id": "b6",
       "name": "Engenharia segura de softwares escaláveis",
-      "icon": "security",
+      "icon": "token",
       "subjects": []
     },
     {
@@ -383,8 +383,8 @@
     },
     {
       "id": "b8",
-      "name": "Projeto de bloco",
-      "icon": "team_dashboard",
+      "name": "Engenharia disciplinada de Softwares",
+      "icon": "precision_manufacturing",
       "subjects": []
     }
   ]

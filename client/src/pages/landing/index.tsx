@@ -39,7 +39,7 @@ export default function LandingPage() {
       </Description>
       <Buttons>
         <Button size="small">
-          <Link to="/explore">
+          <Link to="/blocks">
             <Icon name="explore" filled />
             Explorar o portfolio
           </Link>

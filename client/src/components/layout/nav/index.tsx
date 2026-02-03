@@ -82,10 +82,10 @@ export default function Nav() {
       index: 2,
       name: "Explorar",
       icon: "explore",
-      path: "/explore",
+      path: "/blocks",
       isSelected: (item: Route) =>
-        item.path === "/explore" &&
-        (location.pathname.startsWith("/explore") ||
+        item.path === "/blocks" &&
+        (location.pathname.startsWith("/blocks") ||
           location.pathname.startsWith("/block")),
     },
     {
