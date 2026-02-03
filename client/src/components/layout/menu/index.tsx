@@ -1,5 +1,4 @@
 import {
-  createTheme,
   Drawer,
   List,
   ListItemButton,
@@ -20,8 +19,9 @@ import { content, menu } from "./theme";
 
 export default function Menu({ mobile }: { mobile?: boolean }) {
   const { visible, toggleMenu } = useMenu();
+  const isScreenLarge = useMediaQuery(global.breakpoints.up("lg"));
 
-  if (mobile && useMediaQuery(global.breakpoints.down("lg"))) {
+  if (mobile && !isScreenLarge) {
     return (
       <ThemeProvider theme={menu}>
         <SwipeableDrawer
@@ -33,7 +33,7 @@ export default function Menu({ mobile }: { mobile?: boolean }) {
         </SwipeableDrawer>
       </ThemeProvider>
     );
-  } else if (!mobile && useMediaQuery(global.breakpoints.up("lg"))) {
+  } else if (!mobile && isScreenLarge) {
     return (
       <ThemeProvider theme={menu}>
         <Drawer variant="permanent">

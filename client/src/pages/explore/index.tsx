@@ -1,13 +1,9 @@
 import { styled, ThemeProvider } from "@mui/material";
 import { explore } from "./theme";
-import Card from "../../components/card";
+import Card, { CardHeader } from "../../components/card";
 import { useParams } from "react-router";
 import { useManifest } from "../../hooks/useManifest";
 import React, { useMemo } from "react";
-const ResultCard = styled(Card, {
-  name: "ResultCard",
-  slot: "root",
-})();
 
 export default function ExplorePage() {
   const { blockId } = useParams();
@@ -31,4 +27,23 @@ export default function ExplorePage() {
   }
 
   return <ThemeProvider theme={explore}>{items}</ThemeProvider>;
+}
+
+interface ResultCardProps {
+  icon?: string;
+  title: string;
+}
+
+const ResultCardRoot = styled(Card, {
+  name: "ResultCard",
+  slot: "root",
+})();
+
+function ResultCard({ icon, title }: ResultCardProps) {
+  return (
+    <ResultCardRoot>
+      <CardHeader icon={icon} title={title} />
+      teste
+    </ResultCardRoot>
+  );
 }

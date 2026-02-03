@@ -1,4 +1,13 @@
 import { styled } from "@mui/material";
+import cadernoSvg from "../../assets/caderno.svg";
+import githubSvg from "../../assets/github.svg";
+import linkedinSvg from "../../assets/linkedin.svg";
+import htmlSvg from "../../assets/html.svg";
+import cssSvg from "../../assets/css.svg";
+import javascriptSvg from "../../assets/javascript.svg";
+import typescriptSvg from "../../assets/typescript.svg";
+import reactSvg from "../../assets/react.svg";
+import muiSvg from "../../assets/mui.svg";
 
 interface IconProps {
   name?: string;
@@ -33,24 +42,24 @@ const IconSvg = styled("div", {
   color: "inherit",
 }));
 
-const svgIcons = [
-  "github",
-  "linkedin",
-  "html",
-  "css",
-  "javascript",
-  "typescript",
-  "react",
-  "mui",
-];
+const svgMap: Record<string, string> = {
+  caderno: cadernoSvg,
+  github: githubSvg,
+  linkedin: linkedinSvg,
+  html: htmlSvg,
+  css: cssSvg,
+  javascript: javascriptSvg,
+  typescript: typescriptSvg,
+  react: reactSvg,
+  mui: muiSvg,
+};
 
 export default function Icon({ name, filled, style }: IconProps) {
   if (!name) return <></>;
 
-  const isSvgIcon = svgIcons.includes(name);
-  const svgPath = `/src/assets/icons/${name}.svg`;
+  const svgPath = svgMap[name];
 
-  if (isSvgIcon) {
+  if (svgPath) {
     return (
       <IconSvg
         style={{

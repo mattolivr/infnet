@@ -13,6 +13,7 @@ import { about } from "./theme";
 import Icon from "../../components/icon";
 import { global } from "../../global.theme";
 import { Link } from "react-router";
+import profile from "../../assets/profile.png";
 
 const Article = styled("article", {
   name: "AboutPage",
@@ -93,10 +94,7 @@ export default function AboutPage() {
         </AboutProject>
         <AboutMe>
           {mobile && <Typography variant="h2">Sobre mim</Typography>}
-          <img
-            src="/src/assets/images/profile.png"
-            alt="Foto de Matheus Oliveira"
-          />
+          <img src={profile} alt="Foto de Matheus Oliveira" />
           <Card title={!mobile ? "Sobre mim" : undefined}>
             <Typography variant="body1">
               Meu nome é Matheus, mas estou por aí como{" "}

@@ -36,7 +36,7 @@ const PageName = styled(Typography, {
 
 export const LogoIcon = () => (
   <LogoIconRoot disableRipple>
-    <Icon name="school" />
+    <Icon name="caderno" />
   </LogoIconRoot>
 );
 

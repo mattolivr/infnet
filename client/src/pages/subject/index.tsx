@@ -1,73 +1,16 @@
 import { useParams } from "react-router";
 import Card from "../../components/card";
 import HTMLContent from "../../components/html-content";
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Button,
-  styled,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import Icon from "../../components/icon";
 import { useManifest } from "../../hooks/useManifest";
-import { useState, useRef, useMemo, useEffect } from "react";
-import type Assignment from "../../interfaces/assignment";
-import useExternal from "../../hooks/useExternal";
+import { useMemo, useEffect } from "react";
 import { useHeader } from "../../components/layout/header/context";
-
-const AssignmentAccordion = styled(Accordion)(({ theme }) => ({
-  backgroundColor: "transparent",
-  boxShadow: "none",
-  border: "none",
-
-  "&:before": {
-    display: "none",
-  },
-
-  "&.Mui-expanded": {
-    margin: 0,
-  },
-}));
-
-const AssignmentHeader = styled(AccordionSummary)(({ theme }) => ({
-  padding: 0,
-  minHeight: "auto",
-
-  "&.Mui-expanded": {
-    minHeight: "auto",
-  },
-
-  "& .MuiAccordionSummary-content": {
-    margin: 0,
-
-    display: "flex",
-    alignItems: "center",
-    gap: theme.spacing(1),
-
-    "&.Mui-expanded": {
-      margin: 0,
-    },
-  },
-}));
-
-const AssignmentDetails = styled(AccordionDetails)(({ theme }) => ({
-  padding: 0,
-  paddingTop: theme.spacing(1),
-
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "stretch",
-  gap: theme.spacing(1),
-}));
 
 export default function SubjectPage() {
   const { blockId, subjectId } = useParams();
   const { getSubjectById, getBlockById, getId, getRawId } = useManifest();
-  const { getGithubUrl, getCodesandboxUrl } = useExternal();
   const { setPagename } = useHeader();
-
-  const [expanded, setExpanded] = useState<string | false>(false);
-  const headerRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const subject = useMemo(
     () => getSubjectById(getId(blockId, subjectId) || ""),
@@ -84,8 +27,10 @@ export default function SubjectPage() {
   }
 
   useEffect(() => {
-    setPagename(subject?.name);
-  }, [location.pathname, setPagename]);
+    if (subject) {
+      setPagename(subject.name);
+    }
+  }, [subject, setPagename]);
 
   return (
     <>
@@ -104,17 +49,4 @@ export default function SubjectPage() {
       />
     </>
   );
-}
-
-function getIconType(assignment: Assignment): string {
-  switch (assignment.type) {
-    case "project":
-      return "drive_folder_upload";
-    case "assessment":
-      return "stacks";
-    case "tasklist":
-      return "deployed_code";
-    default:
-      return "check";
-  }
 }
