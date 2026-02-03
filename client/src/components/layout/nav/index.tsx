@@ -11,7 +11,6 @@ import Icon from "../../icon";
 import { useMenu } from "../menu/context";
 import { useEffect, useState } from "react";
 import nav from "./theme";
-import { useHeader } from "../header/context";
 
 const Root = styled("nav", {
   name: "Nav",
@@ -53,7 +52,6 @@ export default function Nav() {
   const location = useLocation();
   const navigate = useNavigate();
   const { toggleMenu, visible } = useMenu();
-  const { setPagename } = useHeader();
 
   const [selected, setSelected] = useState(-1);
 

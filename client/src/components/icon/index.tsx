@@ -33,7 +33,16 @@ const IconSvg = styled("div", {
   color: "inherit",
 }));
 
-const svgIcons = ["github", "linkedin"];
+const svgIcons = [
+  "github",
+  "linkedin",
+  "html",
+  "css",
+  "javascript",
+  "typescript",
+  "react",
+  "mui",
+];
 
 export default function Icon({ name, filled, style }: IconProps) {
   if (!name) return <></>;

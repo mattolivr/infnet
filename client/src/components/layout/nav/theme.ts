@@ -85,15 +85,6 @@ const nav = createTheme(global, {
 
             "& a": {
               padding: global.spacing(1),
-            },
-
-            "& span:not(:first-of-type)": {
-              display: "none",
-            },
-          },
-
-          [global.breakpoints.up("lg")]: {
-            "& a": {
               display: "flex",
               flexDirection: "column-reverse",
             },
