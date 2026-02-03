@@ -94,13 +94,13 @@ export default function AboutPage() {
         <AboutMe>
           {mobile && <Typography variant="h2">Sobre mim</Typography>}
           <img
-            src="/src/assets/images/profile.jpg"
+            src="/src/assets/images/profile.png"
             alt="Foto de Matheus Oliveira"
           />
           <Card title={!mobile ? "Sobre mim" : undefined}>
             <Typography variant="body1">
               Meu nome é Matheus, mas estou por aí como{" "}
-              <strong>mattolivr</strong>. Sou desenvolvedor Full Stack desde
+              <strong>mattolivr</strong>. Sou desenvolvedor full stack desde
               2022 e graduando em Engenharia de Software no Instituto Infnet.
               Estou sempre em busca de aprender algo novo e aperfeiçoar minhas
               habilidades e conhecimentos, sempre me divertindo no processo.
