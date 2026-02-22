@@ -17,6 +17,8 @@ const menu = createTheme(global, {
 
           [global.breakpoints.up("lg")]: {
             background: "transparent",
+            overflowY: "auto",
+            maxHeight: "100%",
           },
 
           variants: [
@@ -59,7 +61,8 @@ const content = createTheme(global, {
         root: {
           paddingInline: global.spacing(1),
           paddingBlock: 88, // Header and Bottom Nav height
-          overflow: "hidden",
+          overflowY: "auto",
+          height: "100%",
 
           [global.breakpoints.up("sm")]: {
             paddingInline: global.spacing(2),
@@ -73,6 +76,8 @@ const content = createTheme(global, {
 
           [global.breakpoints.up("lg")]: {
             padding: global.spacing(0),
+            overflow: "visible",
+            height: "auto",
           },
         },
         group: {

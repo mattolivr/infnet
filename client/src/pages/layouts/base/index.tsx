@@ -43,6 +43,11 @@ const LayoutRoot = styled("div", {
     padding: theme.spacing(2),
     gap: theme.spacing(2),
   },
+
+  [theme.breakpoints.up("lg")]: {
+    height: "100lvh",
+    minHeight: "unset",
+  },
 }));
 
 const Main = styled("main", {
@@ -56,6 +61,8 @@ const Main = styled("main", {
   [theme.breakpoints.up("lg")]: {
     flexDirection: "row",
     gap: theme.spacing(2),
+    overflow: "hidden",
+    minHeight: 0,
   },
 }));
 
